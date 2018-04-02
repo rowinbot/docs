@@ -4356,20 +4356,20 @@
 <p>Branch default is <code>1.5</code> seconds to wait for Google Play analytics</p>
 </li>
 <li>
-<p>You can optimize the performance based on needs (e.g. <code>0</code>, <code>5</code>, <code>10</code>)</p>
+<p>You can optimize the performance based on needs (e.g. <code>0</code>, <code>5000</code>, <code>10000</code>)</p>
 </li>
 <li>
 <p>Add to your application class before <code>getAutoInstance</code> (<a href="#load-branch">Load Branch</a>)</p>
 </li>
 <li>
 <p><em>Java</em></p>
-<div class="codehilite"><pre><span></span><span class="n">Branch</span><span class="o">.</span><span class="na">setPlayStoreReferrerCheckTimeout</span><span class="o">(</span><span class="mi">5</span><span class="o">);</span>
+<div class="codehilite"><pre><span></span><span class="n">Branch</span><span class="o">.</span><span class="na">setPlayStoreReferrerCheckTimeout</span><span class="o">(</span><span class="mi">5000</span><span class="o">);</span>
 </pre></div>
 
 </li>
 <li>
 <p><em>Kotlin</em></p>
-<div class="codehilite"><pre><span></span><span class="n">Branch</span><span class="o">.</span><span class="na">setPlayStoreReferrerCheckTimeout</span><span class="o">(</span><span class="mi">5</span><span class="o">)</span>
+<div class="codehilite"><pre><span></span><span class="n">Branch</span><span class="o">.</span><span class="na">setPlayStoreReferrerCheckTimeout</span><span class="o">(</span><span class="mi">5_000</span><span class="o">)</span>
 </pre></div>
 
 </li>
