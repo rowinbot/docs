@@ -3983,7 +3983,9 @@ You can target a user based on the last touch point before they entered your web
 <h4 id="when-do-my-journeys-prioritization-rules-apply">When do my Journeys prioritization rules apply?<a class="headerlink" href="#when-do-my-journeys-prioritization-rules-apply" title="Permanent link">&para;</a></h4>
 <p>Prioritization only takes effect when two Journeys are overlapping. If you have a Journey targeting iOS users and a Journey targeting Android users, the prioritization won't matter. If you update the Journey targeting iOS to now target iOS and Android users, the higher priority Journey will show to Android users.</p>
 <h4 id="what-happens-if-a-user-dismisses-a-banner-or-interstitial">What happens if a user dismisses a banner or interstitial?<a class="headerlink" href="#what-happens-if-a-user-dismisses-a-banner-or-interstitial" title="Permanent link">&para;</a></h4>
-<p>Assuming it fits your audience rule, your highest priority Journey is shown. If that Journey is dismissed, no other Journeys will show to respect the user's preference for not seeing a Journey when those rules are applied. To maximize Journey visibility, make your interstitial rules narrow (for example, showing on specific URLs) and your banner rules broad.</p>
+<p>When a user is on a webpage, they will always be shown the highest-priority Journey whose targeting criteria apply to that user, assuming that Journey has not already been dismissed. If the user dismisses that Journey, that Journey will not display again for the amount of time specified in the Journey's <a href="../../../pages/web/journeys/#dismiss">dismissal settings</a>.</p>
+<p>If the user loads another page on the website, Branch will again determine the highest-priority Journey whose targeting criteria apply to that user. <strong>If that Journey has been already been dismissed, no Journey will display.</strong> If, however, the highest-priority Journey has not been dismissed, that Journey will display.</p>
+<p>To maximize Journeys visibility, make your audience rules narrow (for example, showing on specific URLs), and decrease the priority of your least broad audience rules.</p>
 <h4 id="why-do-i-have-to-prioritize-stopped-and-draft-journeys">Why do I have to prioritize Stopped and Draft Journeys?<a class="headerlink" href="#why-do-i-have-to-prioritize-stopped-and-draft-journeys" title="Permanent link">&para;</a></h4>
 <p>We ask you to prioritize all non-Archived Journeys because Journeys can be set live from <em>Draft</em> or <em>Stopped</em> mode.</p>
 <h4 id="what-happens-if-i-have-some-journeys-with-priorities-set-and-some-without">What happens if I have some Journeys with priorities set and some without?<a class="headerlink" href="#what-happens-if-i-have-some-journeys-with-priorities-set-and-some-without" title="Permanent link">&para;</a></h4>
@@ -4343,7 +4345,7 @@ In this case, closing the Journey is very simple by calling:</p>
 <tbody>
 <tr>
 <td>Dismiss Period</td>
-<td>Control how long the banner should be hidden once dismissed by the user. Options are <code>1 day</code>, <code>1 week</code>, <code>1 month</code>, <code>Never Again</code>, and <code>Custom</code></td>
+<td>Control how long the banner should be hidden once dismissed by the user. Options are <code>1 day</code>, <code>1 week</code>, <code>1 month</code>, <code>Never Again</code>, and <code>Custom</code>. <a href="../../../pages/web/journeys/#what-happens-if-a-user-dismisses-a-banner-or-interstitial">Learn more</a>.</td>
 </tr>
 </tbody>
 </table>
@@ -4541,7 +4543,7 @@ In this case, closing the Journey is very simple by calling:</p>
 </tr>
 <tr>
 <td>Dismiss Period</td>
-<td>Control how long before the same visitor should see the Journey again. Options are <code>1 day</code>, <code>1 week</code>, <code>1 month</code>, <code>Never Again</code>, and <code>Custom</code></td>
+<td>Control how long before the same visitor should see the Journey again. Options are <code>1 day</code>, <code>1 week</code>, <code>1 month</code>, <code>Never Again</code>, and <code>Custom</code>. <a href="../../../pages/web/journeys/#what-happens-if-a-user-dismisses-a-banner-or-interstitial">Learn more</a>.</td>
 </tr>
 </tbody>
 </table>
