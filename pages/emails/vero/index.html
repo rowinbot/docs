@@ -1452,8 +1452,49 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#configure-your-app-for-your-click-tracking-domain" title="Configure your app for your click tracking domain" class="md-nav__link">
+    Configure your app for your click tracking domain
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#technical-setup" title="Technical setup" class="md-nav__link">
+    Technical setup
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#set-up-your-click-tracking-domain" title="Set up your click tracking domain" class="md-nav__link">
+    Set up your click tracking domain
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#add-your-click-tracking-domain-to-your-associated-domains" title="Add your click tracking domain to your Associated Domains" class="md-nav__link">
+    Add your click tracking domain to your Associated Domains
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#validate-and-test" title="Validate and test" class="md-nav__link">
+    Validate and test
+  </a>
   
 </li>
         
@@ -2306,8 +2347,49 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#configure-your-app-for-your-click-tracking-domain" title="Configure your app for your click tracking domain" class="md-nav__link">
+    Configure your app for your click tracking domain
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#technical-setup" title="Technical setup" class="md-nav__link">
+    Technical setup
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#set-up-your-click-tracking-domain" title="Set up your click tracking domain" class="md-nav__link">
+    Set up your click tracking domain
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#add-your-click-tracking-domain-to-your-associated-domains" title="Add your click tracking domain to your Associated Domains" class="md-nav__link">
+    Add your click tracking domain to your Associated Domains
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#validate-and-test" title="Validate and test" class="md-nav__link">
+    Validate and test
+  </a>
   
 </li>
         
@@ -2382,6 +2464,41 @@
 <li><a href="https://help.mailgun.com/hc/en-us/articles/202052074-How-do-I-verify-my-domain-" target="_blank">Add and verify</a> your new custom click tracking domain in the Mailgun dashboard</li>
 <li>Log into Vero and go to Settings &gt; Email Providers. Add a new Mailgun "account" and input the domain name you have just verified. Vero will now allow you to set this as the default, or use this on a per-campaign basis.</li>
 </ol>
+<h4 id="configure-your-app-for-your-click-tracking-domain">Configure your app for your click tracking domain<a class="headerlink" href="#configure-your-app-for-your-click-tracking-domain" title="Permanent link">&para;</a></h4>
+<p><img alt="image" src="../../../img/pages/email/responsys/configure-responsys-3.png" /></p>
+<p>In this prompt, enter the email of someone on your team who is qualified to modify your iOS app, and then click <strong>Send</strong>. They will complete the <a href="#technical-setup">technical setup</a> steps below.</p>
+<h3 id="technical-setup">Technical setup<a class="headerlink" href="#technical-setup" title="Permanent link">&para;</a></h3>
+<p>The following app changes ensure that your email integration supports <a href="../../../getting-started/universal-app-links/">Universal Links</a>. You will need access to your app code to make these changes.</p>
+<p>You should have <a href="#configure-your-app-for-your-click-tracking-domain">received an email from Branch</a> with your ESP's click tracking domain. If not, likely you or someone on your team still needs to complete the <a href="https://dashboard.branch.io/email" target="_blank">Deep Linked Email setup flow</a>.</p>
+<div class="admonition protip">
+<p class="admonition-title">How does it work?</p>
+<p>Apple recognizes the click tracking domain as a Universal Link, and opens the app immediately without the browser opening. Once the app has opened, Branch will collect the referring URL that opened the app (at this time, it will be the click tracking url). Inside the app, Branch will robotically “click” the link, registering the click with the ESP, and returning the Branch link information to the Branch SDK inside the app. This information is then used to deep link the user to the correct in-app content. See the <a href="#support">Support</a> section for more information.</p>
+</div>
+<h4 id="set-up-your-click-tracking-domain">Set up your click tracking domain<a class="headerlink" href="#set-up-your-click-tracking-domain" title="Permanent link">&para;</a></h4>
+<p>Create a CNAME for your click tracking domain and point it to <code>thirdparty.bnc.lt</code>.</p>
+<h4 id="add-your-click-tracking-domain-to-your-associated-domains">Add your click tracking domain to your Associated Domains<a class="headerlink" href="#add-your-click-tracking-domain-to-your-associated-domains" title="Permanent link">&para;</a></h4>
+<p>To enable Universal Links on your click tracking domain, you'll need to add the click tracking domain to your Associated Domains entitlement.</p>
+<ol>
+<li>In Xcode, go to the <code>Capabilities</code> tab of your project file.</li>
+<li>
+<p>Scroll down and enable <code>Associated Domains</code> if it is not already enabled.</p>
+<p><img alt="image" src="../../../img/pages/email/enable-associated-domains.png" /></p>
+</li>
+<li>
+<p>Copy your click tracking domain from the <a href="#configure-your-app-for-your-click-tracking-domain">email you received from Branch</a>, or retrieve it from your ESP's settings.</p>
+</li>
+<li>
+<p>In the <code>Domains</code> section, click the <code>+</code> icon and add your click tracking domain. For example, if your click tracking domain is <code>email.example.com</code>, add an entry for <code>applinks:email.example.com</code>.</p>
+<p><img alt="image" src="../../../img/pages/email/add-domain.png" /></p>
+</li>
+</ol>
+<div class="admonition protip">
+<p class="admonition-title">Having trouble or new to Universal Links?</p>
+<p>Follow <a href="../../../pages/deep-linking/universal-links/">these instructions</a> for more details on enabling Universal Links in the Branch dashboard and in Xcode.</p>
+</div>
+<h3 id="validate-and-test">Validate and test<a class="headerlink" href="#validate-and-test" title="Permanent link">&para;</a></h3>
+<p><img alt="image" src="../../../img/pages/email/validate-test.png" /></p>
+<p>The last step of the <a href="https://dashboard.branch.io/email" target="_blank">Deep Linked Email setup flow</a> validates whether you have completed all necessary steps and whether an engineer on your team has completed the <a href="#technical-setup">technical setup</a> steps. You will also see recommendations for how to improve your email integration.</p>
 <h2 id="more-information">More information<a class="headerlink" href="#more-information" title="Permanent link">&para;</a></h2>
 <p>Curious about how email works and more FAQ? <strong>Visit our general <a href="../../../pages/emails/support">email support</a> page</strong>.</p>
                 
