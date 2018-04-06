@@ -2629,6 +2629,7 @@
 </ul>
 <h3 id="custom-identity-support">Custom identity support<a class="headerlink" href="#custom-identity-support" title="Permanent link">&para;</a></h3>
 <p>You can use the following code to let Branch know what device_id and user_id should be sent to Amplitude. Please make sure you are using SDK version 0.12.2 or later.</p>
+<p>Please add the following before initializing the Branch session:</p>
 <p><strong>iOS:</strong></p>
 <div class="codehilite"><pre><span></span><span class="p">[[</span><span class="n">Branch</span> <span class="n">getInstance</span><span class="p">]</span> <span class="nl">setRequestMetadataKey</span><span class="p">:</span><span class="s">@&quot;$amplitude_device_id&quot;</span> <span class="nl">value</span><span class="p">:</span><span class="s">@&quot;Device A&quot;</span><span class="p">];</span>
 <span class="p">[[</span><span class="n">Branch</span> <span class="n">getInstance</span><span class="p">]</span> <span class="nl">setRequestMetadataKey</span><span class="p">:</span><span class="s">@&quot;$amplitude_user_id&quot;</span> <span class="nl">value</span><span class="p">:</span><span class="s">@&quot;User A&quot;</span><span class="p">];</span>
