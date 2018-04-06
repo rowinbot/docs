@@ -2461,7 +2461,7 @@
 <p>Apple recognizes the click tracking domain as a Universal Link, and opens the app immediately without the browser opening. Once the app has opened, Branch will collect the referring URL that opened the app (at this time, it will be the click tracking url). Inside the app, Branch will robotically “click” the link, registering the click with the ESP, and returning the Branch link information to the Branch SDK inside the app. This information is then used to deep link the user to the correct in-app content. See the <a href="#support">Support</a> section for more information.</p>
 </div>
 <h4 id="set-up-your-click-tracking-domain">Set up your click tracking domain<a class="headerlink" href="#set-up-your-click-tracking-domain" title="Permanent link">&para;</a></h4>
-<p>Create a CNAME for your click tracking domain and point it to <code>thirdparty.bnc.lt</code>.</p>
+<p>Create a CNAME for your click tracking domain and point it to <code>thirdparty.bnc.lt</code>. Once the CNAME record is added, please allow up to an hour for Branch to generate SSL and AASA files for your click tracking domain.</p>
 <h4 id="add-your-click-tracking-domain-to-your-associated-domains">Add your click tracking domain to your Associated Domains<a class="headerlink" href="#add-your-click-tracking-domain-to-your-associated-domains" title="Permanent link">&para;</a></h4>
 <p>To enable Universal Links on your click tracking domain, you'll need to add the click tracking domain to your Associated Domains entitlement.</p>
 <ol>
