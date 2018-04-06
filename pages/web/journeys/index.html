@@ -1269,6 +1269,26 @@
     Journeys text localization
   </a>
   
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#client-side" title="Client-side" class="md-nav__link">
+    Client-side
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#server-side" title="Server-side" class="md-nav__link">
+    Server-side
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
         
           <li class="md-nav__item">
@@ -3318,6 +3338,26 @@
     Journeys text localization
   </a>
   
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#client-side" title="Client-side" class="md-nav__link">
+    Client-side
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#server-side" title="Server-side" class="md-nav__link">
+    Server-side
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
         
           <li class="md-nav__item">
@@ -4178,7 +4218,32 @@ In this case, closing the Journey is very simple by calling:</p>
 </tbody>
 </table>
 <h3 id="journeys-text-localization">Journeys text localization<a class="headerlink" href="#journeys-text-localization" title="Permanent link">&para;</a></h3>
-<p>Journeys now has an entire localization framework. Due to the complexity of this offering, we're not exposing it directly to partners. Please reach out to your account manager or <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#105;&#110;&#116;&#101;&#103;&#114;&#97;&#116;&#105;&#111;&#110;&#115;&#64;&#98;&#114;&#97;&#110;&#99;&#104;&#46;&#105;&#111;">&#105;&#110;&#116;&#101;&#103;&#114;&#97;&#116;&#105;&#111;&#110;&#115;&#64;&#98;&#114;&#97;&#110;&#99;&#104;&#46;&#105;&#111;</a> to receive access to this functionality.</p>
+<h4 id="client-side">Client-side<a class="headerlink" href="#client-side" title="Permanent link">&para;</a></h4>
+<p>You can easily customize the Journey text dynamically client side using <code>setBranchViewData</code> and by reading the browser's language.</p>
+<div class="codehilite"><pre><span></span><span class="kd">var</span> <span class="nx">lang_code</span><span class="p">;</span>
+<span class="k">if</span> <span class="p">(</span><span class="nx">navigator</span><span class="p">.</span><span class="nx">languages</span> <span class="o">&amp;&amp;</span> <span class="nx">navigator</span><span class="p">.</span><span class="nx">languages</span><span class="p">.</span><span class="nx">length</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">lang_code</span> <span class="o">=</span> <span class="nx">navigator</span><span class="p">.</span><span class="nx">languages</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span>
+<span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="nx">navigator</span><span class="p">.</span><span class="nx">language</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">lang_code</span> <span class="o">=</span> <span class="nx">navigator</span><span class="p">.</span><span class="nx">language</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="c1">// Change Journeys text if language is Spanish (ES)</span>
+<span class="k">if</span> <span class="p">(</span><span class="nx">lang_code</span> <span class="o">==</span> <span class="s1">&#39;ES&#39;</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">branch</span><span class="p">.</span><span class="nx">setBranchViewData</span><span class="p">(</span>
+        <span class="p">{</span>
+            <span class="nx">data</span><span class="o">:</span> <span class="p">{</span>
+                 <span class="s2">&quot;$journeys_title&quot;</span><span class="o">:</span> <span class="s1">&#39;Mi App&#39;</span><span class="p">,</span>
+                 <span class="s2">&quot;$journeys_description&quot;</span><span class="o">:</span> <span class="s1">&#39;Mi descripción&#39;</span><span class="p">,</span>
+                 <span class="s2">&quot;$journeys_button_get_has_app&quot;</span><span class="o">:</span> <span class="s1">&#39;Avrir&#39;</span><span class="p">,</span>
+                 <span class="s2">&quot;$journeys_button_get_no_app&quot;</span><span class="o">:</span> <span class="s1">&#39;Ver&#39;</span><span class="p">,</span>
+             <span class="p">}</span>
+         <span class="p">}</span>
+    <span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+
+<h4 id="server-side">Server-side<a class="headerlink" href="#server-side" title="Permanent link">&para;</a></h4>
+<p>Journeys now has an entire localization framework server-side. Due to the complexity of this offering, we're not exposing it directly to partners. Please reach out to your account manager or <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#105;&#110;&#116;&#101;&#103;&#114;&#97;&#116;&#105;&#111;&#110;&#115;&#64;&#98;&#114;&#97;&#110;&#99;&#104;&#46;&#105;&#111;">&#105;&#110;&#116;&#101;&#103;&#114;&#97;&#116;&#105;&#111;&#110;&#115;&#64;&#98;&#114;&#97;&#110;&#99;&#104;&#46;&#105;&#111;</a> to receive access to this functionality.</p>
 <h3 id="css-editor">CSS Editor<a class="headerlink" href="#css-editor" title="Permanent link">&para;</a></h3>
 <p>If you have an upgraded premium account, you may also modify your CSS code directly in addition to using the WYSIWYG View Editor. To do so, go to the <strong>Configure Views</strong> step, click to edit a template, and then select the <strong>CSS Editor</strong> tab on the <strong>Customize Template</strong> screen.</p>
 <p><img alt="image" src="../../../img/pages/journeys/view-css-editor.png" /></p>
