@@ -2438,12 +2438,12 @@
 <h3 id="integrating-branch-for-your-instant-app">Integrating Branch for your Instant App<a class="headerlink" href="#integrating-branch-for-your-instant-app" title="Permanent link">&para;</a></h3>
 <p>So you're convinced. Let's get started! If at any time, you need a real example, you can check out a <a href="https://github.com/BranchMetrics/Branch-Monster-Factory-Example-Android-Instant-Apps" target="_blank">full demo application</a> on our Github. We've replicated our <a href="https://github.com/BranchMetrics/Branch-Example-Deep-Linking-Branchster-Android" target="_blank">original Android demo application</a> and modified it to support Android Instant Apps.</p>
 <h3 id="initialize-the-branch-sdk">Initialize the Branch SDK<a class="headerlink" href="#initialize-the-branch-sdk" title="Permanent link">&para;</a></h3>
-<p>Head to your <em>core library project</em>, where your Application class is defined and drop in the snippet of code to the onCreate() method as follows. If you plan on deep linking from your Android Instant App to your full Android app after its installed, you'll need to add the line <code>enablePlayStoreReferrer</code>. This adds a delay to the initialization to wait for the Google Play Referrer, which can take up to a second.</p>
+<p>Head to your <em>core library project</em>, where your Application class is defined and drop in the snippet of code to the onCreate() method as follows. If you plan on deep linking from your Android Instant App to your full Android app after its installed, you'll need to make sure Branch's InstallListener is included in your Manifest. The method <code>setPlayStoreReferrerCheckTimeout</code> defines how long the Branch initialization will wait for the Google Play Referrer, which can take up to a second.</p>
 <div class="codehilite"><pre><span></span><span class="kd">public</span> <span class="kt">void</span> <span class="nf">onCreate</span><span class="o">()</span> <span class="o">{</span>
   <span class="kd">super</span><span class="o">.</span><span class="na">onCreate</span><span class="o">();</span>
-  <span class="c1">// This is needed to deferred deep link from an Android Instant App to a full app</span>
-  <span class="c1">// It tells the Branch initialization to wait for the Google Play Referrer before proceeding.</span>
-  <span class="n">Branch</span><span class="o">.</span><span class="na">enablePlayStoreReferrer</span><span class="o">(</span><span class="mi">1000L</span><span class="o">);</span>
+  <span class="c1">// Branch&#39;s InstallListener is needed to deferred deep link from an Android Instant App to a full app</span>
+  <span class="c1">// This tells the Branch initialization how long to wait for the Google Play Referrer before proceeding. (Default: 1 second)</span>
+  <span class="n">Branch</span><span class="o">.</span><span class="na">setPlayStoreReferrerCheckTimeout</span><span class="o">(</span><span class="mi">1000L</span><span class="o">);</span>
 
   <span class="c1">// Initialize the Branch SDK</span>
   <span class="n">Branch</span><span class="o">.</span><span class="na">getAutoInstance</span><span class="o">(</span><span class="k">this</span><span class="o">);</span>
