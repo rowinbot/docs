@@ -557,8 +557,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#link-troubleshooting" title="Link troubleshooting" class="md-nav__link">
-    Link troubleshooting
+  <a href="#link-update-tips" title="Link update tips" class="md-nav__link">
+    Link update tips
   </a>
   
 </li>
@@ -2470,8 +2470,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#link-troubleshooting" title="Link troubleshooting" class="md-nav__link">
-    Link troubleshooting
+  <a href="#link-update-tips" title="Link update tips" class="md-nav__link">
+    Link update tips
   </a>
   
 </li>
@@ -3043,9 +3043,63 @@
 </ul>
 </li>
 <li>
-<h3 id="link-troubleshooting">Link troubleshooting<a class="headerlink" href="#link-troubleshooting" title="Permanent link">&para;</a></h3>
+<h3 id="link-update-tips">Link update tips<a class="headerlink" href="#link-update-tips" title="Permanent link">&para;</a></h3>
 <ul>
-<li><code>data</code> is overridden on <a href="#link-update">Link update</a>, not appended</li>
+<li>A link's <code>data</code> object is overwritten entirely by the <a href="#link-update">Link update</a> API, so make sure to include all required data when updating a link (not just the data you're changing)</li>
+<li>
+<p>To update links in bulk, you can combine the <a href="#link-update">Link update</a> and <a href="#link-read">Link read</a> APIs into a simple script.  The sample Python script below reads a 2-column CSV file, and updates a specific key's value for all links listed in column A, with the values in column B:</p>
+<div class="codehilite"><pre><span></span><span class="kn">import</span> <span class="nn">requests</span>
+<span class="kn">import</span> <span class="nn">csv</span>
+<span class="kn">import</span> <span class="nn">sys</span>
+<span class="kn">import</span> <span class="nn">urllib</span>
+<span class="kn">import</span> <span class="nn">json</span>
+
+<span class="c1">#Insert API key &amp; App Secret from the Branch dashboard, and the Link data key you want to change in each link **</span>
+<span class="n">branch_key</span> <span class="o">=</span> <span class="s2">&quot;[API KEY]&quot;</span>
+<span class="n">branch_secret</span> <span class="o">=</span> <span class="s2">&quot;[APP SECRET]&quot;</span>
+<span class="n">key_to_update</span> <span class="o">=</span> <span class="s2">&quot;[DATA KEY TO UPDATE]&quot;</span>
+
+<span class="c1">#Insert filename for a CSV that lists all links to update in the first column, and the values to add in the second column **</span>
+<span class="n">ifile</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;[Filename].csv&#39;</span><span class="p">,</span> <span class="s2">&quot;rb&quot;</span><span class="p">)</span>
+
+<span class="c1">#constants</span>
+<span class="n">branchendpoint</span> <span class="o">=</span> <span class="s2">&quot;https://api.branch.io/v1/url?url=&quot;</span>
+<span class="n">reader</span> <span class="o">=</span> <span class="n">csv</span><span class="o">.</span><span class="n">reader</span><span class="p">(</span><span class="n">ifile</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s1">&#39;,&#39;</span><span class="p">)</span>
+
+<span class="c1">#Uncomment the next line if you want the script to skip the first line of the CSV</span>
+<span class="c1">#next(reader)</span>
+
+<span class="c1">#loop through CSV with branch links in column A, and new values in column B</span>
+<span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">reader</span><span class="p">:</span>
+
+  <span class="c1">#retrieve link data for link to be updated</span>
+  <span class="n">url</span> <span class="o">=</span> <span class="n">urllib</span><span class="o">.</span><span class="n">quote_plus</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+  <span class="n">getrequest</span> <span class="o">=</span> <span class="n">branchendpoint</span> <span class="o">+</span> <span class="n">url</span> <span class="o">+</span> <span class="s2">&quot;&amp;branch_key=&quot;</span> <span class="o">+</span> <span class="n">branch_key</span>
+  <span class="n">linkdata</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">getrequest</span><span class="p">)</span>
+  <span class="n">jsonData</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">linkdata</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
+
+  <span class="c1">#set credentials for update API</span>
+  <span class="n">jsonData</span><span class="p">[</span><span class="s2">&quot;branch_key&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">branch_key</span>
+  <span class="n">jsonData</span><span class="p">[</span><span class="s2">&quot;branch_secret&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">branch_secret</span>
+
+  <span class="c1">#udpate target key with values provided in CSV ****************</span>
+  <span class="n">newValue</span> <span class="o">=</span> <span class="n">row</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+  <span class="k">if</span> <span class="n">key_to_update</span> <span class="ow">in</span> <span class="n">jsonData</span><span class="p">:</span>
+    <span class="n">jsonData</span><span class="p">[</span><span class="n">key_to_update</span><span class="p">]</span> <span class="o">=</span> <span class="n">newValue</span>
+  <span class="k">if</span> <span class="n">key_to_update</span> <span class="ow">in</span> <span class="n">jsonData</span><span class="p">[</span><span class="s2">&quot;data&quot;</span><span class="p">]:</span>
+    <span class="n">jsonData</span><span class="p">[</span><span class="s2">&quot;data&quot;</span><span class="p">][</span><span class="n">key_to_update</span><span class="p">]</span> <span class="o">=</span> <span class="n">newValue</span>
+
+  <span class="c1">#put request to update link</span>
+  <span class="n">payload</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">jsonData</span><span class="p">)</span>
+  <span class="n">putrequest</span> <span class="o">=</span> <span class="n">branchendpoint</span> <span class="o">+</span> <span class="n">url</span>
+  <span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">put</span><span class="p">(</span><span class="n">putrequest</span><span class="p">,</span> <span class="n">json</span><span class="o">=</span><span class="n">jsonData</span><span class="p">)</span>
+  <span class="k">print</span><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">url</span><span class="p">)</span>
+  <span class="k">print</span><span class="p">(</span><span class="n">r</span><span class="p">)</span>
+  <span class="k">print</span>
+<span class="n">ifile</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</pre></div>
+
+</li>
 </ul>
 </li>
 </ul>
