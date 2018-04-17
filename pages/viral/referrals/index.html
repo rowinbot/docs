@@ -2384,6 +2384,10 @@
 <p class="admonition-title">Identify your users</p>
 <p>Because we do not merge identities, you <em>should set rewards on custom events</em> and <em>not use</em> the events we automatically track (<code>install</code> and <code>open</code>), and do so only <em>after</em> you have identified a user using our <a href="#dialog-code?ios=track-users&amp;android=track-users&amp;adobe=track-users&amp;cordova=track-users&amp;mparticleAndroid=track-users&amp;mparticleIos=track-users&amp;titanium=track-users&amp;reactNative=track-users&amp;unity=track-users&amp;xamarin=track-users">identity methods</a>. This will help avoid duplicate rewards and missing credits.</p>
 </div>
+<div class="admonition warning">
+<p class="admonition-title">Only use v1 custom events</p>
+<p>Our referral system only supports our v1 custom event SDK method which is <code>userCompletedAction()</code> and <code>track()</code>. The v2 events, <code>BranchEvent</code> and <code>logEvent()</code>, are not supported at this time.</p>
+</div>
 <h2 id="awarding-credits">Awarding credits<a class="headerlink" href="#awarding-credits" title="Permanent link">&para;</a></h2>
 <div class="admonition tip">
 <p class="admonition-title">Referral Fraud Protection</p>
