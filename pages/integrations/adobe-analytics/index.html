@@ -2767,7 +2767,7 @@
 <p><strong>Swift</strong></p>
 <p>Inside <em>didFinishLaunchingWithOptions</em></p>
 <div class="codehilite"><pre><span></span><span class="k">if</span> <span class="kd">let</span> <span class="nv">branch</span> <span class="p">=</span> <span class="n">Branch</span><span class="p">.</span><span class="n">getInstance</span><span class="p">()</span> <span class="p">{</span>
-    <span class="n">branch</span><span class="p">.</span><span class="n">setRequestMetadataKey</span><span class="p">(</span><span class="s">&quot;$adobe_visitor_id&quot;</span><span class="p">,</span> <span class="n">value</span><span class="p">:</span><span class="n">ADBMobile</span><span class="p">.</span><span class="n">trackingIdentifier</span><span class="p">()</span> <span class="k">as</span> <span class="bp">NSObject</span><span class="p">!);</span>
+    <span class="n">branch</span><span class="p">.</span><span class="n">setRequestMetadataKey</span><span class="p">(</span><span class="s">&quot;$adobe_visitor_id&quot;</span><span class="p">,</span> <span class="n">value</span><span class="p">:</span><span class="n">ADBMobile</span><span class="p">.</span><span class="n">trackingIdentifier</span><span class="p">());</span>
 <span class="p">}</span>
 </pre></div>
 
