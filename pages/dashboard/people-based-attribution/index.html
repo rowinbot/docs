@@ -2197,26 +2197,6 @@
   
 </li>
         
-          <li class="md-nav__item">
-  <a href="#cutoff-date" title="Cutoff date" class="md-nav__link">
-    Cutoff date
-  </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#differences-from-cutoff-date" title="Differences From Cutoff Date" class="md-nav__link">
-    Differences From Cutoff Date
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
       </ul>
     </nav>
   
@@ -2431,6 +2411,10 @@
                 
                 
                 <h1 id="people-based-attribution">People-Based Attribution<a class="headerlink" href="#people-based-attribution" title="Permanent link">&para;</a></h1>
+<div class="admonition note">
+<p class="admonition-title">Completing Dashboard Migration on June 25th </p>
+<p>On June 25th, 2018, the new dashboard powered by People-Based Attribution will come out of beta. All Branch analytics views will be automatically migrated over to the revamped dashboard. You will no longer be able to switch back to the legacy view of the Branch dashboard after this date. The vast majority of Branch partners are already using the new dashboard and can disregard this notice.</p>
+</div>
 <h2 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">&para;</a></h2>
 <p>Branch is introducing a new and improved analytics platform for you to preview.</p>
 <p>While the most visible impact of this change is our new and visually improved Summary Graph, it is important to understand that we have fundamentally changed the underlying model we use for counting events. This is the result of consistent feedback from Branch partners who have requested we provide deeper insights and clarity around campaigns powered by Branch links. As you want to understand the events associated with clicks on Branch links beyond the course of one user session and across all types of Branch links, we developed a new attribution engine to accurately attribute user events across interaction platforms and across channels.</p>
@@ -2491,10 +2475,6 @@ Behavior | Old Analytics | new People-Based Attribution
 <h3 id="unique-behavior">Unique behavior<a class="headerlink" href="#unique-behavior" title="Permanent link">&para;</a></h3>
 <p>We now default every visualization in the dashboard to be unique. This means that if you are testing Branch links, and click a link 5 times, we will display that as one click. This applies to events as well. This applies to all events, as well.</p>
 <p>Select visualizations also allow you to see total (i.e. non-unique) numbers as well. If you'd like to see total numbers on a visualization that does not support it, you can also export raw data.</p>
-<h3 id="cutoff-date">Cutoff date<a class="headerlink" href="#cutoff-date" title="Permanent link">&para;</a></h3>
-<p>As far as the deployment of People-Based Attribution, we created our cut off date on October 14th 2017 and we kept the old and new analytical systems running in parallel since then and will continue to do this for a short while. This mean you can query data from any time before October 14th up until October 14th with old analytics. You can query data from October 14th onwards with both analytics. But if you wanted to do reports across this line, say, October 13th to October 15th, you would need two separate queries.</p>
-<h4 id="differences-from-cutoff-date">Differences From Cutoff Date<a class="headerlink" href="#differences-from-cutoff-date" title="Permanent link">&para;</a></h4>
-<p>If you are tracking Purchase events, and want to see unique values for Purchases before the cut off date of October 14th 2017, those values will display as 0. This is because the Purchase event hasn't stored unique counts before October 14th. However, we are now storing this information since then.</p>
 <h2 id="changes-to-the-branch-dashboard">Changes to the Branch Dashboard<a class="headerlink" href="#changes-to-the-branch-dashboard" title="Permanent link">&para;</a></h2>
 <h3 id="branch-summary-analytics">Branch Summary Analytics<a class="headerlink" href="#branch-summary-analytics" title="Permanent link">&para;</a></h3>
 <p>This section covers the changes found on the main page of the Branch <a href="https://dashboard.branch.io">dashboard</a>.  </p>
