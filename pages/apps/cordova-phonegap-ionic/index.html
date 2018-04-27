@@ -711,6 +711,13 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#migrate-from-sdk-25-to-27" title="Migrate from SDK 2.5+ to 2.7+" class="md-nav__link">
+    Migrate from SDK 2.5+ to 2.7+
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#device-only" title="Device only" class="md-nav__link">
     Device only
   </a>
@@ -2752,6 +2759,13 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#migrate-from-sdk-25-to-27" title="Migrate from SDK 2.5+ to 2.7+" class="md-nav__link">
+    Migrate from SDK 2.5+ to 2.7+
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#device-only" title="Device only" class="md-nav__link">
     Device only
   </a>
@@ -2892,7 +2906,7 @@
 </span>  <span class="p">},</span>
 <span class="hll">  <span class="nx">handleBranch</span><span class="o">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
 </span><span class="hll">    <span class="c1">// Branch initialization</span>
-</span><span class="hll">    <span class="nx">Branch</span><span class="p">.</span><span class="nx">initSession</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
+</span><span class="hll">    <span class="nx">Branch</span><span class="p">.</span><span class="nx">initSession</span><span class="p">().</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
 </span><span class="hll">      <span class="k">if</span> <span class="p">(</span><span class="nx">data</span><span class="p">[</span><span class="s1">&#39;+clicked_branch_link&#39;</span><span class="p">])</span> <span class="p">{</span>
 </span><span class="hll">        <span class="c1">// read deep link data on click</span>
 </span><span class="hll">        <span class="nx">alert</span><span class="p">(</span><span class="s1">&#39;Deep Link Data: &#39;</span> <span class="o">+</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">data</span><span class="p">));</span>
@@ -2931,7 +2945,7 @@
 
 <span class="hll">    <span class="kd">function</span> <span class="nx">handleBranch</span><span class="p">()</span> <span class="p">{</span>
 </span><span class="hll">      <span class="c1">// Branch initialization</span>
-</span><span class="hll">      <span class="nx">Branch</span><span class="p">.</span><span class="nx">initSession</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
+</span><span class="hll">      <span class="nx">Branch</span><span class="p">.</span><span class="nx">initSession</span><span class="p">().</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
 </span><span class="hll">        <span class="k">if</span> <span class="p">(</span><span class="nx">data</span><span class="p">[</span><span class="s1">&#39;+clicked_branch_link&#39;</span><span class="p">])</span> <span class="p">{</span>
 </span><span class="hll">          <span class="c1">// read deep link data on click</span>
 </span><span class="hll">          <span class="nx">alert</span><span class="p">(</span><span class="s1">&#39;Deep Link Data: &#39;</span> <span class="o">+</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">data</span><span class="p">));</span>
@@ -2975,7 +2989,7 @@
 </span><span class="hll">      <span class="c1">// only on devices</span>
 </span><span class="hll">      <span class="k">if</span> <span class="o">(!</span><span class="n">platform</span><span class="o">.</span><span class="na">is</span><span class="o">(</span><span class="err">&#39;</span><span class="n">cordova</span><span class="err">&#39;</span><span class="o">))</span> <span class="o">{</span> <span class="k">return</span> <span class="o">}</span>
 </span><span class="hll">      <span class="kd">const</span> <span class="n">Branch</span> <span class="o">=</span> <span class="n">window</span><span class="o">[</span><span class="err">&#39;</span><span class="n">Branch</span><span class="err">&#39;</span><span class="o">];</span>
-</span><span class="hll">      <span class="n">Branch</span><span class="o">.</span><span class="na">initSession</span><span class="o">(</span><span class="n">data</span> <span class="o">=&gt;</span> <span class="o">{</span>
+</span><span class="hll">      <span class="n">Branch</span><span class="o">.</span><span class="na">initSession</span><span class="o">().</span><span class="na">then</span><span class="o">(</span><span class="n">data</span> <span class="o">=&gt;</span> <span class="o">{</span>
 </span><span class="hll">        <span class="k">if</span> <span class="o">(</span><span class="n">data</span><span class="o">[</span><span class="err">&#39;</span><span class="o">+</span><span class="n">clicked_branch_link</span><span class="err">&#39;</span><span class="o">])</span> <span class="o">{</span>
 </span><span class="hll">          <span class="c1">// read deep link data on click</span>
 </span><span class="hll">          <span class="n">alert</span><span class="o">(</span><span class="err">&#39;</span><span class="n">Deep</span> <span class="n">Link</span> <span class="n">Data</span><span class="o">:</span> <span class="err">&#39;</span> <span class="o">+</span> <span class="n">JSON</span><span class="o">.</span><span class="na">stringify</span><span class="o">(</span><span class="n">data</span><span class="o">));</span>
@@ -3050,7 +3064,7 @@
 <span class="nx">Branch</span><span class="p">.</span><span class="nx">disabledTracking</span><span class="p">(</span><span class="kc">true</span><span class="p">);</span>
 
 <span class="c1">// Branch initialization</span>
-<span class="nx">Branch</span><span class="p">.</span><span class="nx">initSession</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
+<span class="nx">Branch</span><span class="p">.</span><span class="nx">initSession</span><span class="p">().</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
   <span class="k">if</span> <span class="p">(</span><span class="nx">data</span><span class="p">[</span><span class="s1">&#39;+clicked_branch_link&#39;</span><span class="p">])</span> <span class="p">{</span>
     <span class="c1">// read deep link data on click</span>
     <span class="nx">alert</span><span class="p">(</span><span class="s1">&#39;Deep Link Data: &#39;</span> <span class="o">+</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">data</span><span class="p">))</span>
@@ -3212,12 +3226,27 @@
 <li>
 <p>Listener</p>
 <div class="codehilite"><pre><span></span><span class="c1">// Branch initialization within your deviceready and resume</span>
-<span class="nx">Branch</span><span class="p">.</span><span class="nx">initSession</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">deepLinkData</span><span class="p">)</span> <span class="p">{</span>
-  <span class="k">if</span> <span class="p">(</span><span class="nx">data</span><span class="p">[</span><span class="s1">&#39;+clicked_branch_link&#39;</span><span class="p">])</span> <span class="p">{</span>
-    <span class="c1">// handler for deep link data on click</span>
-    <span class="nx">alert</span><span class="p">(</span><span class="s1">&#39;Response: &#39;</span> <span class="o">+</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">deepLinkData</span><span class="p">))</span>
+<span class="nx">Branch</span><span class="p">.</span><span class="nx">initSession</span><span class="p">().</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span> <span class="nx">success</span><span class="p">(</span><span class="nx">res</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">if</span> <span class="p">(</span><span class="nx">res</span><span class="p">[</span><span class="s2">&quot;+clicked_branch_link&quot;</span><span class="p">])</span> <span class="p">{</span>
+    <span class="nx">alert</span><span class="p">(</span><span class="s2">&quot;Open app with a Branch deep link: &quot;</span> <span class="o">+</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">res</span><span class="p">));</span>
+    <span class="c1">// Branch quick link: https://cordova.app.link/uJcOH1IFpM</span>
+    <span class="c1">// Branch web link: https://cordova-alternate.app.link/uJcOH1IFpM</span>
+    <span class="c1">// Branch dynamic link: https://cordova.app.link?tags=one&amp;tags=two&amp;tags=three&amp;channel=Copy&amp;feature=onboarding&amp;stage=new+user&amp;campaign=content+123+launch&amp;type=0&amp;duration=0&amp;source=android&amp;data</span>
+    <span class="c1">// Branch uri scheme: branchcordova://open?link_click_id=link-500015444967786346</span>
+    <span class="c1">// Branch android intent: intent://open?link_click_id=518106399270344237#Intent;scheme=looprocks;package=com.eneff.branch.cordovatestbed;S.browser_fallback_url=https%3A%2F%2Fcordova.app.link%2FuJcOH1IFpM%3F__branch_flow_type%3Dchrome_deepview%26__branch_flow_id%3D518106399312287278;S.market_referrer=link_click_id-518106399270344237%26utm_source%3DCopy%26utm_campaign%3Dcontent%20123%20launch%26utm_feature%3Donboarding;S.branch_data=%7B%22~feature%22%3A%22onboarding%22%2C%22this_is%22%3A%22true%22%2C%22custom_string%22%3A%22data%22%2C%22testing%22%3A%22123%22%2C%22%24publicly_indexable%22%3A%22false%22%2C%22%24desktop_url%22%3A%22http%3A%2F%2Fwww.example.com%2Fdesktop%22%2C%22%24one_time_use%22%3Afalse%2C%22custom_object%22%3A%22%7B%5C%5C%5C%22random%5C%5C%5C%22%3A%5C%5C%5C%22dictionary%5C%5C%5C%22%7D%22%2C%22~id%22%3A%22517795540654792902%22%2C%22~campaign%22%3A%22content%20123%20launch%22%2C%22%2Bclick_timestamp%22%3A1524764418%2C%22%2Burl%22%3A%22https%3A%2F%2Fcordova.app.link%2FuJcOH1IFpM%22%2C%22custom_boolean%22%3A%22true%22%2C%22custom%22%3A%22data%22%2C%22source%22%3A%22android%22%2C%22%24og_image_url%22%3A%22http%3A%2F%2Florempixel.com%2F400%2F400%2F%22%2C%22%2Bdomain%22%3A%22cordova.app.link%22%2C%22custom_integer%22%3A%221524690301794%22%2C%22~tags%22%3A%5B%22one%22%2C%22two%22%2C%22three%22%5D%2C%22custom_array%22%3A%22%5B1%2C2%2C3%2C4%2C5%5D%22%2C%22~channel%22%3A%22Copy%22%2C%22~creation_source%22%3A2%2C%22%24canonical_identifier%22%3A%22content%2F123%22%2C%22%24og_title%22%3A%22Content%20123%20Title%22%2C%22%24og_description%22%3A%22Content%20123%20Description%201524690296449%22%2C%22%24identity_id%22%3A%22453670943617990547%22%2C%22~stage%22%3A%22new%20user%22%2C%22%2Bclicked_branch_link%22%3Atrue%2C%22%2Bmatch_guaranteed%22%3Atrue%2C%22%2Bis_first_session%22%3Afalse%7D;B.branch_intent=true;end</span>
+    <span class="c1">// Branch android app link (device controlled): https://cordova.app.link/uJcOH1IFpM</span>
+    <span class="c1">// Branch ios universal link (device controlled): https://cordova.app.link/uJcOH1IFpM</span>
+  <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="nx">res</span><span class="p">[</span><span class="s2">&quot;+non_branch_link&quot;</span><span class="p">])</span> <span class="p">{</span>
+    <span class="nx">alert</span><span class="p">(</span><span class="s2">&quot;Open app with a non Branch deep link: &quot;</span> <span class="o">+</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">res</span><span class="p">));</span>
+    <span class="c1">// Competitor uri scheme: anotherurischeme://hello=world</span>
+  <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+    <span class="nx">alert</span><span class="p">(</span><span class="s2">&quot;Open app organically&quot;</span><span class="p">);</span>
+    <span class="c1">// Clicking on app icon or push notification</span>
   <span class="p">}</span>
 <span class="p">})</span>
+<span class="p">.</span><span class="k">catch</span><span class="p">(</span><span class="kd">function</span> <span class="nx">error</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">logger</span><span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="kc">true</span><span class="p">);</span>
+<span class="p">});</span>
 </pre></div>
 
 </li>
@@ -3251,7 +3280,7 @@
 </li>
 <li>
 <p>Branch allows you to pass any custom key-value from URLs to your app. Use this data to navigate to content, display a personalized welcome screen, login a user, offer a promotion, etc.</p>
-<div class="codehilite"><pre><span></span><span class="nx">Branch</span><span class="p">.</span><span class="nx">initSession</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
+<div class="codehilite"><pre><span></span><span class="nx">Branch</span><span class="p">.</span><span class="nx">initSession</span><span class="p">().</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
   <span class="k">if</span> <span class="p">(</span><span class="nx">data</span><span class="p">[</span><span class="s1">&#39;+clicked_branch_link&#39;</span><span class="p">])</span> <span class="p">{</span>
     <span class="c1">// option 1: save to model to be used later</span>
     <span class="nb">window</span><span class="p">.</span><span class="nx">localStorage</span><span class="p">[</span><span class="s1">&#39;branchData&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="nx">data</span><span class="p">;</span>
@@ -3573,7 +3602,7 @@
 <p>Open your app</p>
 </li>
 <li>
-<p>Read from <code>Branch.initSession(data)</code> for <code>+is_first_session = true</code></p>
+<p>Read from <code>Branch.initSession().then(data)</code> for <code>+is_first_session = true</code></p>
 </li>
 </ul>
 </li>
@@ -4451,6 +4480,19 @@ cordova plugin remove branch-cordova-sdk
 <li>
 <h3 id="cordova-errors">Cordova errors<a class="headerlink" href="#cordova-errors" title="Permanent link">&para;</a></h3>
 <ul>
+<li>
+<h5 id="migrate-from-sdk-25-to-27">Migrate from SDK 2.5+ to 2.7+<a class="headerlink" href="#migrate-from-sdk-25-to-27" title="Permanent link">&para;</a></h5>
+<div class="codehilite"><pre><span></span>// Branch initialization
+<span class="gd">- Branch.initSession(function(data) {</span>
+<span class="gi">+ Branch.initSession().then(function(data) {</span>
+  if (data[&quot;+clicked_branch_link&quot;]) {
+    // read deep link data on click
+    alert(&quot;Deep Link Data: &quot; + JSON.stringify(data));
+  }
+});
+</pre></div>
+
+</li>
 <li>
 <h5 id="device-only">Device only<a class="headerlink" href="#device-only" title="Permanent link">&para;</a></h5>
 <ul>
