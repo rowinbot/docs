@@ -3046,6 +3046,9 @@
 <div class="codehilite"><pre><span></span><span class="c1">// for development and debugging only</span>
 <span class="nx">Branch</span><span class="p">.</span><span class="nx">setDebug</span><span class="p">(</span><span class="kc">true</span><span class="p">)</span>
 
+<span class="c1">// for GDPR compliance (can be called at anytime)</span>
+<span class="nx">Branch</span><span class="p">.</span><span class="nx">disabledTracking</span><span class="p">(</span><span class="kc">true</span><span class="p">);</span>
+
 <span class="c1">// Branch initialization</span>
 <span class="nx">Branch</span><span class="p">.</span><span class="nx">initSession</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
   <span class="k">if</span> <span class="p">(</span><span class="nx">data</span><span class="p">[</span><span class="s1">&#39;+clicked_branch_link&#39;</span><span class="p">])</span> <span class="p">{</span>
@@ -3495,7 +3498,12 @@
 <li>
 <h3 id="recommendations">Recommendations<a class="headerlink" href="#recommendations" title="Permanent link">&para;</a></h3>
 <ul>
-<li>Need to select <code>"app uses IDFA or GAID"</code> when publishing your app</li>
+<li>
+<p>Need to select <code>"app uses IDFA or GAID"</code> when publishing your app</p>
+</li>
+<li>
+<p>Mobile browser capability: <code>Android 4.4.4+</code>, <code>Safari 8+</code>, <code>Chrome 32+</code>, <code>Firefox 29+</code></p>
+</li>
 </ul>
 </li>
 <li>
