@@ -306,6 +306,12 @@
     </url>
         
     <url>
+     <loc>https://docs.branch.io/pages/emails/klaviyo/</loc>
+     <lastmod>2018-05-07</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
      <loc>https://docs.branch.io/pages/emails/leanplum/</loc>
      <lastmod>2018-05-07</lastmod>
      <changefreq>daily</changefreq>
@@ -355,6 +361,12 @@
         
     <url>
      <loc>https://docs.branch.io/pages/emails/salesforce/</loc>
+     <lastmod>2018-05-07</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>https://docs.branch.io/pages/emails/selligent/</loc>
      <lastmod>2018-05-07</lastmod>
      <changefreq>daily</changefreq>
     </url>
