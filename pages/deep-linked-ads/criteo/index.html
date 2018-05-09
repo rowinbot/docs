@@ -2654,7 +2654,7 @@
 </ul>
 </li>
 <li>
-<p>Once this is complete, you can test your basic integration by going to our <a href="https://dashboard.branch.io/liveview/events" target="_blank">Liveview page</a>. Set a filter for <strong>OPEN</strong> to verify that the Branch SDK is recording app opens. </p>
+<p>Once this is complete, you can test your basic integration by going to our <a href="https://dashboard.branch.io/liveview/events" target="_blank">Liveview page</a>. Set a filter for <strong>OPEN</strong> to verify that the Branch SDK is recording app opens.</p>
 <div class="admonition warning">
 <p class="admonition-title">Limitations with setDebug and seeing data in Branch</p>
 <p>When integrating the SDKs, it's often useful to use setDebug to verify that your app is able to communicate with Branch servers, and is receiving deep link data. However, our upstream systems don't register test events sent using setDebug, so events will not appear in Liveview or Analytics, nor will they fire postbacks. You should disable setDebug when looking at Liveview or testing postbacks.</p>
@@ -2665,30 +2665,105 @@
 <h5 id="sending-non-branch-deep-links">Sending non-Branch deep links<a class="headerlink" href="#sending-non-branch-deep-links" title="Permanent link">&para;</a></h5>
 <p>Criteo requests all deep links (including non-Branch links) to be sent to their servers upon app open. Branch doesn't provide this by default, so you'll need to update your SDK initialization to support this.</p>
 <p><strong>If you use any authentication or login libraries, please ensure you strip out all tokens, passwords and other sensitive information before passing this information to Branch.</strong></p>
-<p>To pass the <code>$criteo_deep_link_url</code> to Branch, add this code to your AppDelegate or the relevant Activity/Application:</p>
+<p>To pass the <code>$criteo_deep_link_url</code> to Branch, add this code to your AppDelegate or the relevant Activity/Application. You may already have some of this code inside you files, so simply copy the relevant Branch pieces.</p>
 <p><strong>Objective-C</strong></p>
-<p>Inside <em>didFinishLaunchingWithOptions</em></p>
-<div class="codehilite"><pre><span></span><span class="c1">//TODO: Get deep link value</span>
+<p>Inside <em>AppDelegate.m</em>, copy and paste the following snippets.</p>
+<div class="codehilite"><pre><span></span><span class="p">-</span> <span class="p">(</span><span class="kt">BOOL</span><span class="p">)</span><span class="nf">application:</span><span class="p">(</span><span class="bp">UIApplication</span> <span class="o">*</span><span class="p">)</span><span class="nv">application</span>
+<span class="nf">continueUserActivity:</span><span class="p">(</span><span class="bp">NSUserActivity</span> <span class="o">*</span><span class="p">)</span><span class="nv">userActivity</span>
+ <span class="nf">restorationHandler:</span><span class="p">(</span><span class="kt">void</span> <span class="p">(</span><span class="o">^</span><span class="p">)(</span><span class="bp">NSArray</span> <span class="o">*</span><span class="p">))</span><span class="nv">restorationHandler</span> <span class="p">{</span>
 
-<span class="n">Branch</span> <span class="o">*</span><span class="n">branch</span> <span class="o">=</span> <span class="p">[</span><span class="n">Branch</span> <span class="n">getInstance</span><span class="p">];</span>
-<span class="p">[</span><span class="n">branch</span> <span class="nl">setRequestMetadataKey</span><span class="p">:</span><span class="s">@&quot;$criteo_deep_link_url&quot;</span> <span class="nl">value</span><span class="p">:[</span><span class="n">TODO</span><span class="p">]];</span>
-</pre></div>
+    <span class="c1">// NOTE: you should sanitize and ensure no sensitive is passed from</span>
+    <span class="c1">// userActivity.webpageURL.absolutelString.</span>
 
-<p><strong>Swift</strong></p>
-<p>Inside <em>didFinishLaunchingWithOptions</em></p>
-<div class="codehilite"><pre><span></span><span class="c1">//</span><span class="cs">TODO:</span><span class="c1"> Get deep link value</span>
+    <span class="p">[[</span><span class="n">Branch</span> <span class="n">getInstance</span><span class="p">]</span> <span class="nl">setRequestMetadataKey</span><span class="p">:</span><span class="s">@&quot;$criteo_deep_link_url&quot;</span> <span class="nl">value</span><span class="p">:</span><span class="n">userActivity</span><span class="p">.</span><span class="n">webpageURL</span><span class="p">.</span><span class="n">absoluteString</span><span class="p">];</span>
+    <span class="p">[[</span><span class="n">Branch</span> <span class="n">getInstance</span><span class="p">]</span> <span class="nl">continueUserActivity</span><span class="p">:</span><span class="n">userActivity</span><span class="p">];</span>
 
-<span class="k">if</span> <span class="kd">let</span> <span class="nv">branch</span> <span class="p">=</span> <span class="n">Branch</span><span class="p">.</span><span class="n">getInstance</span><span class="p">()</span> <span class="p">{</span>
-    <span class="n">branch</span><span class="p">.</span><span class="n">setRequestMetadataKey</span><span class="p">(</span><span class="s">&quot;$criteo_deep_link_url&quot;</span><span class="p">,</span> <span class="n">value</span><span class="p">:{</span><span class="n">TODO</span><span class="p">});</span>
+    <span class="c1">// Process non-Branch userActivities here...</span>
+    <span class="k">return</span> <span class="nb">YES</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="p">-</span> <span class="p">(</span><span class="kt">BOOL</span><span class="p">)</span><span class="nf">application:</span><span class="p">(</span><span class="bp">UIApplication</span> <span class="o">*</span><span class="p">)</span><span class="nv">application</span>
+            <span class="nf">openURL:</span><span class="p">(</span><span class="bp">NSURL</span> <span class="o">*</span><span class="p">)</span><span class="nv">url</span>
+  <span class="nf">sourceApplication:</span><span class="p">(</span><span class="bp">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">sourceApplication</span>
+         <span class="nf">annotation:</span><span class="p">(</span><span class="kt">id</span><span class="p">)</span><span class="nv">annotation</span> <span class="p">{</span>
+
+    <span class="c1">// NOTE: you should sanitize and ensure no sensitive is passed from</span>
+    <span class="c1">// url.absolutelString.</span>
+
+    <span class="p">[[</span><span class="n">Branch</span> <span class="n">getInstance</span><span class="p">]</span> <span class="nl">setRequestMetadataKey</span><span class="p">:</span><span class="s">@&quot;$criteo_deep_link_url&quot;</span> <span class="nl">value</span><span class="p">:</span><span class="n">url</span><span class="p">.</span><span class="n">absoluteString</span><span class="p">];</span>
+    <span class="c1">// Required. Returns YES if Branch link, else returns NO</span>
+    <span class="p">[[</span><span class="n">Branch</span> <span class="n">getInstance</span><span class="p">]</span>
+        <span class="nl">application</span><span class="p">:</span><span class="n">application</span>
+            <span class="nl">openURL</span><span class="p">:</span><span class="n">url</span>
+  <span class="nl">sourceApplication</span><span class="p">:</span><span class="n">sourceApplication</span>
+         <span class="nl">annotation</span><span class="p">:</span><span class="n">annotation</span><span class="p">];</span>
+
+    <span class="c1">// Process non-Branch URIs here...</span>
+    <span class="k">return</span> <span class="nb">YES</span><span class="p">;</span>
 <span class="p">}</span>
 </pre></div>
 
-<p><strong>Android</strong></p>
-<p>Before you initialize in your Application#onCreate or Deep Link Activity's #onCreate.</p>
-<div class="codehilite"><pre><span></span><span class="c1">// TODO: Get deep link value</span>
+<p><strong>Swift</strong></p>
+<p>Inside <em>AppDelegate.swift</em></p>
+<div class="codehilite"><pre><span></span><span class="c1">// repond to universal link URLs</span>
+<span class="kd">func</span> <span class="nf">application</span><span class="p">(</span><span class="kc">_</span>
+        <span class="n">application</span><span class="p">:</span> <span class="bp">UIApplication</span><span class="p">,</span>
+        <span class="k">continue</span> <span class="n">userActivity</span><span class="p">:</span> <span class="bp">NSUserActivity</span><span class="p">,</span>
+        <span class="n">restorationHandler</span><span class="p">:</span> <span class="p">@</span><span class="n">escaping</span> <span class="p">([</span><span class="nb">Any</span><span class="p">]?)</span> <span class="p">-&gt;</span> <span class="nb">Void</span>
+    <span class="p">)</span> <span class="p">-&gt;</span> <span class="nb">Bool</span> <span class="p">{</span>
+        <span class="c1">// NOTE: you should sanitize the webpage URL to ensure no sensitive data is passed.</span>
+        <span class="n">Branch</span><span class="p">.</span><span class="n">getInstance</span><span class="p">().</span><span class="n">setRequestMetadataKey</span><span class="p">(</span><span class="s">&quot;criteo_deep_link_url&quot;</span><span class="p">,</span> <span class="n">value</span><span class="p">:</span> <span class="n">userActivity</span><span class="p">.</span><span class="n">webpageURL</span><span class="p">?.</span><span class="n">absoluteString</span><span class="p">);</span>
+        <span class="kd">let</span> <span class="nv">branchHandled</span> <span class="p">=</span> <span class="n">Branch</span><span class="p">.</span><span class="n">getInstance</span><span class="p">().</span><span class="k">continue</span><span class="p">(</span><span class="n">userActivity</span><span class="p">)</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">userActivity</span><span class="p">.</span><span class="n">activityType</span> <span class="p">==</span> <span class="n">NSUserActivityTypeBrowsingWeb</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">if</span> <span class="kd">let</span> <span class="nv">url</span> <span class="p">=</span> <span class="n">userActivity</span><span class="p">.</span><span class="n">webpageURL</span><span class="p">,</span>
+               <span class="o">!</span><span class="n">branchHandled</span> <span class="p">{</span>
+               <span class="c1">// handle other universal links here.</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
 
-<span class="n">Branch</span> <span class="n">branch</span> <span class="o">=</span> <span class="n">Branch</span><span class="o">.</span><span class="na">getInstance</span><span class="o">();</span>
-<span class="n">branch</span><span class="o">.</span><span class="na">setRequestMetadata</span><span class="o">(</span><span class="s">&quot;$criteo_deep_link_url&quot;</span><span class="o">,</span> <span class="n">TODO</span><span class="o">);</span>
+        <span class="c1">// Apply your logic to determine the return value of this method</span>
+        <span class="k">return</span> <span class="kc">true</span>
+    <span class="p">}</span>
+
+    <span class="c1">// Respond to URL scheme links</span>
+    <span class="kd">func</span> <span class="nf">application</span><span class="p">(</span><span class="kc">_</span> <span class="n">application</span><span class="p">:</span> <span class="bp">UIApplication</span><span class="p">,</span>
+                     <span class="n">open</span> <span class="n">url</span><span class="p">:</span> <span class="n">URL</span><span class="p">,</span>
+                     <span class="n">sourceApplication</span><span class="p">:</span> <span class="nb">String</span><span class="p">?,</span>
+                     <span class="n">annotation</span><span class="p">:</span> <span class="nb">Any</span><span class="p">)</span> <span class="p">-&gt;</span> <span class="nb">Bool</span> <span class="p">{</span>
+        <span class="c1">// NOTE: you should sanitize the URI scheme to ensure no sensitive data is passed.</span>
+        <span class="n">Branch</span><span class="p">.</span><span class="n">getInstance</span><span class="p">().</span><span class="n">setRequestMetadataKey</span><span class="p">(</span><span class="s">&quot;criteo_deep_link_url&quot;</span><span class="p">,</span> <span class="n">value</span><span class="p">:</span> <span class="n">url</span><span class="p">.</span><span class="n">absoluteString</span><span class="p">)</span>
+        <span class="kd">let</span> <span class="nv">branchHandled</span> <span class="p">=</span> <span class="n">Branch</span><span class="p">.</span><span class="n">getInstance</span><span class="p">().</span><span class="n">application</span><span class="p">(</span><span class="n">application</span><span class="p">,</span>
+                                                             <span class="n">open</span><span class="p">:</span> <span class="n">url</span><span class="p">,</span>
+                                                             <span class="n">sourceApplication</span><span class="p">:</span> <span class="n">sourceApplication</span><span class="p">,</span>
+                                                             <span class="n">annotation</span><span class="p">:</span> <span class="n">annotation</span>
+        <span class="p">)</span>
+        <span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="n">branchHandled</span><span class="p">)</span> <span class="p">{</span>
+            <span class="c1">// If not handled by Branch, do other deep link routing for the Facebook SDK, Pinterest SDK, etc</span>
+            <span class="n">Adjust</span><span class="p">.</span><span class="n">appWillOpen</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+        <span class="p">}</span>
+        <span class="k">return</span> <span class="kc">true</span>
+    <span class="p">}</span>
+</pre></div>
+
+<p><strong>Android</strong></p>
+<p>Before you initialize in your Application#onCreate or Deep Link Activity's #onCreate.
+You will want to persist the value from #onCreate, or #onNewIntent. mIntentData is a String field defined in the activity.</p>
+<div class="codehilite"><pre><span></span><span class="nd">@Override</span>
+<span class="kd">protected</span> <span class="kt">void</span> <span class="nf">onCreate</span><span class="o">()</span> <span class="o">{</span>
+    <span class="c1">// NOTE: be sure to remove sensitive / PII data from the intent data coming in.</span>
+    <span class="n">mIntentData</span> <span class="o">=</span> <span class="k">this</span><span class="o">.</span><span class="na">getIntent</span><span class="o">().</span><span class="na">getData</span><span class="o">().</span><span class="na">toString</span><span class="o">();</span>
+    <span class="c1">// other operations below</span>
+<span class="o">}</span>
+
+<span class="nd">@Override</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">onNewIntent</span><span class="o">(</span><span class="n">Intent</span> <span class="n">intent</span><span class="o">)</span> <span class="o">{</span>
+    <span class="c1">// NOTE: be sure to remove sensitive / PII data from the intent data coming in.</span>
+    <span class="n">mIntentData</span> <span class="o">=</span> <span class="k">this</span><span class="o">.</span><span class="na">getIntent</span><span class="o">().</span><span class="na">getData</span><span class="o">().</span><span class="na">toString</span><span class="o">();</span>
+    <span class="c1">// other operations below</span>
+<span class="o">}</span>
+</pre></div>
+
+<div class="codehilite"><pre><span></span><span class="n">Branch</span><span class="o">.</span><span class="na">getInstance</span><span class="o">().</span><span class="na">setRequestMetadata</span><span class="o">(</span><span class="s">&quot;$criteo_deep_link_url&quot;</span><span class="o">,</span> <span class="n">mIntentData</span><span class="o">);</span>
 
 <span class="o">...</span>
 
@@ -2696,7 +2771,7 @@
 </pre></div>
 
 <h5 id="identifying-users-with-setidentity">Identifying users with setIdentity<a class="headerlink" href="#identifying-users-with-setidentity" title="Permanent link">&para;</a></h5>
-<p>Branch allows you to identify your users and will send those user identities to Criteo. </p>
+<p>Branch allows you to identify your users and will send those user identities to Criteo.</p>
 <p>The method used to identify users is called <code>setIdentity</code>, and the value you set is called the <code>developer_identity</code>. Set this upon a user login event in your app, and Branch will use it for all subsequent events attributed to that user.</p>
 <ul>
 <li><a href="../../../pages/apps/android/#track-users" target="_blank">Android</a></li>
@@ -2714,14 +2789,14 @@
 </ul>
 <div class="admonition note">
 <p class="admonition-title">Testing your events with Liveview</p>
-<p>You can test your integration by going to our <a href="https://dashboard.branch.io/liveview/events" target="_blank">Liveview page</a>. Set a filter with the event name to verify that the Branch SDK is recording each event. </p>
+<p>You can test your integration by going to our <a href="https://dashboard.branch.io/liveview/events" target="_blank">Liveview page</a>. Set a filter with the event name to verify that the Branch SDK is recording each event.</p>
 </div>
 <h5 id="branch-and-criteo-event-mapping">Branch and Criteo Event Mapping<a class="headerlink" href="#branch-and-criteo-event-mapping" title="Permanent link">&para;</a></h5>
-<p>Branch supports the full suite of Criteo events. Please talk to your Criteo Solutions Engineer to ensure you've identified the right events for your app. </p>
+<p>Branch supports the full suite of Criteo events. Please talk to your Criteo Solutions Engineer to ensure you've identified the right events for your app.</p>
 <div class="admonition example">
 <p class="admonition-title">Important implementation details</p>
 <ul>
-<li>For events with Branch Event Categorization of "Custom Event," you must name the event as laid out in the below table. </li>
+<li>For events with Branch Event Categorization of "Custom Event," you must name the event as laid out in the below table.</li>
 <li>For events with Additional Metadata Keys, you must set the Custom Data on the event with a specific key so the postback is configured correctly for you.</li>
 </ul>
 <p>For example, for "UI_STATUS" the code snippet looks like this:</p>
@@ -2899,7 +2974,7 @@
 <p><img alt="image" src="../../../img/pages/deep-linked-ads/criteo/criteo-create-link.png" /></p>
 </li>
 <li>
-<p>First, select an ad format. For App Install or App Engagement campaigns you'll want to select the <strong>App Only</strong> format. </p>
+<p>First, select an ad format. For App Install or App Engagement campaigns you'll want to select the <strong>App Only</strong> format.</p>
 <p>To bulk create links for Dynamic Product Ads, select <strong>Product Links</strong>, which are for shopping or dynamic remarketing campaigns. This will take you to create a <a href="../../../pages/deep-linked-ads/dynamic-product-feeds/">Deep Linked Product Feed</a> for Criteo with Universal Links and URI schemes.</p>
 <p><img alt="image" src="../../../img/pages/deep-linked-ads/criteo/criteo-link-chooser.png" /></p>
 </li>
@@ -2908,9 +2983,9 @@
 <p><img alt="image" src="../../../img/pages/deep-linked-ads/criteo/criteo-engagement-link.png" /></p>
 </li>
 <li>
-<p>This is your chance to add deep link data and analytics tags. </p>
+<p>This is your chance to add deep link data and analytics tags.</p>
 <ul>
-<li>Deep Link Data is used to provide the app with product information, so the app can take customers to the right content in the app. </li>
+<li>Deep Link Data is used to provide the app with product information, so the app can take customers to the right content in the app.</li>
 <li>Analytics tags are important for later segmentation, so click the <strong>Analytics</strong> sub tab to add a Channel and Campaign value.</li>
 </ul>
 <p><img alt="image" src="../../../img/pages/deep-linked-ads/criteo/criteo-analytics-tags.png" /></p>
@@ -2945,7 +3020,7 @@
 <h4 id="sending-dates-for-travel-campaigns">Sending dates for Travel campaigns<a class="headerlink" href="#sending-dates-for-travel-campaigns" title="Permanent link">&para;</a></h4>
 <p>Criteo can optimize campaigns based on travel search dates. To report travel search dates to Criteo, follow these steps:</p>
 <ol>
-<li>In your app, add <a href="#branch-and-criteo-event-mapping">custom metadata</a> to your events with keys <code>din</code> and <code>dout</code>, and a date string in format <code>'YYYY-MM-DD'</code> for the date of the inbound and outbound flight respectively. </li>
+<li>In your app, add <a href="#branch-and-criteo-event-mapping">custom metadata</a> to your events with keys <code>din</code> and <code>dout</code>, and a date string in format <code>'YYYY-MM-DD'</code> for the date of the inbound and outbound flight respectively.</li>
 <li>In the Branch dashboard, navigate to <strong>Postback Config</strong> within the Criteo entry of the Ads Partner Manager.</li>
 <li>Find the postback you want to edit, and add the following string in the relevant place. For <em>VIEW_ITEM</em> for example, it's immediately after the <code>"event:"vs"</code> string.
     <div class="codehilite"><pre><span></span>&quot;din&quot;:<span class="err">&lt;</span>@json&gt;<span class="cp">${</span><span class="p">(</span><span class="n">custom_data</span><span class="o">.</span><span class="n">din</span><span class="p">)</span><span class="err">!</span><span class="cp">}</span><span class="err">&lt;</span>/@json&gt;, &quot;dout&quot;:<span class="err">&lt;</span>@json&gt;<span class="cp">${</span><span class="p">(</span><span class="n">custom_data</span><span class="o">.</span><span class="n">din</span><span class="p">)</span><span class="err">!</span><span class="cp">}</span><span class="err">&lt;</span>/@json&gt; 
@@ -2957,7 +3032,7 @@
 <li>In your app, add <a href="#branch-and-criteo-event-mapping">custom metadata</a> to your events with keys <code>md5_hashed_email</code>, and a value of an MD5 hashed email address. Please do <strong>not</strong> send unhashed emails to Branch.</li>
 <li>In the Branch dashboard, navigate to <strong>Postback Config</strong> within the Criteo entry of the Ads Partner Manager.</li>
 <li>Find the postback you want to edit, and add the following string in the relevant place. This will generally be as another event in the <code>"events"</code> array. Please note that <em>OPEN</em> and <em>INSTALL</em> events do not support this parameter.
-    <div class="codehilite"><pre><span></span>{&quot;event&quot;:&quot;setHashedEmail&quot;, &quot;email&quot;:[<span class="err">&lt;</span>@json&gt;<span class="cp">${</span><span class="p">(</span><span class="n">custom_data</span><span class="o">.</span><span class="n">md5_hashed_email</span><span class="p">)</span><span class="err">!</span><span class="cp">}</span><span class="err">&lt;</span>/@json&gt;]} 
+    <div class="codehilite"><pre><span></span>{&quot;event&quot;:&quot;setHashedEmail&quot;, &quot;email&quot;:[<span class="err">&lt;</span>@json&gt;<span class="cp">${</span><span class="p">(</span><span class="n">custom_data</span><span class="o">.</span><span class="n">md5_hashed_email</span><span class="p">)</span><span class="err">!</span><span class="cp">}</span><span class="err">&lt;</span>/@json&gt;]}
 </pre></div></li>
 </ol>
                 
