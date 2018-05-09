@@ -2711,8 +2711,9 @@
         <span class="k">continue</span> <span class="n">userActivity</span><span class="p">:</span> <span class="bp">NSUserActivity</span><span class="p">,</span>
         <span class="n">restorationHandler</span><span class="p">:</span> <span class="p">@</span><span class="n">escaping</span> <span class="p">([</span><span class="nb">Any</span><span class="p">]?)</span> <span class="p">-&gt;</span> <span class="nb">Void</span>
     <span class="p">)</span> <span class="p">-&gt;</span> <span class="nb">Bool</span> <span class="p">{</span>
+
         <span class="c1">// NOTE: you should sanitize the webpage URL to ensure no sensitive data is passed.</span>
-        <span class="n">Branch</span><span class="p">.</span><span class="n">getInstance</span><span class="p">().</span><span class="n">setRequestMetadataKey</span><span class="p">(</span><span class="s">&quot;criteo_deep_link_url&quot;</span><span class="p">,</span> <span class="n">value</span><span class="p">:</span> <span class="n">userActivity</span><span class="p">.</span><span class="n">webpageURL</span><span class="p">?.</span><span class="n">absoluteString</span><span class="p">);</span>
+        <span class="n">Branch</span><span class="p">.</span><span class="n">getInstance</span><span class="p">().</span><span class="n">setRequestMetadataKey</span><span class="p">(</span><span class="s">&quot;$criteo_deep_link_url&quot;</span><span class="p">,</span> <span class="n">value</span><span class="p">:</span> <span class="n">userActivity</span><span class="p">.</span><span class="n">webpageURL</span><span class="p">?.</span><span class="n">absoluteString</span><span class="p">);</span>
         <span class="kd">let</span> <span class="nv">branchHandled</span> <span class="p">=</span> <span class="n">Branch</span><span class="p">.</span><span class="n">getInstance</span><span class="p">().</span><span class="k">continue</span><span class="p">(</span><span class="n">userActivity</span><span class="p">)</span>
         <span class="k">if</span> <span class="p">(</span><span class="n">userActivity</span><span class="p">.</span><span class="n">activityType</span> <span class="p">==</span> <span class="n">NSUserActivityTypeBrowsingWeb</span><span class="p">)</span> <span class="p">{</span>
             <span class="k">if</span> <span class="kd">let</span> <span class="nv">url</span> <span class="p">=</span> <span class="n">userActivity</span><span class="p">.</span><span class="n">webpageURL</span><span class="p">,</span>
@@ -2731,7 +2732,7 @@
                      <span class="n">sourceApplication</span><span class="p">:</span> <span class="nb">String</span><span class="p">?,</span>
                      <span class="n">annotation</span><span class="p">:</span> <span class="nb">Any</span><span class="p">)</span> <span class="p">-&gt;</span> <span class="nb">Bool</span> <span class="p">{</span>
         <span class="c1">// NOTE: you should sanitize the URI scheme to ensure no sensitive data is passed.</span>
-        <span class="n">Branch</span><span class="p">.</span><span class="n">getInstance</span><span class="p">().</span><span class="n">setRequestMetadataKey</span><span class="p">(</span><span class="s">&quot;criteo_deep_link_url&quot;</span><span class="p">,</span> <span class="n">value</span><span class="p">:</span> <span class="n">url</span><span class="p">.</span><span class="n">absoluteString</span><span class="p">)</span>
+        <span class="n">Branch</span><span class="p">.</span><span class="n">getInstance</span><span class="p">().</span><span class="n">setRequestMetadataKey</span><span class="p">(</span><span class="s">&quot;$criteo_deep_link_url&quot;</span><span class="p">,</span> <span class="n">value</span><span class="p">:</span> <span class="n">url</span><span class="p">.</span><span class="n">absoluteString</span><span class="p">)</span>
         <span class="kd">let</span> <span class="nv">branchHandled</span> <span class="p">=</span> <span class="n">Branch</span><span class="p">.</span><span class="n">getInstance</span><span class="p">().</span><span class="n">application</span><span class="p">(</span><span class="n">application</span><span class="p">,</span>
                                                              <span class="n">open</span><span class="p">:</span> <span class="n">url</span><span class="p">,</span>
                                                              <span class="n">sourceApplication</span><span class="p">:</span> <span class="n">sourceApplication</span><span class="p">,</span>
@@ -2739,7 +2740,6 @@
         <span class="p">)</span>
         <span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="n">branchHandled</span><span class="p">)</span> <span class="p">{</span>
             <span class="c1">// If not handled by Branch, do other deep link routing for the Facebook SDK, Pinterest SDK, etc</span>
-            <span class="n">Adjust</span><span class="p">.</span><span class="n">appWillOpen</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
         <span class="p">}</span>
         <span class="k">return</span> <span class="kc">true</span>
     <span class="p">}</span>
@@ -3022,8 +3022,8 @@ You will want to persist the value from #onCreate, or #onNewIntent. mIntentData 
 <ol>
 <li>In your app, add <a href="#branch-and-criteo-event-mapping">custom metadata</a> to your events with keys <code>din</code> and <code>dout</code>, and a date string in format <code>'YYYY-MM-DD'</code> for the date of the inbound and outbound flight respectively.</li>
 <li>In the Branch dashboard, navigate to <strong>Postback Config</strong> within the Criteo entry of the Ads Partner Manager.</li>
-<li>Find the postback you want to edit, and add the following string in the relevant place. For <em>VIEW_ITEM</em> for example, it's immediately after the <code>"event:"vs"</code> string.
-    <div class="codehilite"><pre><span></span>&quot;din&quot;:<span class="err">&lt;</span>@json&gt;<span class="cp">${</span><span class="p">(</span><span class="n">custom_data</span><span class="o">.</span><span class="n">din</span><span class="p">)</span><span class="err">!</span><span class="cp">}</span><span class="err">&lt;</span>/@json&gt;, &quot;dout&quot;:<span class="err">&lt;</span>@json&gt;<span class="cp">${</span><span class="p">(</span><span class="n">custom_data</span><span class="o">.</span><span class="n">din</span><span class="p">)</span><span class="err">!</span><span class="cp">}</span><span class="err">&lt;</span>/@json&gt; 
+<li>Find the postback you want to edit, and add the following string in the relevant place. For <em>VIEW_ITEM</em> for example, it's another event in the events array.
+    <div class="codehilite"><pre><span></span>,{&quot;event&quot;:&quot;vs&quot;,&quot;din&quot;:<span class="err">&lt;</span>@json&gt;<span class="cp">${</span><span class="p">(</span><span class="n">custom_data</span><span class="o">.</span><span class="n">din</span><span class="p">)</span><span class="err">!</span><span class="cp">}</span><span class="err">&lt;</span>/@json&gt;,&quot;dout&quot;:<span class="err">&lt;</span>@json&gt;<span class="cp">${</span><span class="p">(</span><span class="n">custom_data</span><span class="o">.</span><span class="n">dout</span><span class="p">)</span><span class="err">!</span><span class="cp">}</span><span class="err">&lt;</span>/@json&gt;}
 </pre></div></li>
 </ol>
 <h4 id="sending-hashed-emails">Sending hashed emails<a class="headerlink" href="#sending-hashed-emails" title="Permanent link">&para;</a></h4>
@@ -3032,7 +3032,7 @@ You will want to persist the value from #onCreate, or #onNewIntent. mIntentData 
 <li>In your app, add <a href="#branch-and-criteo-event-mapping">custom metadata</a> to your events with keys <code>md5_hashed_email</code>, and a value of an MD5 hashed email address. Please do <strong>not</strong> send unhashed emails to Branch.</li>
 <li>In the Branch dashboard, navigate to <strong>Postback Config</strong> within the Criteo entry of the Ads Partner Manager.</li>
 <li>Find the postback you want to edit, and add the following string in the relevant place. This will generally be as another event in the <code>"events"</code> array. Please note that <em>OPEN</em> and <em>INSTALL</em> events do not support this parameter.
-    <div class="codehilite"><pre><span></span>{&quot;event&quot;:&quot;setHashedEmail&quot;, &quot;email&quot;:[<span class="err">&lt;</span>@json&gt;<span class="cp">${</span><span class="p">(</span><span class="n">custom_data</span><span class="o">.</span><span class="n">md5_hashed_email</span><span class="p">)</span><span class="err">!</span><span class="cp">}</span><span class="err">&lt;</span>/@json&gt;]}
+    <div class="codehilite"><pre><span></span>,{&quot;event&quot;:&quot;setHashedEmail&quot;, &quot;email&quot;:[<span class="err">&lt;</span>@json&gt;<span class="cp">${</span><span class="p">(</span><span class="n">custom_data</span><span class="o">.</span><span class="n">md5_hashed_email</span><span class="p">)</span><span class="err">!</span><span class="cp">}</span><span class="err">&lt;</span>/@json&gt;]}
 </pre></div></li>
 </ol>
                 
