@@ -612,6 +612,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#append-metadata-to-branch-network-call" title="Append metadata to Branch network call" class="md-nav__link">
+    Append metadata to Branch network call
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -635,13 +642,6 @@
           <li class="md-nav__item">
   <a href="#optional-app-config" title="Optional app config" class="md-nav__link">
     Optional app config
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#sync-with-mixpanel" title="Sync with Mixpanel" class="md-nav__link">
-    Sync with Mixpanel
   </a>
   
 </li>
@@ -2688,6 +2688,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#append-metadata-to-branch-network-call" title="Append metadata to Branch network call" class="md-nav__link">
+    Append metadata to Branch network call
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -2711,13 +2718,6 @@
           <li class="md-nav__item">
   <a href="#optional-app-config" title="Optional app config" class="md-nav__link">
     Optional app config
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#sync-with-mixpanel" title="Sync with Mixpanel" class="md-nav__link">
-    Sync with Mixpanel
   </a>
   
 </li>
@@ -3549,6 +3549,20 @@
 </li>
 </ul>
 </li>
+<li>
+<h3 id="append-metadata-to-branch-network-call">Append metadata to Branch network call<a class="headerlink" href="#append-metadata-to-branch-network-call" title="Permanent link">&para;</a></h3>
+<ul>
+<li>
+<p>Functions to append additional metadata, for use cases like inserting user ID's to enable third-party <a href="../../../pages/integrations/data-integrations/">Data Integrations</a></p>
+</li>
+<li>
+<p>Add before <code>Branch.initSession();</code> (<a href="#initialize-branch-features">Initialize Branch Features</a>)</p>
+<div class="codehilite"><pre><span></span><span class="nx">Branch</span><span class="p">.</span><span class="nx">setRequestMetadata</span><span class="p">(</span><span class="s2">&quot;insert_user_id&quot;</span><span class="p">,</span> <span class="s2">&quot;value&quot;</span><span class="p">)</span>
+</pre></div>
+
+</li>
+</ul>
+</li>
 </ul>
 <h2 id="troubleshoot-issues">Troubleshoot issues<a class="headerlink" href="#troubleshoot-issues" title="Permanent link">&para;</a></h2>
 <ul>
@@ -3586,20 +3600,6 @@
 </pre></div>
 
 <div class="codehilite"><pre><span></span><span class="nt">&lt;widget</span> <span class="na">ios-CFBundleIdentifier=</span><span class="s">&quot;com.eneff.branch.cordovatestbedios&quot;</span> <span class="na">android-packageName=</span><span class="s">&quot;com.eneff.branch.cordovatestbedandroid&quot;</span> <span class="na">version=</span><span class="s">&quot;1.0.0&quot;</span> <span class="na">xmlns=</span><span class="s">&quot;http://www.w3.org/ns/widgets&quot;</span> <span class="na">xmlns:cdv=</span><span class="s">&quot;http://cordova.apache.org/ns/1.0&quot;</span><span class="nt">&gt;</span>
-</pre></div>
-
-</li>
-</ul>
-</li>
-<li>
-<h3 id="sync-with-mixpanel">Sync with Mixpanel<a class="headerlink" href="#sync-with-mixpanel" title="Permanent link">&para;</a></h3>
-<ul>
-<li>
-<p>Sync Branch withh Mixpanel if the plugin is installed </p>
-</li>
-<li>
-<p>Add before <code>Branch.initSession();</code> (<a href="#initialize-branch-features">Initialize Branch Features</a>)</p>
-<div class="codehilite"><pre><span></span><span class="nx">Branch</span><span class="p">.</span><span class="nx">setRequestMetadata</span><span class="p">(</span><span class="s2">&quot;$mixpanel_distinct_id&quot;</span><span class="p">,</span> <span class="s2">&quot;123&quot;</span><span class="p">)</span>
 </pre></div>
 
 </li>
