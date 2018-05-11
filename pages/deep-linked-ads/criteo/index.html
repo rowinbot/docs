@@ -1148,6 +1148,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#creating-uri-scheme-deep-links-for-your-catalog" title="Creating URI scheme deep links for your catalog" class="md-nav__link">
+    Creating URI scheme deep links for your catalog
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -2592,6 +2599,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#creating-uri-scheme-deep-links-for-your-catalog" title="Creating URI scheme deep links for your catalog" class="md-nav__link">
+    Creating URI scheme deep links for your catalog
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -3050,6 +3064,22 @@ You will want to persist the value from #onCreate, or #onNewIntent. mIntentData 
 </ol>
 <p>Your final link looks like this, and additional query parameters can be added.</p>
 <p><code>https://example.app.link?product_id=123&amp;category=shoes&amp;$fallback_url=https%3A%2F%2Fbranch.io%2Funiversal-ads%2F&amp;%243p=a_criteo&amp;~feature=paid%20advertising</code></p>
+<h5 id="creating-uri-scheme-deep-links-for-your-catalog">Creating URI scheme deep links for your catalog<a class="headerlink" href="#creating-uri-scheme-deep-links-for-your-catalog" title="Permanent link">&para;</a></h5>
+<p>Some types of Criteo campaign require URI scheme style deep linking instead of HTTP deep links. Fortunately, you can also create Branch compatible, URI scheme tracking links.</p>
+<ol>
+<li>Start with your URI scheme <code>example://</code></li>
+<li>Append <code>open?link_click_id=a-</code>. For example: <code>example://open?link_click_id=a-</code></li>
+<li>Create a JSON blob of your link data, including <code>"~feature":"paid advertising", "$3p":"a_criteo"</code>
+    For example: 
+    <div class="codehilite"><pre><span></span>{&quot;~feature&quot;:&quot;paid advertising&quot;, &quot;$3p&quot;:&quot;a_criteo&quot;, &quot;~campaign&quot;:&quot;My Summer Campaign&quot;, &quot;product_id&quot;:1234, &quot;category&quot;:&quot;shoes&quot;}
+</pre></div></li>
+<li>Base64 encode your JSON blob. 
+    <div class="codehilite"><pre><span></span>eyJ+ZmVhdHVyZSI6InBhaWQgYWR2ZXJ0aXNpbmciLCAiJDNwIjoiYV9jcml0ZW8iLCAifmNhbXBhaWduIjoiTXkgU3VtbWVyIENhbXBhaWduIiwgInByb2R1Y3RfaWQiOjEyMzQsICJjYXRlZ29yeSI6InNob2VzIn0=
+</pre></div></li>
+<li>Append that to your base link, and you're done!
+    <div class="codehilite"><pre><span></span>example://link_click_id=a-eyJ+ZmVhdHVyZSI6InBhaWQgYWR2ZXJ0aXNpbmciLCAiJDNwIjoiYV9jcml0ZW8iLCAifmNhbXBhaWduIjoiTXkgU3VtbWVyIENhbXBhaWduIiwgInByb2R1Y3RfaWQiOjEyMzQsICJjYXRlZ29yeSI6InNob2VzIn0=
+</pre></div></li>
+</ol>
 <h4 id="option-2-static-campaign-deep-links">Option 2: Static campaign deep links<a class="headerlink" href="#option-2-static-campaign-deep-links" title="Permanent link">&para;</a></h4>
 <p>Just need a single link? It's easy to use the Branch dashboard to create a one-off link. The flow below provides examples of how to create links, but you'll want to consult with your Criteo Solutions Engineer to specify what you require.</p>
 <ol>
