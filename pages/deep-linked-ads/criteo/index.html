@@ -1126,22 +1126,56 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#creating-tracking-links" title="Creating tracking links" class="md-nav__link">
-    Creating tracking links
+  <a href="#link-creation-for-deep-linking-and-measurement" title="Link creation for deep linking and measurement" class="md-nav__link">
+    Link creation for deep linking and measurement
   </a>
   
     <nav class="md-nav">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#view-your-data-with-people-based-attribution" title="View your data with People-Based Attribution" class="md-nav__link">
-    View your data with People-Based Attribution
+  <a href="#option-1-catalog-deep-links" title="Option 1: Catalog deep links" class="md-nav__link">
+    Option 1: Catalog deep links
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#creating-http-deep-links-for-your-catalog" title="Creating http deep links for your catalog" class="md-nav__link">
+    Creating http deep links for your catalog
   </a>
   
 </li>
         
       </ul>
     </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#option-2-static-campaign-deep-links" title="Option 2: Static campaign deep links" class="md-nav__link">
+    Option 2: Static campaign deep links
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#option-3-server-to-server-tracking-links" title="Option 3: Server to server tracking links" class="md-nav__link">
+    Option 3: Server to server tracking links
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#view-your-data-with-people-based-attribution" title="View your data with People-Based Attribution" class="md-nav__link">
+    View your data with People-Based Attribution
+  </a>
   
 </li>
         
@@ -2536,22 +2570,56 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#creating-tracking-links" title="Creating tracking links" class="md-nav__link">
-    Creating tracking links
+  <a href="#link-creation-for-deep-linking-and-measurement" title="Link creation for deep linking and measurement" class="md-nav__link">
+    Link creation for deep linking and measurement
   </a>
   
     <nav class="md-nav">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#view-your-data-with-people-based-attribution" title="View your data with People-Based Attribution" class="md-nav__link">
-    View your data with People-Based Attribution
+  <a href="#option-1-catalog-deep-links" title="Option 1: Catalog deep links" class="md-nav__link">
+    Option 1: Catalog deep links
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#creating-http-deep-links-for-your-catalog" title="Creating http deep links for your catalog" class="md-nav__link">
+    Creating http deep links for your catalog
   </a>
   
 </li>
         
       </ul>
     </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#option-2-static-campaign-deep-links" title="Option 2: Static campaign deep links" class="md-nav__link">
+    Option 2: Static campaign deep links
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#option-3-server-to-server-tracking-links" title="Option 3: Server to server tracking links" class="md-nav__link">
+    Option 3: Server to server tracking links
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#view-your-data-with-people-based-attribution" title="View your data with People-Based Attribution" class="md-nav__link">
+    View your data with People-Based Attribution
+  </a>
   
 </li>
         
@@ -2966,8 +3034,24 @@ You will want to persist the value from #onCreate, or #onNewIntent. mIntentData 
 <p>It is possible to opt in to send all events occurring in your app to Criteo, not just events attributed to a Criteo campaign. Customers generally do this for the purposes of allowing Criteo insight into users who would be good candidates for retargeting based on their actions in the app.</p>
 <p>To send all events to Criteo, switch the "Send Postbacks For" toggle under the <strong>Postback Config</strong> in the <a href="https://dashboard.branch.io/ads/partner-management/a_criteo?tab=postback">Ads Partner Manager</a> to <strong>All events</strong>.</p>
 <p><img alt="image" src="../../../img/pages/deep-linked-ads/criteo/all-events-toggle.png" /></p>
-<h3 id="creating-tracking-links">Creating tracking links<a class="headerlink" href="#creating-tracking-links" title="Permanent link">&para;</a></h3>
-<p>Once you've enabled Criteo, it's time to create a tracking link. The flow below provides examples of how to create links, but you'll want to consult with your Criteo Solutions Engineer to specify what you require.</p>
+<h3 id="link-creation-for-deep-linking-and-measurement">Link creation for deep linking and measurement<a class="headerlink" href="#link-creation-for-deep-linking-and-measurement" title="Permanent link">&para;</a></h3>
+<h4 id="option-1-catalog-deep-links">Option 1: Catalog deep links<a class="headerlink" href="#option-1-catalog-deep-links" title="Permanent link">&para;</a></h4>
+<p><em>Recommended</em></p>
+<p>Branch links function as Universal Links or App Links, as well as deferred deep links, meaning better conversions on all Criteo campaigns. </p>
+<p>The same Branch link will do measurement as well as deep linking, so there's no need for additional "tracking-only" links. In fact, if you're using Branch links as your campaign links, you shouldn't use additional server to server tracking as well.</p>
+<p>Criteo accepts a catalog with product details and links. We recommend replacing your web links with Branch links.</p>
+<h5 id="creating-http-deep-links-for-your-catalog">Creating http deep links for your catalog<a class="headerlink" href="#creating-http-deep-links-for-your-catalog" title="Permanent link">&para;</a></h5>
+<p>The easiest way to create deep links for your product feed is to create a <a href="../../../pages/links/integrate/#long-links">"long link"</a> for each product.</p>
+<ol>
+<li>Take your base domain, e.g. <code>https://example.app.link</code></li>
+<li>Add your deep link data as query parameters. Be sure to URI encode each query parameter! e.g. <code>https://example.app.link?product_id=123&amp;category=shoes</code></li>
+<li>Add any <a href="../../../pages/links/integrate/#fallback-to-a-specific-url">fallback urls</a> for if the app isn't installed e.g. <code>https://example.app.link?product_id=123&amp;category=shoes&amp;$fallback_url=https%3A%2F%2Fbranch.io%2Funiversal-ads%2F</code></li>
+<li>Finally, add this string, which contains the <a href="../../../pages/links/integrate/#analytical-labels">analytics parameters</a> needed to categorize your data accurately. If you want to add more, go for it! <code>%243p=a_criteo&amp;~feature=paid%20advertising</code>.</li>
+</ol>
+<p>Your final link looks like this, and additional query parameters can be added.</p>
+<p><code>https://example.app.link?product_id=123&amp;category=shoes&amp;$fallback_url=https%3A%2F%2Fbranch.io%2Funiversal-ads%2F&amp;%243p=a_criteo&amp;~feature=paid%20advertising</code></p>
+<h4 id="option-2-static-campaign-deep-links">Option 2: Static campaign deep links<a class="headerlink" href="#option-2-static-campaign-deep-links" title="Permanent link">&para;</a></h4>
+<p>Just need a single link? It's easy to use the Branch dashboard to create a one-off link. The flow below provides examples of how to create links, but you'll want to consult with your Criteo Solutions Engineer to specify what you require.</p>
 <ol>
 <li>
 <p>First, click <strong>Create Ad Link</strong> in the top right hand side of the Criteo Partner Manager UI.</p>
@@ -2999,7 +3083,10 @@ You will want to persist the value from #onCreate, or #onNewIntent. mIntentData 
 <p><img alt="image" src="../../../img/pages/deep-linked-ads/branch-universal-ads/finished-ad-link.png" /></p>
 </li>
 </ol>
-<h4 id="view-your-data-with-people-based-attribution">View your data with People-Based Attribution<a class="headerlink" href="#view-your-data-with-people-based-attribution" title="Permanent link">&para;</a></h4>
+<h4 id="option-3-server-to-server-tracking-links">Option 3: Server to server tracking links<a class="headerlink" href="#option-3-server-to-server-tracking-links" title="Permanent link">&para;</a></h4>
+<p>If you just need a server to server tracking link, you can use the same flow as Option 2, above. </p>
+<p>However, at the end, add <code>%24s2s=true</code> to your link, so we know it's a server to server to link.</p>
+<h3 id="view-your-data-with-people-based-attribution">View your data with People-Based Attribution<a class="headerlink" href="#view-your-data-with-people-based-attribution" title="Permanent link">&para;</a></h3>
 <p>The <a href="https://dashboard.branch.io/ads/analytics">Ads Analytics Page</a> on the Branch dashboard shows the performance of your ad campaigns <em>across both web and app</em>. You can view performance over time, including purchase and other custom events.</p>
 <p>Events are attributed using Branch's unified last-click attribution model. This means that Branch will attribute to the last click across channels, and across platforms.</p>
 <p>For example, if a customer clicks a Branch email link, and then clicks an ad, installs the the app and purchases an item, Branch will attribute the install and the purchase to the last clicked ad link.</p>
