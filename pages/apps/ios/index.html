@@ -3227,10 +3227,6 @@ target <span class="s1">&#39;APP_NAME&#39;</span> <span class="k">do</span>
 <span class="n">buo</span><span class="p">.</span><span class="n">contentMetadata</span><span class="p">.</span><span class="n">imageCaptions</span> <span class="p">=</span> <span class="p">[</span><span class="s">&quot;awesome&quot;</span><span class="p">,</span> <span class="s">&quot;things&quot;</span><span class="p">]</span>
 <span class="n">buo</span><span class="p">.</span><span class="n">contentMetadata</span><span class="p">.</span><span class="n">customMetadata</span> <span class="p">=</span> <span class="p">[</span><span class="s">&quot;custom&quot;</span><span class="p">:</span> <span class="s">&quot;123&quot;</span><span class="p">]</span>
 <span class="n">buo</span><span class="p">.</span><span class="n">contentMetadata</span><span class="p">.</span><span class="n">customMetadata</span> <span class="p">=</span> <span class="p">[</span><span class="s">&quot;anything&quot;</span><span class="p">:</span> <span class="s">&quot;everything&quot;</span><span class="p">]</span>
-
-<span class="c1">// user actions with the object</span>
-<span class="n">buo</span><span class="p">.</span><span class="n">userCompletedAction</span><span class="p">(</span><span class="n">BranchStandardEvent</span><span class="p">.</span><span class="n">addToCart</span><span class="p">.</span><span class="n">rawValue</span><span class="p">)</span>
-<span class="n">buo</span><span class="p">.</span><span class="n">userCompletedAction</span><span class="p">(</span><span class="s">&quot;Viewed&quot;</span><span class="p">)</span>
 </pre></div>
 
 </li>
@@ -3526,13 +3522,13 @@ target <span class="s1">&#39;APP_NAME&#39;</span> <span class="k">do</span>
 </li>
 <li>
 <p><em>Swift 3</em></p>
-<div class="codehilite"><pre><span></span><span class="n">buo</span><span class="p">.</span><span class="n">registerView</span><span class="p">()</span>
+<div class="codehilite"><pre><span></span><span class="n">BranchEvent</span><span class="p">.</span><span class="n">standardEvent</span><span class="p">(.</span><span class="n">viewItem</span><span class="p">,</span> <span class="n">withContentItem</span><span class="p">:</span> <span class="n">buo</span><span class="p">).</span><span class="n">logEvent</span><span class="p">()</span>
 </pre></div>
 
 </li>
 <li>
 <p><em>Objective-C</em></p>
-<div class="codehilite"><pre><span></span><span class="p">[</span><span class="n">buo</span> <span class="nl">userCompletedAction</span><span class="p">:</span><span class="n">BNCRegisterViewEvent</span><span class="p">];</span>
+<div class="codehilite"><pre><span></span><span class="p">[[</span><span class="n">BranchEvent</span> <span class="nl">standardEvent</span><span class="p">:</span><span class="n">BranchStandardEventViewItem</span> <span class="nl">withContentItem</span><span class="p">:</span><span class="n">buo</span><span class="p">]</span> <span class="n">logEvent</span><span class="p">];</span>
 </pre></div>
 
 </li>
@@ -3587,27 +3583,24 @@ target <span class="s1">&#39;APP_NAME&#39;</span> <span class="k">do</span>
 <li>
 <p><em>Swift 3</em></p>
 <div class="codehilite"><pre><span></span><span class="c1">// option 1</span>
-<span class="kd">let</span> <span class="nv">action</span> <span class="p">=</span> <span class="s">&quot;signup&quot;</span>
-<span class="n">Branch</span><span class="p">.</span><span class="n">getInstance</span><span class="p">().</span><span class="n">userCompletedAction</span><span class="p">(</span><span class="n">action</span><span class="p">)</span>
+<span class="n">BranchEvent</span><span class="p">.</span><span class="n">customEvent</span><span class="p">(</span><span class="n">withName</span><span class="p">:</span> <span class="s">&quot;your_custom_event&quot;</span><span class="p">,</span> <span class="n">contentItem</span><span class="p">:</span> <span class="n">buo</span><span class="p">).</span><span class="n">logEvent</span><span class="p">()</span>
 
 <span class="c1">// option 2</span>
-<span class="kd">let</span> <span class="nv">metadata</span><span class="p">:</span> <span class="p">[</span><span class="nb">String</span><span class="p">:</span> <span class="nb">Any</span><span class="p">]</span> <span class="p">=</span> <span class="p">[</span>
-  <span class="s">&quot;custom_dictionary&quot;</span><span class="p">:</span> <span class="mi">123</span><span class="p">,</span>
-  <span class="s">&quot;anything&quot;</span><span class="p">:</span> <span class="s">&quot;everything&quot;</span>
-<span class="p">]</span>
-<span class="n">Branch</span><span class="p">.</span><span class="n">getInstance</span><span class="p">().</span><span class="n">userCompletedAction</span><span class="p">(</span><span class="n">action</span><span class="p">,</span> <span class="n">withState</span><span class="p">:</span> <span class="n">metadata</span><span class="p">)</span>
+<span class="kd">let</span> <span class="nv">event</span> <span class="p">=</span> <span class="n">BranchEvent</span><span class="p">.</span><span class="n">customEvent</span><span class="p">(</span><span class="n">withName</span><span class="p">:</span> <span class="s">&quot;your_custom_event&quot;</span><span class="p">,</span> <span class="n">contentItem</span><span class="p">:</span> <span class="n">buo</span><span class="p">)</span>
+<span class="n">event</span><span class="p">.</span><span class="n">customData</span><span class="p">[</span><span class="s">&quot;key&quot;</span><span class="p">]</span> <span class="p">=</span> <span class="s">&quot;value&quot;</span>
+<span class="n">event</span><span class="p">.</span><span class="n">logEvent</span><span class="p">()</span>
 </pre></div>
 
 </li>
 <li>
 <p><em>Objective-C</em></p>
 <div class="codehilite"><pre><span></span><span class="c1">// option 1</span>
-<span class="bp">NSString</span> <span class="o">*</span><span class="n">action</span> <span class="o">=</span> <span class="s">@&quot;signup&quot;</span><span class="p">;</span>
-<span class="p">[[</span><span class="n">Branch</span> <span class="n">getInstance</span><span class="p">]</span> <span class="nl">userCompletedAction</span><span class="p">:</span><span class="n">action</span><span class="p">];</span>
+<span class="p">[[</span><span class="n">BranchEvent</span> <span class="nl">customEventWithName</span><span class="p">:</span><span class="s">@&quot;your_custom_event&quot;</span> <span class="nl">contentItem</span><span class="p">:</span><span class="n">buo</span><span class="p">]</span> <span class="n">logEvent</span><span class="p">];</span>
 
 <span class="c1">// option 2</span>
-<span class="bp">NSDictionary</span> <span class="o">*</span><span class="n">metadata</span> <span class="o">=</span> <span class="l">@{</span><span class="s">@&quot;custom_dictionary&quot;</span><span class="o">:</span><span class="mi">@123</span><span class="p">,</span> <span class="s">@&quot;anything&quot;</span><span class="o">:</span> <span class="s">@&quot;everything&quot;</span><span class="l">}</span><span class="p">;</span>
-<span class="p">[[</span><span class="n">Branch</span> <span class="n">getInstance</span><span class="p">]</span> <span class="nl">userCompletedAction</span><span class="p">:</span><span class="n">action</span> <span class="nl">withState</span><span class="p">:</span><span class="n">metadata</span><span class="p">];</span>
+<span class="n">BranchEvent</span> <span class="o">*</span><span class="n">event</span> <span class="o">=</span> <span class="p">[</span><span class="n">BranchEvent</span> <span class="nl">customEventWithName</span><span class="p">:</span><span class="s">@&quot;your_custom_event&quot;</span> <span class="nl">contentItem</span><span class="p">:</span><span class="n">buo</span><span class="p">];</span>
+<span class="n">event</span><span class="p">.</span><span class="n">customData</span><span class="p">[</span><span class="s">@&quot;key&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s">@&quot;value&quot;</span><span class="p">;</span>
+<span class="p">[</span><span class="n">event</span> <span class="n">logEvent</span><span class="p">];</span>
 </pre></div>
 
 </li>
@@ -3627,92 +3620,69 @@ target <span class="s1">&#39;APP_NAME&#39;</span> <span class="k">do</span>
 </li>
 <li>
 <p><em>Swift 3</em></p>
-<div class="codehilite"><pre><span></span><span class="c1">// only revenue is required</span>
-<span class="kd">let</span> <span class="nv">commerceEvent</span> <span class="p">=</span> <span class="n">BNCCommerceEvent</span><span class="p">.</span><span class="kd">init</span><span class="p">()</span>
-<span class="n">commerceEvent</span><span class="p">.</span><span class="n">affiliation</span> <span class="p">=</span> <span class="s">&quot;affiliation&quot;</span>
-<span class="n">commerceEvent</span><span class="p">.</span><span class="n">coupon</span> <span class="p">=</span> <span class="s">&quot;coupon&quot;</span>
-<span class="n">commerceEvent</span><span class="p">.</span><span class="n">currency</span> <span class="p">=</span> <span class="s">&quot;USD&quot;</span>
-<span class="n">commerceEvent</span><span class="p">.</span><span class="n">transactionID</span> <span class="p">=</span> <span class="s">&quot;transactionID&quot;</span>
-<span class="n">commerceEvent</span><span class="p">.</span><span class="n">shipping</span> <span class="p">=</span> <span class="mf">11.22</span>
-<span class="n">commerceEvent</span><span class="p">.</span><span class="n">revenue</span> <span class="p">=</span> <span class="mf">99.99</span>
-<span class="n">commerceEvent</span><span class="p">.</span><span class="n">tax</span> <span class="p">=</span> <span class="mf">4.42</span>
+<div class="codehilite"><pre><span></span><span class="c1">// Create a BranchUniversalObject with your content data:</span>
+<span class="kd">let</span> <span class="nv">branchUniversalObject</span> <span class="p">=</span> <span class="n">BranchUniversalObject</span><span class="p">.</span><span class="kd">init</span><span class="p">()</span>
 
-<span class="c1">// optional</span>
-<span class="kd">let</span> <span class="nv">product1</span> <span class="p">=</span> <span class="n">BNCProduct</span><span class="p">.</span><span class="kd">init</span><span class="p">()</span>
-<span class="n">product1</span><span class="p">.</span><span class="n">sku</span> <span class="p">=</span> <span class="s">&quot;sku1&quot;</span>
-<span class="n">product1</span><span class="p">.</span><span class="n">name</span> <span class="p">=</span> <span class="s">&quot;name1&quot;</span>
-<span class="n">product1</span><span class="p">.</span><span class="n">price</span> <span class="p">=</span> <span class="mf">11.11</span>
-<span class="n">product1</span><span class="p">.</span><span class="n">quantity</span> <span class="p">=</span> <span class="mi">1</span>
-<span class="n">product1</span><span class="p">.</span><span class="n">brand</span> <span class="p">=</span> <span class="s">&quot;brand1&quot;</span>
-<span class="n">product1</span><span class="p">.</span><span class="n">category</span> <span class="p">=</span> <span class="s">&quot;category1&quot;</span>
-<span class="n">product1</span><span class="p">.</span><span class="n">variant</span> <span class="p">=</span> <span class="s">&quot;variant1&quot;</span>
+<span class="c1">// ...add data to the branchUniversalObject as needed...</span>
+<span class="n">branchUniversalObject</span><span class="p">.</span><span class="n">canonicalIdentifier</span> <span class="p">=</span> <span class="s">&quot;item/12345&quot;</span>
+<span class="n">branchUniversalObject</span><span class="p">.</span><span class="n">canonicalUrl</span>        <span class="p">=</span> <span class="s">&quot;https://branch.io/item/12345&quot;</span>
+<span class="n">branchUniversalObject</span><span class="p">.</span><span class="n">title</span>               <span class="p">=</span> <span class="s">&quot;My Item Title&quot;</span>
 
-<span class="c1">// optional</span>
-<span class="kd">let</span> <span class="nv">product2</span> <span class="p">=</span> <span class="n">BNCProduct</span><span class="p">.</span><span class="kd">init</span><span class="p">()</span>
-<span class="n">product2</span><span class="p">.</span><span class="n">sku</span> <span class="p">=</span> <span class="s">&quot;sku2&quot;</span>
-<span class="n">product2</span><span class="p">.</span><span class="n">name</span> <span class="p">=</span> <span class="s">&quot;name2&quot;</span>
-<span class="n">product2</span><span class="p">.</span><span class="n">price</span> <span class="p">=</span> <span class="mf">22.22</span>
-<span class="n">product2</span><span class="p">.</span><span class="n">quantity</span> <span class="p">=</span> <span class="mi">2</span>
-<span class="n">product2</span><span class="p">.</span><span class="n">brand</span> <span class="p">=</span> <span class="s">&quot;brand2&quot;</span>
-<span class="n">product2</span><span class="p">.</span><span class="n">category</span> <span class="p">=</span> <span class="s">&quot;category2&quot;</span>
-<span class="n">product2</span><span class="p">.</span><span class="n">variant</span> <span class="p">=</span> <span class="s">&quot;variant2&quot;</span>
+<span class="c1">// Create a BranchEvent:</span>
+<span class="kd">let</span> <span class="nv">event</span> <span class="p">=</span> <span class="n">BranchEvent</span><span class="p">.</span><span class="n">standardEvent</span><span class="p">(.</span><span class="n">purchase</span><span class="p">)</span>
 
-<span class="n">commerceEvent</span><span class="p">.</span><span class="n">products</span> <span class="p">=</span> <span class="p">[</span><span class="n">product1</span><span class="p">,</span> <span class="n">product2</span><span class="p">]</span>
+<span class="c1">// Add the BranchUniversalObjects with the content:</span>
+<span class="n">event</span><span class="p">.</span><span class="n">contentItems</span>     <span class="p">=</span> <span class="p">[</span> <span class="n">branchUniversalObject</span> <span class="p">]</span>
 
-<span class="c1">// optional</span>
-<span class="kd">let</span> <span class="nv">metadata</span><span class="p">:</span> <span class="p">[</span><span class="nb">String</span><span class="p">:</span> <span class="nb">Any</span><span class="p">]</span> <span class="p">=</span> <span class="p">[</span>
-  <span class="s">&quot;custom_dictionary&quot;</span><span class="p">:</span> <span class="mi">123</span><span class="p">,</span>
-  <span class="s">&quot;anything&quot;</span><span class="p">:</span> <span class="s">&quot;everything&quot;</span>
+<span class="c1">// Add relevant event data:</span>
+<span class="n">event</span><span class="p">.</span><span class="n">transactionID</span>    <span class="p">=</span> <span class="s">&quot;12344555&quot;</span>
+<span class="n">event</span><span class="p">.</span><span class="n">currency</span>         <span class="p">=</span> <span class="p">.</span><span class="n">USD</span><span class="p">;</span>
+<span class="n">event</span><span class="p">.</span><span class="n">revenue</span>          <span class="p">=</span> <span class="mf">1.5</span>
+<span class="n">event</span><span class="p">.</span><span class="n">shipping</span>         <span class="p">=</span> <span class="mf">10.2</span>
+<span class="n">event</span><span class="p">.</span><span class="n">tax</span>              <span class="p">=</span> <span class="mf">12.3</span>
+<span class="n">event</span><span class="p">.</span><span class="n">coupon</span>           <span class="p">=</span> <span class="s">&quot;test_coupon&quot;</span><span class="p">;</span>
+<span class="n">event</span><span class="p">.</span><span class="n">affiliation</span>      <span class="p">=</span> <span class="s">&quot;test_affiliation&quot;</span><span class="p">;</span>
+<span class="n">event</span><span class="p">.</span><span class="n">eventDescription</span> <span class="p">=</span> <span class="s">&quot;Event_description&quot;</span><span class="p">;</span>
+<span class="n">event</span><span class="p">.</span><span class="n">searchQuery</span>      <span class="p">=</span> <span class="s">&quot;item 123&quot;</span>
+<span class="n">event</span><span class="p">.</span><span class="n">customData</span>       <span class="p">=</span> <span class="p">[</span>
+    <span class="s">&quot;Custom_Event_Property_Key1&quot;</span><span class="p">:</span> <span class="s">&quot;Custom_Event_Property_val1&quot;</span><span class="p">,</span>
+    <span class="s">&quot;Custom_Event_Property_Key2&quot;</span><span class="p">:</span> <span class="s">&quot;Custom_Event_Property_val2&quot;</span>
 <span class="p">]</span>
-
-<span class="n">Branch</span><span class="p">.</span><span class="n">getInstance</span><span class="p">().</span><span class="n">send</span><span class="p">(</span><span class="n">commerceEvent</span><span class="p">,</span> <span class="n">metadata</span><span class="p">:</span> <span class="n">metadata</span><span class="p">,</span> <span class="n">withCompletion</span><span class="p">:</span> <span class="p">{</span> <span class="p">(</span><span class="n">response</span><span class="p">,</span> <span class="n">error</span><span class="p">)</span> <span class="k">in</span>
-  <span class="bp">print</span><span class="p">(</span><span class="n">response</span> <span class="p">??</span> <span class="p">{})</span>
-<span class="p">})</span>
+<span class="n">event</span><span class="p">.</span><span class="n">logEvent</span><span class="p">()</span> <span class="c1">// Log the event.</span>
 </pre></div>
 
 </li>
 <li>
 <p><em>Objective C</em></p>
-<div class="codehilite"><pre><span></span> <span class="c1">// only revenue is required</span>
-<span class="n">BNCCommerceEvent</span> <span class="o">*</span><span class="n">commerceEvent</span> <span class="o">=</span> <span class="p">[</span><span class="n">BNCCommerceEvent</span> <span class="n">new</span><span class="p">];</span>
-<span class="n">commerceEvent</span><span class="p">.</span><span class="n">affiliation</span> <span class="o">=</span> <span class="s">@&quot;affiliation&quot;</span><span class="p">;</span>
-<span class="n">commerceEvent</span><span class="p">.</span><span class="n">coupon</span> <span class="o">=</span> <span class="s">@&quot;coupon&quot;</span><span class="p">;</span>
-<span class="n">commerceEvent</span><span class="p">.</span><span class="n">currency</span> <span class="o">=</span> <span class="s">@&quot;USD&quot;</span><span class="p">;</span>
-<span class="n">commerceEvent</span><span class="p">.</span><span class="n">transactionID</span> <span class="o">=</span> <span class="s">@&quot;transactionID&quot;</span><span class="p">;</span>
-<span class="n">commerceEvent</span><span class="p">.</span><span class="n">shipping</span> <span class="o">=</span> <span class="p">[[</span><span class="bp">NSDecimalNumber</span> <span class="n">alloc</span><span class="p">]</span> <span class="nl">initWithFloat</span><span class="p">:</span><span class="mf">11.22</span><span class="p">];</span>
-<span class="n">commerceEvent</span><span class="p">.</span><span class="n">revenue</span> <span class="o">=</span> <span class="p">[[</span><span class="bp">NSDecimalNumber</span> <span class="n">alloc</span><span class="p">]</span> <span class="nl">initWithFloat</span><span class="p">:</span><span class="mf">99.99</span><span class="p">];</span>
-<span class="n">commerceEvent</span><span class="p">.</span><span class="n">tax</span> <span class="o">=</span> <span class="p">[[</span><span class="bp">NSDecimalNumber</span> <span class="n">alloc</span><span class="p">]</span> <span class="nl">initWithFloat</span><span class="p">:</span><span class="mf">4.2</span><span class="p">];;</span>
+<div class="codehilite"><pre><span></span><span class="c1">// Create a BranchUniversalObject with your content data:</span>
+<span class="n">BranchUniversalObject</span> <span class="o">*</span><span class="n">branchUniversalObject</span> <span class="o">=</span> <span class="p">[</span><span class="n">BranchUniversalObject</span> <span class="n">new</span><span class="p">];</span>
 
-<span class="c1">// optional</span>
-<span class="n">BNCProduct</span> <span class="o">*</span><span class="n">product1</span> <span class="o">=</span> <span class="p">[</span><span class="n">BNCProduct</span> <span class="n">new</span><span class="p">];</span>
-<span class="n">product1</span><span class="p">.</span><span class="n">sku</span> <span class="o">=</span> <span class="s">@&quot;sku1&quot;</span><span class="p">;</span>
-<span class="n">product1</span><span class="p">.</span><span class="n">name</span> <span class="o">=</span> <span class="s">@&quot;name1&quot;</span><span class="p">;</span>
-<span class="n">product1</span><span class="p">.</span><span class="n">price</span> <span class="o">=</span> <span class="p">[[</span><span class="bp">NSDecimalNumber</span> <span class="n">alloc</span><span class="p">]</span> <span class="nl">initWithFloat</span><span class="p">:</span><span class="mf">11.11</span><span class="p">];</span>
-<span class="n">product1</span><span class="p">.</span><span class="n">quantity</span> <span class="o">=</span> <span class="p">[[</span><span class="bp">NSDecimalNumber</span> <span class="n">alloc</span><span class="p">]</span> <span class="nl">initWithFloat</span><span class="p">:</span><span class="mf">1.0</span><span class="p">];</span>
-<span class="n">product1</span><span class="p">.</span><span class="n">brand</span> <span class="o">=</span> <span class="s">@&quot;brand1&quot;</span><span class="p">;</span>
-<span class="n">product1</span><span class="p">.</span><span class="n">category</span> <span class="o">=</span> <span class="s">@&quot;category1&quot;</span><span class="p">;</span>
-<span class="n">product1</span><span class="p">.</span><span class="n">variant</span> <span class="o">=</span> <span class="s">@&quot;variant1&quot;</span><span class="p">;</span>
+<span class="c1">// ...add data to the branchUniversalObject as needed...</span>
+<span class="n">branchUniversalObject</span><span class="p">.</span><span class="n">canonicalIdentifier</span> <span class="o">=</span> <span class="s">@&quot;item/12345&quot;</span><span class="p">;</span>
+<span class="n">branchUniversalObject</span><span class="p">.</span><span class="n">canonicalUrl</span>        <span class="o">=</span> <span class="s">@&quot;https://branch.io/item/12345&quot;</span><span class="p">;</span>
+<span class="n">branchUniversalObject</span><span class="p">.</span><span class="n">title</span>               <span class="o">=</span> <span class="s">@&quot;My Item Title&quot;</span><span class="p">;</span>
 
-<span class="c1">// optional</span>
-<span class="n">BNCProduct</span> <span class="o">*</span><span class="n">product2</span> <span class="o">=</span> <span class="p">[</span><span class="n">BNCProduct</span> <span class="n">new</span><span class="p">];</span>
-<span class="n">product2</span><span class="p">.</span><span class="n">sku</span> <span class="o">=</span> <span class="s">@&quot;sku2&quot;</span><span class="p">;</span>
-<span class="n">product2</span><span class="p">.</span><span class="n">name</span> <span class="o">=</span> <span class="s">@&quot;name2&quot;</span><span class="p">;</span>
-<span class="n">product2</span><span class="p">.</span><span class="n">price</span> <span class="o">=</span> <span class="p">[[</span><span class="bp">NSDecimalNumber</span> <span class="n">alloc</span><span class="p">]</span> <span class="nl">initWithFloat</span><span class="p">:</span><span class="mf">22.22</span><span class="p">];</span>
-<span class="n">product2</span><span class="p">.</span><span class="n">quantity</span> <span class="o">=</span> <span class="p">[[</span><span class="bp">NSDecimalNumber</span> <span class="n">alloc</span><span class="p">]</span> <span class="nl">initWithFloat</span><span class="p">:</span><span class="mf">2.0</span><span class="p">];</span>
-<span class="n">product2</span><span class="p">.</span><span class="n">brand</span> <span class="o">=</span> <span class="s">@&quot;brand2&quot;</span><span class="p">;</span>
-<span class="n">product2</span><span class="p">.</span><span class="n">category</span> <span class="o">=</span> <span class="s">@&quot;category2&quot;</span><span class="p">;</span>
-<span class="n">product2</span><span class="p">.</span><span class="n">variant</span> <span class="o">=</span> <span class="s">@&quot;variant2&quot;</span><span class="p">;</span>
+<span class="c1">// Create an event and add the BranchUniversalObject to it.</span>
+<span class="n">BranchEvent</span> <span class="o">*</span><span class="n">event</span>     <span class="o">=</span> <span class="p">[</span><span class="n">BranchEvent</span> <span class="nl">standardEvent</span><span class="p">:</span><span class="n">BranchStandardEventAddToCart</span><span class="p">];</span>
 
-<span class="n">commerceEvent</span><span class="p">.</span><span class="n">products</span> <span class="o">=</span> <span class="l">@[</span><span class="n">product1</span><span class="p">,</span> <span class="n">product2</span><span class="l">]</span><span class="p">;</span>
+<span class="c1">// Add the BranchUniversalObjects with the content:</span>
+<span class="n">event</span><span class="p">.</span><span class="n">contentItems</span>     <span class="o">=</span> <span class="p">(</span><span class="kt">id</span><span class="p">)</span> <span class="l">@[</span> <span class="n">branchUniversalObject</span> <span class="l">]</span><span class="p">;</span>
 
-<span class="c1">// optional</span>
-<span class="bp">NSDictionary</span> <span class="o">*</span><span class="n">metadata</span> <span class="o">=</span> <span class="l">@{</span><span class="s">@&quot;custom_dictionary&quot;</span><span class="o">:</span><span class="mi">@123</span><span class="p">,</span>
-                       <span class="s">@&quot;anything&quot;</span><span class="o">:</span> <span class="s">@&quot;everything&quot;</span><span class="l">}</span><span class="p">;</span>
-
-<span class="p">[[</span><span class="n">Branch</span> <span class="n">getInstance</span><span class="p">]</span> <span class="nl">sendCommerceEvent</span><span class="p">:</span><span class="n">commerceEvent</span> <span class="nl">metadata</span><span class="p">:</span><span class="n">metadata</span>
-                     <span class="nl">withCompletion</span><span class="p">:</span><span class="o">^</span><span class="p">(</span><span class="bp">NSDictionary</span> <span class="o">*</span><span class="n">response</span><span class="p">,</span> <span class="bp">NSError</span> <span class="o">*</span><span class="n">error</span><span class="p">)</span> <span class="p">{</span>
-    <span class="n">NSLog</span><span class="p">(</span><span class="s">@&quot;%@&quot;</span><span class="p">,</span><span class="n">response</span><span class="p">);</span>
-<span class="p">}];</span>
+<span class="c1">// Add relevant event data:</span>
+<span class="n">event</span><span class="p">.</span><span class="n">transactionID</span>    <span class="o">=</span> <span class="s">@&quot;12344555&quot;</span><span class="p">;</span>
+<span class="n">event</span><span class="p">.</span><span class="n">currency</span>         <span class="o">=</span> <span class="n">BNCCurrencyUSD</span><span class="p">;</span>
+<span class="n">event</span><span class="p">.</span><span class="n">revenue</span>          <span class="o">=</span> <span class="p">[</span><span class="bp">NSDecimalNumber</span> <span class="nl">decimalNumberWithString</span><span class="p">:</span><span class="s">@&quot;1.5&quot;</span><span class="p">];</span>
+<span class="n">event</span><span class="p">.</span><span class="n">shipping</span>         <span class="o">=</span> <span class="p">[</span><span class="bp">NSDecimalNumber</span> <span class="nl">decimalNumberWithString</span><span class="p">:</span><span class="s">@&quot;10.2&quot;</span><span class="p">];</span>
+<span class="n">event</span><span class="p">.</span><span class="n">tax</span>              <span class="o">=</span> <span class="p">[</span><span class="bp">NSDecimalNumber</span> <span class="nl">decimalNumberWithString</span><span class="p">:</span><span class="s">@&quot;12.3&quot;</span><span class="p">];</span>
+<span class="n">event</span><span class="p">.</span><span class="n">coupon</span>           <span class="o">=</span> <span class="s">@&quot;test_coupon&quot;</span><span class="p">;</span>
+<span class="n">event</span><span class="p">.</span><span class="n">affiliation</span>      <span class="o">=</span> <span class="s">@&quot;test_affiliation&quot;</span><span class="p">;</span>
+<span class="n">event</span><span class="p">.</span><span class="n">eventDescription</span> <span class="o">=</span> <span class="s">@&quot;Event_description&quot;</span><span class="p">;</span>
+<span class="n">event</span><span class="p">.</span><span class="n">searchQuery</span>      <span class="o">=</span> <span class="s">@&quot;item 123&quot;</span><span class="p">;</span>
+<span class="n">event</span><span class="p">.</span><span class="n">customData</span>       <span class="o">=</span> <span class="p">(</span><span class="bp">NSMutableDictionary</span><span class="o">*</span><span class="p">)</span> <span class="l">@{</span>
+    <span class="s">@&quot;Custom_Event_Property_Key1&quot;</span><span class="o">:</span> <span class="s">@&quot;Custom_Event_Property_val1&quot;</span><span class="p">,</span>
+    <span class="s">@&quot;Custom_Event_Property_Key2&quot;</span><span class="o">:</span> <span class="s">@&quot;Custom_Event_Property_val2&quot;</span>
+<span class="l">}</span><span class="p">;</span>
+<span class="p">[</span><span class="n">event</span> <span class="n">logEvent</span><span class="p">];</span>
 </pre></div>
 
 </li>
