@@ -1008,6 +1008,76 @@
 
 
   <li class="md-nav__item">
+    <a href="../doubleclick/" title="Doubleclick" class="md-nav__link">
+      Doubleclick
+    </a>
+  </li>
+
+          
+        
+          
+            
+            
+            
+
+
+  <li class="md-nav__item">
+    <a href="../facebook-ads-overview/" title="Facebook" class="md-nav__link">
+      Facebook
+    </a>
+  </li>
+
+          
+        
+          
+            
+            
+            
+
+
+  <li class="md-nav__item">
+    <a href="../google-ads-overview/" title="Google" class="md-nav__link">
+      Google
+    </a>
+  </li>
+
+          
+        
+          
+            
+            
+            
+
+
+  <li class="md-nav__item">
+    <a href="../twitter/" title="Twitter" class="md-nav__link">
+      Twitter
+    </a>
+  </li>
+
+          
+        
+          
+            
+            
+            
+
+
+  <li class="md-nav__item">
+    <a href="../remerge/" title="Remerge" class="md-nav__link">
+      Remerge
+    </a>
+  </li>
+
+          
+        
+          
+            
+            
+            
+
+
+  <li class="md-nav__item">
     <a href="../criteo/" title="Criteo" class="md-nav__link">
       Criteo
     </a>
@@ -1227,62 +1297,6 @@
   
 </nav>
     
-  </li>
-
-          
-        
-          
-            
-            
-            
-
-
-  <li class="md-nav__item">
-    <a href="../doubleclick/" title="Doubleclick" class="md-nav__link">
-      Doubleclick
-    </a>
-  </li>
-
-          
-        
-          
-            
-            
-            
-
-
-  <li class="md-nav__item">
-    <a href="../facebook-ads-overview/" title="Facebook" class="md-nav__link">
-      Facebook
-    </a>
-  </li>
-
-          
-        
-          
-            
-            
-            
-
-
-  <li class="md-nav__item">
-    <a href="../google-ads-overview/" title="Google" class="md-nav__link">
-      Google
-    </a>
-  </li>
-
-          
-        
-          
-            
-            
-            
-
-
-  <li class="md-nav__item">
-    <a href="../twitter/" title="Twitter" class="md-nav__link">
-      Twitter
-    </a>
   </li>
 
           
@@ -2652,8 +2666,7 @@
                   <h1>MyTarget</h1>
                 
                 <h2 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">&para;</a></h2>
-<p>This guide will walk you through how to integrate <a href="https://target.my.com/">MyTarget</a> with Branch. 
-It is best to familiarize yourself with Branch Universal Ads product first by following <a href="pages/deep-linked-ads/branch-universal-ads.md">this documentation</a> first.</p>
+<p>This guide will walk you through how to integrate <a href="https://target.my.com/">MyTarget</a> with Branch. </p>
 <p>Universal Ads provides everything you need for complete tracking, including rich data for the MyTarget Engine to opimtize against.</p>
 <p>The basic MyTarget integration involves three parts:</p>
 <ol>
@@ -2664,9 +2677,15 @@ It is best to familiarize yourself with Branch Universal Ads product first by fo
 <h2 id="setup">Setup<a class="headerlink" href="#setup" title="Permanent link">&para;</a></h2>
 <h3 id="integrating-the-sdks-and-tracking-in-app-events">Integrating the SDKs and tracking in-app events<a class="headerlink" href="#integrating-the-sdks-and-tracking-in-app-events" title="Permanent link">&para;</a></h3>
 <p>The Branch SDKs for iOS and Android allow you to get up and running quickly. </p>
-<p>If you haven't already integrated Branch SDK into your application, please follow our integration guide to integrate Branch SDK into your application:
-    - <a href="../../../pages/apps/android/" target="_blank">Android</a>
-    - <a href="../../../pages/apps/ios/" target="_blank">iOS</a></p>
+<p>If you haven't already integrated Branch SDK into your application, please follow our integration guide to integrate Branch SDK into your application:</p>
+<ol>
+<li>
+<p>Documentation for <a href="../../../pages/apps/android/">Android</a></p>
+</li>
+<li>
+<p>Documentation for <a href="../../../pages/apps/ios/">iOS</a></p>
+</li>
+</ol>
 <div class="admonition warning">
 <p class="admonition-title">Limitations with setDebug and seeing data in Branch</p>
 <p>When integrating the SDKs, it's often useful to use setDebug to verify that your app is able to communicate with Branch servers, and is receiving deep link data. However, our upstream systems don't register test events sent using setDebug, so events will not appear in Liveview or Analytics, nor will they fire postbacks. You should disable setDebug when looking at Liveview or testing postbacks.</p>
@@ -2804,10 +2823,9 @@ Original link from Branch:
 <ol>
 <li>
 <p>Click the <strong>Add New Postback</strong> button at the bottom of the screen.</p>
-<p><img alt="image" src="../../../img/pages/deep-linked-ads/branch-universal-ads/add-new-postback-button.png" /></p>
 </li>
 <li>
-<p>A modal will appear with Branch default events, as well as any commerce or custom events you've set up. Select an event, enter a postback URL if you're asked to, and click <strong>Save</strong>. This will be the event that triggers your new postback.</p>
+<p>A modal will appear with Branch default events, as well as any commerce or custom events you've set up. Select an event, enter a postback URL if you're asked to, and click <strong>Save</strong>. This will be the event that triggers your new postback</p>
 <p><img alt="image" src="../../../img/pages/deep-linked-ads/branch-universal-ads/add-new-postback-modal.png" /></p>
 </li>
 </ol>
@@ -2815,7 +2833,7 @@ Original link from Branch:
 <p>For advanced integrations, you may want to provide additional information in your postback that isn't there by default. You can edit postbacks by following our <a href="../../../pages/exports/ua-webhooks/#templating-your-postback-url">postback templating instructions</a>, then clicking save. The postbacks in the Universal Ads interface follow the same syntax as Webhooks in Data Feeds. When the postback is saved, it is then validated - if you enter an invalid postback, you'll get an error at the top of your screen.</p>
 <div class="admonition tip">
 <p class="admonition-title">Reset Postbacks</p>
-<p>We all make mistakes from time to time. If you need to reset your postbacks and your credentials, navigate to the <strong>Account Settings</strong> tab and look for the <strong>Reset all settings</strong> button. Be careful though! This will disable the ad partner, clear out all credentials and postbacks that you've set up, and return the ad partner to its basic configuration. You can then start afresh.</p>
+<p>We all make mistakes from time to time. If you need to reset your postbacks and your credentials, navigate to the <strong>Account Settings</strong> tab and look for the <strong>Reset all settings</strong> button. Be careful though! This will disable the ad partner, clear out all credentials and postbacks that you've set up, and return the ad partner to its basic configuration. You can then start afresh</p>
 </div>
 <h3 id="change-attribution-windows">Change attribution windows<a class="headerlink" href="#change-attribution-windows" title="Permanent link">&para;</a></h3>
 <p>Attribution windows can be specified at the global account level or on a per link basis with the link level window taking priority. See the below instructions for setup.</p>
