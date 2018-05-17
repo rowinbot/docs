@@ -3100,7 +3100,7 @@ target <span class="s1">&#39;APP_NAME&#39;</span> <span class="k">do</span>
 
 <span class="kd">func</span> <span class="nf">application</span><span class="p">(</span><span class="kc">_</span> <span class="n">application</span><span class="p">:</span> <span class="bp">UIApplication</span><span class="p">,</span> <span class="n">didFinishLaunchingWithOptions</span> <span class="n">launchOptions</span><span class="p">:</span> <span class="p">[</span><span class="n">UIApplicationLaunchOptionsKey</span><span class="p">:</span> <span class="nb">Any</span><span class="p">]?)</span> <span class="p">-&gt;</span> <span class="nb">Bool</span> <span class="p">{</span>
 <span class="hll">  <span class="c1">// if you are using the TEST key</span>
-</span><span class="hll">  <span class="n">Branch</span><span class="p">.</span><span class="n">setUseTestBranchKey</span><span class="p">(</span><span class="kc">true</span><span class="p">)</span>
+</span><span class="hll">  <span class="c1">// Branch.setUseTestBranchKey(true)</span>
 </span><span class="hll">  <span class="c1">// for debug and development only</span>
 </span><span class="hll">  <span class="n">Branch</span><span class="p">.</span><span class="n">getInstance</span><span class="p">().</span><span class="n">setDebug</span><span class="p">()</span>
 </span><span class="hll">  <span class="c1">// listener for Branch Deep Link data</span>
@@ -3142,7 +3142,7 @@ target <span class="s1">&#39;APP_NAME&#39;</span> <span class="k">do</span>
 
 <span class="p">-</span> <span class="p">(</span><span class="kt">BOOL</span><span class="p">)</span><span class="nf">application:</span><span class="p">(</span><span class="bp">UIApplication</span> <span class="o">*</span><span class="p">)</span><span class="nv">application</span> <span class="nf">didFinishLaunchingWithOptions:</span><span class="p">(</span><span class="bp">NSDictionary</span> <span class="o">*</span><span class="p">)</span><span class="nv">launchOptions</span> <span class="p">{</span>
 <span class="hll">  <span class="c1">// if you are using the TEST key</span>
-</span><span class="hll">  <span class="p">[</span><span class="n">Branch</span> <span class="nl">setUseTestBranchKey</span><span class="p">:</span><span class="nb">YES</span><span class="p">];</span>
+</span><span class="hll">  <span class="c1">// [Branch setUseTestBranchKey:YES];</span>
 </span><span class="hll">  <span class="c1">// for debug and development only</span>
 </span><span class="hll">  <span class="p">[[</span><span class="n">Branch</span> <span class="n">getInstance</span><span class="p">]</span> <span class="n">setDebug</span><span class="p">];</span>
 </span><span class="hll">  <span class="c1">// listener for Branch Deep Link data</span>
