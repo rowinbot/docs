@@ -3099,32 +3099,34 @@ target <span class="s1">&#39;APP_NAME&#39;</span> <span class="k">do</span>
 <span class="kd">var</span> <span class="nv">window</span><span class="p">:</span> <span class="bp">UIWindow</span><span class="p">?</span>
 
 <span class="kd">func</span> <span class="nf">application</span><span class="p">(</span><span class="kc">_</span> <span class="n">application</span><span class="p">:</span> <span class="bp">UIApplication</span><span class="p">,</span> <span class="n">didFinishLaunchingWithOptions</span> <span class="n">launchOptions</span><span class="p">:</span> <span class="p">[</span><span class="n">UIApplicationLaunchOptionsKey</span><span class="p">:</span> <span class="nb">Any</span><span class="p">]?)</span> <span class="p">-&gt;</span> <span class="nb">Bool</span> <span class="p">{</span>
-<span class="hll">  <span class="c1">// for debug and development only</span>
+<span class="hll">  <span class="c1">// if you are using the TEST key</span>
+</span><span class="hll">  <span class="n">Branch</span><span class="p">.</span><span class="n">setUseTestBranchKey</span><span class="p">(</span><span class="kc">true</span><span class="p">)</span>
+</span><span class="hll">  <span class="c1">// for debug and development only</span>
 </span><span class="hll">  <span class="n">Branch</span><span class="p">.</span><span class="n">getInstance</span><span class="p">().</span><span class="n">setDebug</span><span class="p">()</span>
 </span><span class="hll">  <span class="c1">// listener for Branch Deep Link data</span>
 </span><span class="hll">  <span class="n">Branch</span><span class="p">.</span><span class="n">getInstance</span><span class="p">().</span><span class="n">initSession</span><span class="p">(</span><span class="n">launchOptions</span><span class="p">:</span> <span class="n">launchOptions</span><span class="p">)</span> <span class="p">{</span> <span class="p">(</span><span class="n">params</span><span class="p">,</span> <span class="n">error</span><span class="p">)</span> <span class="k">in</span>
 </span><span class="hll">    <span class="c1">// do stuff with deep link data (nav to page, display content, etc)</span>
-</span><span class="hll">    <span class="bp">print</span><span class="p">(</span><span class="n">params</span> <span class="k">as</span><span class="p">?</span> <span class="p">[</span><span class="nb">String</span><span class="p">:</span> <span class="nb">AnyObject</span><span class="p">]</span> <span class="p">??</span> <span class="p">{})</span>
-</span><span class="hll">  <span class="p">}</span>
-</span>  <span class="k">return</span> <span class="kc">true</span>
+</span>    <span class="bp">print</span><span class="p">(</span><span class="n">params</span> <span class="k">as</span><span class="p">?</span> <span class="p">[</span><span class="nb">String</span><span class="p">:</span> <span class="nb">AnyObject</span><span class="p">]</span> <span class="p">??</span> <span class="p">{})</span>
+  <span class="p">}</span>
+  <span class="k">return</span> <span class="kc">true</span>
+<span class="p">}</span>
+<span class="hll">
+</span><span class="hll"><span class="kd">func</span> <span class="nf">application</span><span class="p">(</span><span class="kc">_</span> <span class="n">app</span><span class="p">:</span> <span class="bp">UIApplication</span><span class="p">,</span> <span class="n">open</span> <span class="n">url</span><span class="p">:</span> <span class="n">URL</span><span class="p">,</span> <span class="n">options</span><span class="p">:</span> <span class="p">[</span><span class="n">UIApplicationOpenURLOptionsKey</span> <span class="p">:</span> <span class="nb">Any</span><span class="p">]</span> <span class="p">=</span> <span class="p">[:])</span> <span class="p">-&gt;</span> <span class="nb">Bool</span> <span class="p">{</span>
+</span>  <span class="n">Branch</span><span class="p">.</span><span class="n">getInstance</span><span class="p">().</span><span class="n">application</span><span class="p">(</span><span class="n">app</span><span class="p">,</span> <span class="n">open</span><span class="p">:</span> <span class="n">url</span><span class="p">,</span> <span class="n">options</span><span class="p">:</span> <span class="n">options</span><span class="p">)</span>
+  <span class="k">return</span> <span class="kc">true</span>
 <span class="p">}</span>
 
-<span class="kd">func</span> <span class="nf">application</span><span class="p">(</span><span class="kc">_</span> <span class="n">app</span><span class="p">:</span> <span class="bp">UIApplication</span><span class="p">,</span> <span class="n">open</span> <span class="n">url</span><span class="p">:</span> <span class="n">URL</span><span class="p">,</span> <span class="n">options</span><span class="p">:</span> <span class="p">[</span><span class="n">UIApplicationOpenURLOptionsKey</span> <span class="p">:</span> <span class="nb">Any</span><span class="p">]</span> <span class="p">=</span> <span class="p">[:])</span> <span class="p">-&gt;</span> <span class="nb">Bool</span> <span class="p">{</span>
-<span class="hll">  <span class="n">Branch</span><span class="p">.</span><span class="n">getInstance</span><span class="p">().</span><span class="n">application</span><span class="p">(</span><span class="n">app</span><span class="p">,</span> <span class="n">open</span><span class="p">:</span> <span class="n">url</span><span class="p">,</span> <span class="n">options</span><span class="p">:</span> <span class="n">options</span><span class="p">)</span>
-</span><span class="hll">  <span class="k">return</span> <span class="kc">true</span>
-</span><span class="p">}</span>
+<span class="hll"><span class="kd">func</span> <span class="nf">application</span><span class="p">(</span><span class="kc">_</span> <span class="n">application</span><span class="p">:</span> <span class="bp">UIApplication</span><span class="p">,</span> <span class="k">continue</span> <span class="n">userActivity</span><span class="p">:</span> <span class="bp">NSUserActivity</span><span class="p">,</span> <span class="n">restorationHandler</span><span class="p">:</span> <span class="p">@</span><span class="n">escaping</span> <span class="p">([</span><span class="nb">Any</span><span class="p">]?)</span> <span class="p">-&gt;</span> <span class="nb">Void</span><span class="p">)</span> <span class="p">-&gt;</span> <span class="nb">Bool</span> <span class="p">{</span>
+</span><span class="hll">  <span class="c1">// handler for Universal Links</span>
+</span>  <span class="n">Branch</span><span class="p">.</span><span class="n">getInstance</span><span class="p">().</span><span class="k">continue</span><span class="p">(</span><span class="n">userActivity</span><span class="p">)</span>
+  <span class="k">return</span> <span class="kc">true</span>
+<span class="p">}</span>
 
-<span class="kd">func</span> <span class="nf">application</span><span class="p">(</span><span class="kc">_</span> <span class="n">application</span><span class="p">:</span> <span class="bp">UIApplication</span><span class="p">,</span> <span class="k">continue</span> <span class="n">userActivity</span><span class="p">:</span> <span class="bp">NSUserActivity</span><span class="p">,</span> <span class="n">restorationHandler</span><span class="p">:</span> <span class="p">@</span><span class="n">escaping</span> <span class="p">([</span><span class="nb">Any</span><span class="p">]?)</span> <span class="p">-&gt;</span> <span class="nb">Void</span><span class="p">)</span> <span class="p">-&gt;</span> <span class="nb">Bool</span> <span class="p">{</span>
-  <span class="c1">// handler for Universal Links</span>
-<span class="hll">  <span class="n">Branch</span><span class="p">.</span><span class="n">getInstance</span><span class="p">().</span><span class="k">continue</span><span class="p">(</span><span class="n">userActivity</span><span class="p">)</span>
-</span><span class="hll">  <span class="k">return</span> <span class="kc">true</span>
-</span><span class="p">}</span>
-
-<span class="kd">func</span> <span class="nf">application</span><span class="p">(</span><span class="kc">_</span> <span class="n">application</span><span class="p">:</span> <span class="bp">UIApplication</span><span class="p">,</span> <span class="n">didReceiveRemoteNotification</span> <span class="n">userInfo</span><span class="p">:</span> <span class="p">[</span><span class="n">AnyHashable</span> <span class="p">:</span> <span class="nb">Any</span><span class="p">],</span> <span class="n">fetchCompletionHandler</span> <span class="n">completionHandler</span><span class="p">:</span> <span class="p">@</span><span class="n">escaping</span> <span class="p">(</span><span class="n">UIBackgroundFetchResult</span><span class="p">)</span> <span class="p">-&gt;</span> <span class="nb">Void</span><span class="p">)</span> <span class="p">{</span>
-  <span class="c1">// handler for Push Notifications</span>
-<span class="hll">  <span class="n">Branch</span><span class="p">.</span><span class="n">getInstance</span><span class="p">().</span><span class="n">handlePushNotification</span><span class="p">(</span><span class="n">userInfo</span><span class="p">)</span>
-</span><span class="hll"><span class="p">}</span>
-</span></pre></div>
+<span class="hll"><span class="kd">func</span> <span class="nf">application</span><span class="p">(</span><span class="kc">_</span> <span class="n">application</span><span class="p">:</span> <span class="bp">UIApplication</span><span class="p">,</span> <span class="n">didReceiveRemoteNotification</span> <span class="n">userInfo</span><span class="p">:</span> <span class="p">[</span><span class="n">AnyHashable</span> <span class="p">:</span> <span class="nb">Any</span><span class="p">],</span> <span class="n">fetchCompletionHandler</span> <span class="n">completionHandler</span><span class="p">:</span> <span class="p">@</span><span class="n">escaping</span> <span class="p">(</span><span class="n">UIBackgroundFetchResult</span><span class="p">)</span> <span class="p">-&gt;</span> <span class="nb">Void</span><span class="p">)</span> <span class="p">{</span>
+</span><span class="hll">  <span class="c1">// handler for Push Notifications</span>
+</span>  <span class="n">Branch</span><span class="p">.</span><span class="n">getInstance</span><span class="p">().</span><span class="n">handlePushNotification</span><span class="p">(</span><span class="n">userInfo</span><span class="p">)</span>
+<span class="p">}</span>
+</pre></div>
 
 </li>
 <li>
@@ -3139,32 +3141,34 @@ target <span class="s1">&#39;APP_NAME&#39;</span> <span class="k">do</span>
 <span class="k">@implementation</span> <span class="nc">AppDelegate</span>
 
 <span class="p">-</span> <span class="p">(</span><span class="kt">BOOL</span><span class="p">)</span><span class="nf">application:</span><span class="p">(</span><span class="bp">UIApplication</span> <span class="o">*</span><span class="p">)</span><span class="nv">application</span> <span class="nf">didFinishLaunchingWithOptions:</span><span class="p">(</span><span class="bp">NSDictionary</span> <span class="o">*</span><span class="p">)</span><span class="nv">launchOptions</span> <span class="p">{</span>
-<span class="hll">  <span class="c1">// for debug and development only</span>
+<span class="hll">  <span class="c1">// if you are using the TEST key</span>
+</span><span class="hll">  <span class="p">[</span><span class="n">Branch</span> <span class="nl">setUseTestBranchKey</span><span class="p">:</span><span class="nb">YES</span><span class="p">];</span>
+</span><span class="hll">  <span class="c1">// for debug and development only</span>
 </span><span class="hll">  <span class="p">[[</span><span class="n">Branch</span> <span class="n">getInstance</span><span class="p">]</span> <span class="n">setDebug</span><span class="p">];</span>
 </span><span class="hll">  <span class="c1">// listener for Branch Deep Link data</span>
 </span><span class="hll">  <span class="p">[[</span><span class="n">Branch</span> <span class="n">getInstance</span><span class="p">]</span> <span class="nl">initSessionWithLaunchOptions</span><span class="p">:</span><span class="n">launchOptions</span> <span class="nl">andRegisterDeepLinkHandler</span><span class="p">:</span><span class="o">^</span><span class="p">(</span><span class="bp">NSDictionary</span> <span class="o">*</span> <span class="n">_Nonnull</span> <span class="n">params</span><span class="p">,</span> <span class="bp">NSError</span> <span class="o">*</span> <span class="n">_Nullable</span> <span class="n">error</span><span class="p">)</span> <span class="p">{</span>
 </span><span class="hll">    <span class="c1">// do stuff with deep link data (nav to page, display content, etc)</span>
-</span><span class="hll">    <span class="n">NSLog</span><span class="p">(</span><span class="s">@&quot;%@&quot;</span><span class="p">,</span> <span class="n">params</span><span class="p">);</span>
-</span><span class="hll">  <span class="p">}];</span>
-</span>  <span class="k">return</span> <span class="nb">YES</span><span class="p">;</span>
+</span>    <span class="n">NSLog</span><span class="p">(</span><span class="s">@&quot;%@&quot;</span><span class="p">,</span> <span class="n">params</span><span class="p">);</span>
+  <span class="p">}];</span>
+  <span class="k">return</span> <span class="nb">YES</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="hll">
+</span><span class="hll"><span class="p">-</span> <span class="p">(</span><span class="kt">BOOL</span><span class="p">)</span><span class="nf">application:</span><span class="p">(</span><span class="bp">UIApplication</span> <span class="o">*</span><span class="p">)</span><span class="nv">app</span> <span class="nf">openURL:</span><span class="p">(</span><span class="bp">NSURL</span> <span class="o">*</span><span class="p">)</span><span class="nv">url</span> <span class="nf">options:</span><span class="p">(</span><span class="bp">NSDictionary</span><span class="o">&lt;</span><span class="n">UIApplicationOpenURLOptionsKey</span><span class="p">,</span><span class="kt">id</span><span class="o">&gt;</span> <span class="o">*</span><span class="p">)</span><span class="nv">options</span> <span class="p">{</span>
+</span>  <span class="p">[[</span><span class="n">Branch</span> <span class="n">getInstance</span><span class="p">]</span> <span class="nl">application</span><span class="p">:</span><span class="n">app</span> <span class="nl">openURL</span><span class="p">:</span><span class="n">url</span> <span class="nl">options</span><span class="p">:</span><span class="n">options</span><span class="p">];</span>
+  <span class="k">return</span> <span class="nb">YES</span><span class="p">;</span>
 <span class="p">}</span>
 
-<span class="p">-</span> <span class="p">(</span><span class="kt">BOOL</span><span class="p">)</span><span class="nf">application:</span><span class="p">(</span><span class="bp">UIApplication</span> <span class="o">*</span><span class="p">)</span><span class="nv">app</span> <span class="nf">openURL:</span><span class="p">(</span><span class="bp">NSURL</span> <span class="o">*</span><span class="p">)</span><span class="nv">url</span> <span class="nf">options:</span><span class="p">(</span><span class="bp">NSDictionary</span><span class="o">&lt;</span><span class="n">UIApplicationOpenURLOptionsKey</span><span class="p">,</span><span class="kt">id</span><span class="o">&gt;</span> <span class="o">*</span><span class="p">)</span><span class="nv">options</span> <span class="p">{</span>
-<span class="hll">  <span class="p">[[</span><span class="n">Branch</span> <span class="n">getInstance</span><span class="p">]</span> <span class="nl">application</span><span class="p">:</span><span class="n">app</span> <span class="nl">openURL</span><span class="p">:</span><span class="n">url</span> <span class="nl">options</span><span class="p">:</span><span class="n">options</span><span class="p">];</span>
-</span><span class="hll">  <span class="k">return</span> <span class="nb">YES</span><span class="p">;</span>
-</span><span class="p">}</span>
+<span class="hll"><span class="p">-</span> <span class="p">(</span><span class="kt">BOOL</span><span class="p">)</span><span class="nf">application:</span><span class="p">(</span><span class="bp">UIApplication</span> <span class="o">*</span><span class="p">)</span><span class="nv">application</span> <span class="nf">continueUserActivity:</span><span class="p">(</span><span class="bp">NSUserActivity</span> <span class="o">*</span><span class="p">)</span><span class="nv">userActivity</span> <span class="nf">restorationHandler:</span><span class="p">(</span><span class="kt">void</span> <span class="p">(</span><span class="o">^</span><span class="p">)(</span><span class="bp">NSArray</span> <span class="o">*</span> <span class="n">_Nullable</span><span class="p">))</span><span class="nv">restorationHandler</span> <span class="p">{</span>
+</span><span class="hll">  <span class="c1">// handler for Universal Links</span>
+</span>  <span class="p">[[</span><span class="n">Branch</span> <span class="n">getInstance</span><span class="p">]</span> <span class="nl">continueUserActivity</span><span class="p">:</span><span class="n">userActivity</span><span class="p">];</span>
+  <span class="k">return</span> <span class="nb">YES</span><span class="p">;</span>
+<span class="p">}</span>
 
-<span class="p">-</span> <span class="p">(</span><span class="kt">BOOL</span><span class="p">)</span><span class="nf">application:</span><span class="p">(</span><span class="bp">UIApplication</span> <span class="o">*</span><span class="p">)</span><span class="nv">application</span> <span class="nf">continueUserActivity:</span><span class="p">(</span><span class="bp">NSUserActivity</span> <span class="o">*</span><span class="p">)</span><span class="nv">userActivity</span> <span class="nf">restorationHandler:</span><span class="p">(</span><span class="kt">void</span> <span class="p">(</span><span class="o">^</span><span class="p">)(</span><span class="bp">NSArray</span> <span class="o">*</span> <span class="n">_Nullable</span><span class="p">))</span><span class="nv">restorationHandler</span> <span class="p">{</span>
-  <span class="c1">// handler for Universal Links</span>
-<span class="hll">  <span class="p">[[</span><span class="n">Branch</span> <span class="n">getInstance</span><span class="p">]</span> <span class="nl">continueUserActivity</span><span class="p">:</span><span class="n">userActivity</span><span class="p">];</span>
-</span><span class="hll">  <span class="k">return</span> <span class="nb">YES</span><span class="p">;</span>
-</span><span class="p">}</span>
+<span class="hll"><span class="p">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">application:</span><span class="p">(</span><span class="bp">UIApplication</span> <span class="o">*</span><span class="p">)</span><span class="nv">application</span> <span class="nf">didReceiveRemoteNotification:</span><span class="p">(</span><span class="bp">NSDictionary</span> <span class="o">*</span><span class="p">)</span><span class="nv">userInfo</span> <span class="p">{</span>
+</span><span class="hll">  <span class="c1">// handler for Push Notifications</span>
+</span>  <span class="p">[[</span><span class="n">Branch</span> <span class="n">getInstance</span><span class="p">]</span> <span class="nl">handlePushNotification</span><span class="p">:</span><span class="n">userInfo</span><span class="p">];</span>
+<span class="p">}</span>
 
-<span class="p">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">application:</span><span class="p">(</span><span class="bp">UIApplication</span> <span class="o">*</span><span class="p">)</span><span class="nv">application</span> <span class="nf">didReceiveRemoteNotification:</span><span class="p">(</span><span class="bp">NSDictionary</span> <span class="o">*</span><span class="p">)</span><span class="nv">userInfo</span> <span class="p">{</span>
-  <span class="c1">// handler for Push Notifications</span>
-<span class="hll">  <span class="p">[[</span><span class="n">Branch</span> <span class="n">getInstance</span><span class="p">]</span> <span class="nl">handlePushNotification</span><span class="p">:</span><span class="n">userInfo</span><span class="p">];</span>
-</span><span class="hll"><span class="p">}</span>
-</span>
 <span class="k">@end</span>
 </pre></div>
 
