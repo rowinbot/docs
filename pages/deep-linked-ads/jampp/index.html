@@ -1150,26 +1150,6 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#integrating-the-sdks-and-tracking-in-app-events_1" title="Integrating the SDKs and tracking in-app events" class="md-nav__link">
-    Integrating the SDKs and tracking in-app events
-  </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#track-conversion-events_1" title="Track conversion events" class="md-nav__link">
-    Track conversion events
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
   <a href="#enable-integration-with-jampp" title="Enable integration with Jampp" class="md-nav__link">
     Enable integration with Jampp
   </a>
@@ -2554,26 +2534,6 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#integrating-the-sdks-and-tracking-in-app-events_1" title="Integrating the SDKs and tracking in-app events" class="md-nav__link">
-    Integrating the SDKs and tracking in-app events
-  </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#track-conversion-events_1" title="Track conversion events" class="md-nav__link">
-    Track conversion events
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
   <a href="#enable-integration-with-jampp" title="Enable integration with Jampp" class="md-nav__link">
     Enable integration with Jampp
   </a>
@@ -2731,24 +2691,6 @@
 </ol>
 <h2 id="setup">Setup<a class="headerlink" href="#setup" title="Permanent link">&para;</a></h2>
 <h3 id="integrating-the-sdks-and-tracking-in-app-events">Integrating the SDKs and tracking in-app events<a class="headerlink" href="#integrating-the-sdks-and-tracking-in-app-events" title="Permanent link">&para;</a></h3>
-<p>The Branch SDKs for iOS and Android allow you to get up and running quickly.  Jampp has some custom configurations to be aware of when you get set up.</p>
-<p>If you haven't already integrated Branch, follow the below guides.</p>
-<ol>
-<li>Start by following the integration guides for Android and iOS:<ul>
-<li><a href="../../../pages/apps/android/" target="_blank">Android</a></li>
-<li><a href="../../../pages/apps/ios/" target="_blank">iOS</a></li>
-</ul>
-</li>
-<li>
-<p>Once this is complete, you can test your basic integration by going to our <a href="https://dashboard.branch.io/liveview/events" target="_blank">Liveview page</a>. Set a filter for <strong>OPEN</strong> to verify that the Branch SDK is recording app opens.</p>
-<div class="admonition warning">
-<p class="admonition-title">Limitations with setDebug and seeing data in Branch</p>
-<p>When integrating the SDKs, it's often useful to use setDebug to verify that your app is able to communicate with Branch servers, and is receiving deep link data. However, our upstream systems don't register test events sent using setDebug, so events will not appear in Liveview or Analytics, nor will they fire postbacks. You should disable setDebug when looking at Liveview or testing postbacks.</p>
-</div>
-</li>
-</ol>
-<h4 id="track-conversion-events">Track conversion events<a class="headerlink" href="#track-conversion-events" title="Permanent link">&para;</a></h4>
-<h3 id="integrating-the-sdks-and-tracking-in-app-events_1">Integrating the SDKs and tracking in-app events<a class="headerlink" href="#integrating-the-sdks-and-tracking-in-app-events_1" title="Permanent link">&para;</a></h3>
 <p>The Branch SDKs for iOS and Android allow you to get up and running quickly. </p>
 <p>If you haven't already integrated Branch SDK into your application, please follow our integration guide to integrate Branch SDK into your application:</p>
 <ol>
@@ -2763,7 +2705,7 @@
 <p class="admonition-title">Limitations with setDebug and seeing data in Branch</p>
 <p>When integrating the SDKs, it's often useful to use setDebug to verify that your app is able to communicate with Branch servers, and is receiving deep link data. However, our upstream systems don't register test events sent using setDebug, so events will not appear in Liveview or Analytics, nor will they fire postbacks. You should disable setDebug when looking at Liveview or testing postbacks.</p>
 </div>
-<h4 id="track-conversion-events_1">Track conversion events<a class="headerlink" href="#track-conversion-events_1" title="Permanent link">&para;</a></h4>
+<h4 id="track-conversion-events">Track conversion events<a class="headerlink" href="#track-conversion-events" title="Permanent link">&para;</a></h4>
 <p>Install and open events are automatically tracked using just the Branch SDK integration. However, to track custom events, such as registration or purchase, you will need to integrate them into your application.</p>
 <p>Please reference the general <a href="../../../pages/apps/v2event/#overview">V2 Event Tracking Guide</a>. This will help ensure that you've integrated the right Branch events with the correct metadata.</p>
 <div class="admonition note">
