@@ -774,6 +774,19 @@
     Initialize Branch
   </a>
   
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#enable-do-not-track-mode" title="Enable Do Not Track mode" class="md-nav__link">
+    Enable Do Not Track mode
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
         
       </ul>
@@ -1316,6 +1329,20 @@
 
 
   <li class="md-nav__item">
+    <a href="../../deep-linked-ads/criteo/" title="Criteo" class="md-nav__link">
+      Criteo
+    </a>
+  </li>
+
+          
+        
+          
+            
+            
+            
+
+
+  <li class="md-nav__item">
     <a href="../../deep-linked-ads/remerge/" title="Remerge" class="md-nav__link">
       Remerge
     </a>
@@ -1330,8 +1357,22 @@
 
 
   <li class="md-nav__item">
-    <a href="../../deep-linked-ads/criteo/" title="Criteo" class="md-nav__link">
-      Criteo
+    <a href="../../deep-linked-ads/jampp/" title="Jampp" class="md-nav__link">
+      Jampp
+    </a>
+  </li>
+
+          
+        
+          
+            
+            
+            
+
+
+  <li class="md-nav__item">
+    <a href="../../deep-linked-ads/inmobi/" title="InMobi" class="md-nav__link">
+      InMobi
     </a>
   </li>
 
@@ -2567,6 +2608,19 @@
     Initialize Branch
   </a>
   
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#enable-do-not-track-mode" title="Enable Do Not Track mode" class="md-nav__link">
+    Enable Do Not Track mode
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
         
       </ul>
@@ -2826,6 +2880,17 @@
 </ul>
 </li>
 </ul>
+<h4 id="enable-do-not-track-mode">Enable Do Not Track mode<a class="headerlink" href="#enable-do-not-track-mode" title="Permanent link">&para;</a></h4>
+<p>In order to help our customers comply with <a href="https://branch.io/gdpr/">GDPR</a>, we’ve updated our Web SDK with a Do Not Track mode. This way, if a user indicates that they want to remain private on your website, you can continue to make use of the Branch Web SDK (e.g. for creating Branch links) while not tracking that user. This state is persistent, meaning that it’s saved for the user across browser sessions for the web site.</p>
+<p>To enable Do Not Track Mode during initialization, include the <code>tracking_disabled</code> flag, with a value of <code>true</code>, into the options during initialization:</p>
+<div class="codehilite"><pre><span></span><span class="nx">branch</span><span class="p">.</span><span class="nx">init</span><span class="p">(</span> <span class="s1">&#39;BRANCH_KEY&#39;</span><span class="p">,</span>
+    <span class="p">{</span>
+        <span class="err">‘</span><span class="nx">tracking_disabled</span><span class="err">’</span> <span class="o">:</span> <span class="kc">true</span>
+    <span class="p">}</span>
+<span class="p">);</span>
+</pre></div>
+
+<p>To enable Do Not Track Mode following initialization, call <code>disableTracking(true)</code>. If you call <code>disableTracking()</code> with no argument, it will default to <code>disableTracking(true)</code>. Use <code>disableTracking(false)</code> to resume tracking.</p>
 <h2 id="implement-features">Implement features<a class="headerlink" href="#implement-features" title="Permanent link">&para;</a></h2>
 <ul>
 <li>

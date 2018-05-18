@@ -1105,6 +1105,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#is-located" title="Is located" class="md-nav__link">
+    Is located
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#is-viewing-a-page-url" title="Is viewing a page url" class="md-nav__link">
     Is viewing a page url
   </a>
@@ -1645,6 +1652,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#journeys-and-gdpr" title="Journeys and GDPR" class="md-nav__link">
+    Journeys and GDPR
+  </a>
+  
+</li>
+      
       
       
       
@@ -1832,6 +1846,20 @@
 
 
   <li class="md-nav__item">
+    <a href="../../deep-linked-ads/criteo/" title="Criteo" class="md-nav__link">
+      Criteo
+    </a>
+  </li>
+
+          
+        
+          
+            
+            
+            
+
+
+  <li class="md-nav__item">
     <a href="../../deep-linked-ads/remerge/" title="Remerge" class="md-nav__link">
       Remerge
     </a>
@@ -1846,8 +1874,22 @@
 
 
   <li class="md-nav__item">
-    <a href="../../deep-linked-ads/criteo/" title="Criteo" class="md-nav__link">
-      Criteo
+    <a href="../../deep-linked-ads/jampp/" title="Jampp" class="md-nav__link">
+      Jampp
+    </a>
+  </li>
+
+          
+        
+          
+            
+            
+            
+
+
+  <li class="md-nav__item">
+    <a href="../../deep-linked-ads/inmobi/" title="InMobi" class="md-nav__link">
+      InMobi
     </a>
   </li>
 
@@ -3244,6 +3286,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#is-located" title="Is located" class="md-nav__link">
+    Is located
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#is-viewing-a-page-url" title="Is viewing a page url" class="md-nav__link">
     Is viewing a page url
   </a>
@@ -3784,6 +3833,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#journeys-and-gdpr" title="Journeys and GDPR" class="md-nav__link">
+    Journeys and GDPR
+  </a>
+  
+</li>
+      
       
       
       
@@ -3847,6 +3903,11 @@
 <p class="admonition-title">Warning</p>
 <p>Be sure to replace <code>YOUR-BRANCH-KEY</code> with your Branch Key inside the <code>init()</code> call. You can find your Branch Key on the Dashboard’s <a href="https://dashboard.branch.io/#/settings">Settings</a> page.</p>
 </div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+</div>
+<p>“GDPR considerations”
+    In order to help our customers comply with <a href="https://branch.io/gdpr/">GDPR</a>, we’ve updated our Web SDK with a <a href="https://docs.branch.io/pages/web/integrate/#enable-do-not-track-mode">Do Not Track mode</a>. This way, if a user indicates that they want to remain private on your website, you can continue to make use of the Branch Web SDK (e.g. for creating Branch links) while not tracking that user. Click <a href="https://docs.branch.io/pages/web/journeys/#journeys-and-gdpr">here</a> for information on how this mode impacts Journeys.</p>
 <h3 id="deep-linking-from-the-banner-or-interstitial">Deep linking from the banner or interstitial<a class="headerlink" href="#deep-linking-from-the-banner-or-interstitial" title="Permanent link">&para;</a></h3>
 <p>Like all Branch deep links, you can pass custom parameters by specifying keys in the link's <a href="../../../pages/links/integrate/#configure-deep-links">data dictionary</a>. This is useful if you are showing the Smart Banner on a website page with equivalent in-app content, because you can route directly to that content in your app.</p>
 <p>This example will take the visitor straight to a picture with id “12345” after installing and opening the app.</p>
@@ -3880,8 +3941,7 @@
 </ol>
 <p><img alt="image" src="../../../img/pages/journeys/journeys-name.png" /></p>
 <h3 id="select-audience">Select audience<a class="headerlink" href="#select-audience" title="Permanent link">&para;</a></h3>
-<p>You can customize the audience that will see your Journey by choosing the target platform, device, and region.</p>
-<p>For example, if you have users in many countries, you can create a separate Journey for each localization and use audience targeting rules to make sure users see the appropriate one.</p>
+<p>You can customize the audience that will see your Journey by choosing target platforms and device types, and by adding additional targeting rules.</p>
 <p><img alt="image" src="../../../img/pages/journeys/audience-rules.png" /></p>
 <table>
 <thead>
@@ -3898,10 +3958,6 @@
 <tr>
 <td>Devices</td>
 <td>Which devices would you like to target? For example, if you only have an iOS app, then you might want to show a Journey only to users viewing your mobile website on iOS.</td>
-</tr>
-<tr>
-<td>Regions</td>
-<td>Select one or more countries in which to display your Journey. Defaults to <strong>Show to All Regions</strong></td>
 </tr>
 <tr>
 <td>Additional Filters</td>
@@ -4053,6 +4109,8 @@
 
 You can target a user based on the last touch point before they entered your website. For example, if you want to target users that found you through Google Search, you can select “Referred from site” and fill in `google.com`. Currently, we only support domain names in the Referred from site field. -->
 
+<h4 id="is-located">Is located<a class="headerlink" href="#is-located" title="Permanent link">&para;</a></h4>
+<p>Use this filter to target (or exclude) users viewing your website in different regions. Target by country, state/province, or city.</p>
 <h4 id="is-viewing-a-page-url">Is viewing a page url<a class="headerlink" href="#is-viewing-a-page-url" title="Permanent link">&para;</a></h4>
 <p>You can define which subsets of your website the Journey will appear. For example, maybe you have a page <code>yoursite.com/settings</code> and <code>yoursite.com/products/1234</code>. You could fill in <code>products</code> here and only users visiting a URL with that substring present would see the Journey.</p>
 <h4 id="has-visited-web">Has visited web<a class="headerlink" href="#has-visited-web" title="Permanent link">&para;</a></h4>
@@ -4901,6 +4959,16 @@ In this case, closing the Journey is very simple by calling:</p>
 <p>Next, go through and choose the following countries: <code>United States</code>, <code>Canada</code>, <code>United Kingdom</code> and <code>Australia</code>.</p>
 <p><img alt="image" src="../../../img/pages/journeys/examples/ios_english_1.png" /></p>
 <p>Save and continue!</p>
+<h2 id="journeys-and-gdpr">Journeys and GDPR<a class="headerlink" href="#journeys-and-gdpr" title="Permanent link">&para;</a></h2>
+<p>In order to help our customers comply with <a href="https://branch.io/gdpr/">GDPR</a>, we’ve updated our Web SDK with a <a href="https://docs.branch.io/pages/web/integrate/#enable-do-not-track-mode">Do Not Track mode</a>. This way, if a user indicates that they want to remain private on your website, you can continue to make use of the Branch Web SDK (e.g. for creating Branch links) while not tracking that user. </p>
+<p>If you enable that mode, you can still display some Journeys to your users. Whether or not a Journey will display for users in Do Not Track mode depends on the targeting criteria you’ve defined for that Journey. If the Journey uses any of the following audience filters, it will <em>not</em> display for users in Do Not Track mode. Otherwise, the Journey will display.
+* Has completed event
+* Has visited web
+* Has visited the app
+* Has clicked on email
+* Has clicked on ad
+* Has the app installed</p>
+<p>If a Journey does display for a user in Do Not Track mode, any analytics related to the Journey’s display or the user’s interactions with that Journey <em>will not be published in the Branch dashboard.</em></p>
                 
                   
                 

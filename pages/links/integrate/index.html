@@ -1368,6 +1368,20 @@
 
 
   <li class="md-nav__item">
+    <a href="../../deep-linked-ads/criteo/" title="Criteo" class="md-nav__link">
+      Criteo
+    </a>
+  </li>
+
+          
+        
+          
+            
+            
+            
+
+
+  <li class="md-nav__item">
     <a href="../../deep-linked-ads/remerge/" title="Remerge" class="md-nav__link">
       Remerge
     </a>
@@ -1382,8 +1396,22 @@
 
 
   <li class="md-nav__item">
-    <a href="../../deep-linked-ads/criteo/" title="Criteo" class="md-nav__link">
-      Criteo
+    <a href="../../deep-linked-ads/jampp/" title="Jampp" class="md-nav__link">
+      Jampp
+    </a>
+  </li>
+
+          
+        
+          
+            
+            
+            
+
+
+  <li class="md-nav__item">
+    <a href="../../deep-linked-ads/inmobi/" title="InMobi" class="md-nav__link">
+      InMobi
     </a>
   </li>
 
@@ -3339,6 +3367,50 @@
 <td>type</td>
 <td><code>0</code></td>
 <td>Must be an <code>int</code>. Set to <code>1</code> to limit deep link to a single use. Set to <code>2</code> to make the link show up under <a href="https://dashboard.branch.io/marketing">Quick Links</a> while adding <code>$marketing_title</code> to <code>data</code>. Does not work with the Native SDKs.</td>
+</tr>
+</tbody>
+</table>
+</li>
+<li>
+<p>These labels allow you to customize attribution windows for a single link</p>
+<table>
+<thead>
+<tr>
+<th>Key</th>
+<th>Default</th>
+<th>Usage</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>$click_install_window_days</td>
+<td>7</td>
+<td>Time between a click or a web to app auto redirect and an install or reinstall. (i.e., <a href="https://branchster.app.link/hpNVE52gxE?$click_install_window_days=3">https://branchster.app.link/hpNVE52gxE?$click_install_window_days=3</a>)</td>
+</tr>
+<tr>
+<td>$click_session_start_window_days</td>
+<td>1</td>
+<td>Time between a click or a web to app auto redirect and an open or web session start. (i.e., <a href="https://branchster.app.link/hpNVE52gxE?$click_session_start_window_days=7">https://branchster.app.link/hpNVE52gxE?$click_session_start_window_days=7</a>)</td>
+</tr>
+<tr>
+<td>$click_conversion_window_days</td>
+<td>30</td>
+<td>Time between a click or a web to app auto redirect and a conversion event. Conversion events include commerce events (e.g. purchase, add to cart), all custom events, and all view events like pageviews &amp; content views. (i.e., <a href="https://branchster.app.link/hpNVE52gxE?$click_session_start_window_days=30">https://branchster.app.link/hpNVE52gxE?$click_session_start_window_days=30</a>)</td>
+</tr>
+<tr>
+<td>$impression_install_window_days</td>
+<td>1</td>
+<td>Time between an ad impression and an install or reinstall. (i.e., <a href="https://branchster.app.link/hpNVE52gxE?$impression_install_window_days=3">https://branchster.app.link/hpNVE52gxE?$impression_install_window_days=3</a>)</td>
+</tr>
+<tr>
+<td>$impression_session_start_window_days</td>
+<td>1</td>
+<td>Time between an ad impression and an open or web session start. (i.e.,    <a href="https://branchster.app.link/hpNVE52gxE?$impression_session_start_window_days=1">https://branchster.app.link/hpNVE52gxE?$impression_session_start_window_days=1</a>)</td>
+</tr>
+<tr>
+<td>$impression_conversion_window_days</td>
+<td>7</td>
+<td>Time between an ad impression and a conversion event. Conversion events include commerce events (e.g. purchase, add to cart), all custom events, and all view events like pageviews &amp; content views. (i.e., <a href="https://branchster.app.link/hpNVE52gxE?$impression_session_start_window_days=7">https://branchster.app.link/hpNVE52gxE?$impression_session_start_window_days=7</a>)</td>
 </tr>
 </tbody>
 </table>

@@ -230,13 +230,25 @@
     </url>
         
     <url>
+     <loc>https://docs.branch.io/pages/deep-linked-ads/criteo/</loc>
+     <lastmod>2018-05-18</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
      <loc>https://docs.branch.io/pages/deep-linked-ads/remerge/</loc>
      <lastmod>2018-05-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
-     <loc>https://docs.branch.io/pages/deep-linked-ads/criteo/</loc>
+     <loc>https://docs.branch.io/pages/deep-linked-ads/jampp/</loc>
+     <lastmod>2018-05-18</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>https://docs.branch.io/pages/deep-linked-ads/inmobi/</loc>
      <lastmod>2018-05-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
