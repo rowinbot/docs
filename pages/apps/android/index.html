@@ -640,6 +640,13 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#test-your-branch-integration" title="Test your Branch Integration" class="md-nav__link">
+    Test your Branch Integration
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#sample-testing-apps" title="Sample testing apps" class="md-nav__link">
     Sample testing apps
   </a>
@@ -691,6 +698,13 @@
           <li class="md-nav__item">
   <a href="#deep-link-activity-finishes" title="Deep link activity finishes" class="md-nav__link">
     Deep link activity finishes
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#test-deeplink-routing-for-your-branch-links" title="Test Deeplink routing for your Branch links" class="md-nav__link">
+    Test Deeplink routing for your Branch links
   </a>
   
 </li>
@@ -2864,6 +2878,13 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#test-your-branch-integration" title="Test your Branch Integration" class="md-nav__link">
+    Test your Branch Integration
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#sample-testing-apps" title="Sample testing apps" class="md-nav__link">
     Sample testing apps
   </a>
@@ -2915,6 +2936,13 @@
           <li class="md-nav__item">
   <a href="#deep-link-activity-finishes" title="Deep link activity finishes" class="md-nav__link">
     Deep link activity finishes
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#test-deeplink-routing-for-your-branch-links" title="Test Deeplink routing for your Branch links" class="md-nav__link">
+    Test Deeplink routing for your Branch links
   </a>
   
 </li>
@@ -4092,6 +4120,18 @@
 <h2 id="troubleshoot-issues">Troubleshoot issues<a class="headerlink" href="#troubleshoot-issues" title="Permanent link">&para;</a></h2>
 <ul>
 <li>
+<h3 id="test-your-branch-integration">Test your Branch Integration<a class="headerlink" href="#test-your-branch-integration" title="Permanent link">&para;</a></h3>
+<p>Test your Branch Integration by calling <code>IntegrationValidator.validate</code> in your MainActivity's onStart(). Check your ADB Logcat to make sure all the SDK Integration tests pass. Make sure to comment out or remove <code>IntegrationValidator.validate</code> in your production build.</p>
+<ul>
+<li>
+<p><em>Java</em></p>
+<div class="codehilite"><pre><span></span><span class="n">IntegrationValidator</span><span class="o">.</span><span class="na">validate</span><span class="o">(</span><span class="n">MainActivity</span><span class="o">.</span><span class="na">this</span><span class="o">);</span>
+</pre></div>
+
+</li>
+</ul>
+</li>
+<li>
 <h3 id="sample-testing-apps">Sample testing apps<a class="headerlink" href="#sample-testing-apps" title="Permanent link">&para;</a></h3>
 <ul>
 <li>
@@ -4415,6 +4455,10 @@
 
 </li>
 </ul>
+</li>
+<li>
+<h3 id="test-deeplink-routing-for-your-branch-links">Test Deeplink routing for your Branch links<a class="headerlink" href="#test-deeplink-routing-for-your-branch-links" title="Permanent link">&para;</a></h3>
+<p>Append <code>?bnc_validate=true</code> to any of your app's Branch links and click it on your mobile device (not the Simulator!) to start the test. For instance, to validate a link like: <code>"https://&lt;yourapp\&gt;.app.link/NdJ6nFzRbK"</code> click on: <code>"https://&lt;yourapp\&gt;.app.link/NdJ6nFzRbK?bnc_validate=true"</code></p>
 </li>
 <li>
 <h3 id="pre-android-15-support">Pre Android 15 support<a class="headerlink" href="#pre-android-15-support" title="Permanent link">&para;</a></h3>
