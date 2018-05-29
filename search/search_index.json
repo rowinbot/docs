@@ -10534,6 +10534,26 @@
             "location": "/pages/deep-linked-ads/dynamic-product-feeds/#report-issues", 
             "text": "For Facebook data discrepancies, please see our  Facebook Advertising troubleshooting documentation .   If you run into any issues, or have questions, please contact  integrations@branch.io .", 
             "title": "Report issues"
+        }, 
+        {
+            "location": "/pages/deep-linked-ads/url_params/", 
+            "text": "Bracnh Tracking links allows to track many paramemers about performance you ad campaign and ads. Additional parameters for advanced analysis may be added to the link after the '?' character, to trace extra information. \n\n\nTracking Link Parameters\n\n\nThe following parameters are available to use within the generated tracking link:\n\n\nCampaign Info\n\n\n\n\n\n\n\n\nBranch Parameter\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\n~agency\n\n\nAgency name\n\n\n\n\n\n\n~secondary_publisher\n\n\nSub Publisher\n\n\n\n\n\n\n~campaign\n\n\nCampaign name\n\n\n\n\n\n\n~campaign_id\n\n\nCampaign ID\n\n\n\n\n\n\n~channel\n\n\nChannel\n\n\n\n\n\n\n~feature\n\n\nFeature\n\n\n\n\n\n\n~stage\n\n\nStage\n\n\n\n\n\n\n~tags\n\n\nTags\n\n\n\n\n\n\n~creative_name\n\n\nCreative name\n\n\n\n\n\n\n~creative_id\n\n\nCreative ID\n\n\n\n\n\n\n~ad_set_name\n\n\nAd set name\n\n\n\n\n\n\n~ad_set_id\n\n\nAd set ID\n\n\n\n\n\n\n~ad_name\n\n\nAd unit name\n\n\n\n\n\n\n~ad_id\n\n\nAd unit ID\n\n\n\n\n\n\n~banner_dimensions\n\n\nBanner Dimension\n\n\n\n\n\n\n~placement\n\n\nPlacement\n\n\n\n\n\n\n~keyword_id\n\n\nKeyword ID\n\n\n\n\n\n\n\n\nSpend Calculation\n\n\n\n\n\n\n\n\nBranch Parameter\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\n~cost_model\n\n\nCost Model\n\n\n\n\n\n\n~cost_value\n\n\nCost Value\n\n\n\n\n\n\n~cost_currency\n\n\nCost Currency\n\n\n\n\n\n\n\n\n\n\nTracking link with additional parameters\n\n\nHere is the example how to pass Agency and SubPublisher info with Tracking link:\n\nhttps://tracking.app.link?~agency=myAgency\n~secondary_publisher=best_publisher", 
+            "title": "Tracking Link Parameters"
+        }, 
+        {
+            "location": "/pages/deep-linked-ads/url_params/#tracking-link-parameters", 
+            "text": "The following parameters are available to use within the generated tracking link:", 
+            "title": "Tracking Link Parameters"
+        }, 
+        {
+            "location": "/pages/deep-linked-ads/url_params/#campaign-info", 
+            "text": "Branch Parameter  Description      ~agency  Agency name    ~secondary_publisher  Sub Publisher    ~campaign  Campaign name    ~campaign_id  Campaign ID    ~channel  Channel    ~feature  Feature    ~stage  Stage    ~tags  Tags    ~creative_name  Creative name    ~creative_id  Creative ID    ~ad_set_name  Ad set name    ~ad_set_id  Ad set ID    ~ad_name  Ad unit name    ~ad_id  Ad unit ID    ~banner_dimensions  Banner Dimension    ~placement  Placement    ~keyword_id  Keyword ID", 
+            "title": "Campaign Info"
+        }, 
+        {
+            "location": "/pages/deep-linked-ads/url_params/#spend-calculation", 
+            "text": "Branch Parameter  Description      ~cost_model  Cost Model    ~cost_value  Cost Value    ~cost_currency  Cost Currency      Tracking link with additional parameters  Here is the example how to pass Agency and SubPublisher info with Tracking link: https://tracking.app.link?~agency=myAgency ~secondary_publisher=best_publisher", 
+            "title": "Spend Calculation"
         }
     ]
 }
