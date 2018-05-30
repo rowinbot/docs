@@ -2561,14 +2561,149 @@
             "title": "Account settings"
         }, 
         {
-            "location": "/pages/dashboard/unified-analytics/", 
-            "text": "window.location = \"/pages/dashboard/people-based-attribution\"\n\n\n\nRedirecting", 
+            "location": "/pages/dashboard/people-based-attribution/", 
+            "text": "People-Based Attribution\n\n\n\n\nCompleting Dashboard Migration on June 25th \n\n\nOn June 25th, 2018, the new dashboard powered by People-Based Attribution will come out of beta. All Branch analytics views will be automatically migrated over to the revamped dashboard. You will no longer be able to switch back to the legacy view of the Branch dashboard after this date. The vast majority of Branch partners are already using the new dashboard and can disregard this notice.\n\n\n\n\nOverview\n\n\nBranch is introducing a new and improved analytics platform for you to preview.\n\n\nWhile the most visible impact of this change is our new and visually improved Summary Graph, it is important to understand that we have fundamentally changed the underlying model we use for counting events. This is the result of consistent feedback from Branch partners who have requested we provide deeper insights and clarity around campaigns powered by Branch links. As you want to understand the events associated with clicks on Branch links beyond the course of one user session and across all types of Branch links, we developed a new attribution engine to accurately attribute user events across interaction platforms and across channels.\n\n\nThe biggest change is that we decoupled deep linking and attribution. Now you can measure the impact of events that are not directly associated with the user session in which the click occurred and this means you will now see different numbers on your Branch dashboard.\n\n\nIn some cases, a user may click a link and only open the app several hours or days later. With this new analytics platform, we are still able to attribute both the open and any subsequent events, even though we did not deep link the user.\nAlso and from now on, anytime you analyze data in the Branch dashboard, or export it out, you will see consistency in naming across all our reports and products, for all events.\n\n\nThis document highlights each of the section where you can expect to see differences between our old analytics and new People-Based Attribution.\n\n\n\n\nNo changes required\n\n\nWe've changed the entire back-end of analytics without requiring any code or implementation changes on your end.\n\n\n\n\nData Mapping\n\n\nFrom now, Branch provides you a well defined standard to keep track of and categorize events.\n\n\nThis is different than previous behavior from when you integrated the Branch SDK. Once you created and clicked links, we automatically tracked clicks, installs, opens, and web session starts and pageviews (if you installed the web SDK). If you enabled Deepviews or Journeys, we counted clicks when a click didn't actually occur, such as when a Deepview displayed, a Journey automatically opened the app without any physical click. This caused confusion on our dashboard, as users would noticed clicks occurring without anyone ever clicking a link! Fortunately, thanks to a well-defined standard and categorization of events, this will no longer be the case.\n\n\nBelow is the new classification of events. Think of when you track when a user adds payment info, and initiates a purchase, and finally completes a purchase: those are all \ncommerce\n events. Similarly, we now have \ncontent\n events and \nuser lifecycle\n events.\n\n\n\n\nimpression\n\n\nclick\n\n\nBranch CTA view\n\n\nweb to app auto redirect\n\n\nSMS sent\n\n\ninstall\n\n\nopen\n\n\nreinstall\n\n\npageview\n\n\nweb session start\n\n\ncommerce event\n\n\ncontent event\n\n\nuser lifecycle event\n\n\ncustom event\n\n\n\n\nWhat's changed?\n\n\nDeep Linking\n\n\nThe biggest change is the analytics associated with deep linking. Previously, when a user clicked your Branch links, and installed within a two hour window, they were deep linked \nand\n attributed. This means that their first time experience included your deep linked data, and we counted an install. If they installed four hours after clicking instead of two, they would not receive deep link data, and we would \nnot\n attribute this user's install.\n\n\nNow, we've separated this concept. Deep linking windows remain two hours, but attribution windows are adjustable. Going with the previous example, if someone clicks your link, and installs the app after 4 hours, they will \nnot\n receive deep link data, but will be counted as an install.\n\n\nNote: no code changes are needed, and if you want to change the deep linking window, you can do so. Read the \nattribution window\n section for more information.\n\n\nAttribution Windows\n\n\nNow that deep linking and attribution analytics are separate, we have attribution windows for analytics. As a reminder, an attribution window simply defines the window of time for  when an eligible attribution or deep link can occur. In order to make changes, navigate to the \nlink settings\n page, and scroll down to \"Attribution Window\".\n\n\n\n\n\n\n\n\nDeep Linking Duration\n refers to the duration of time someone is eligible to receive deep link data. This includes anyone clicking a Branch link, or being automatically redirected to the app through a Branch Web SDK call. Measured in minutes.\n\n\n\n\n\n\nClick to x\n refers to events that occur after someone clicks a Branch link. If someone clicks and installs from a link, and comes back 10 days later to purchase, we would count that as a conversion, and it would surface in our dashboard. Measured in days.\n\n\n\n\n\n\nImpression to x\n refers to events that occur after someone views a Branch impression link. Measured in days.\n\n\n\n\n\n\nUsing the default value of 2 hours for deep linking and attribution under the old system, and 2 hours for deep linking with 7 days for install attribution, here's what you can expect.\n\n\n\n\n\nUnique behavior\n\n\nWe now default every visualization in the dashboard to be unique. This means that if you are testing Branch links, and click a link 5 times, we will display that as one click. This applies to events as well. This applies to all events, as well.\n\n\nSelect visualizations also allow you to see total (i.e. non-unique) numbers as well. If you'd like to see total numbers on a visualization that does not support it, you can also export raw data.\n\n\nChanges to the Branch Dashboard\n\n\nBranch Summary Analytics\n\n\nThis section covers the changes found on the main page of the Branch \ndashboard\n.  \n\n\nInstall Summary Section\n\n\nThis is the first chart found on the main page. This chart surfaces install counts for your app using the new People-Based Analytics.\n\n\n\n\nold\n\n\n\n\nnew\n\n\nChanges\n\n\nWe've removed the pie chart from the old visualizations; this is simply removing a chart, not removing any data. You can see the same breakdowns by campaign, channel, etc on the new install summary chart, making the pie chart redundant. (See also this article on why \npie charts\n are misleading.)\n\n\nThis new install summary chart by default shows Branch only installs, that are powered by the new attribution \nwindows\n. If you want to see all installs, and not just Branch driven installs, simply click \nShow All Installs\n. You will likely notice a higher number of installs driven by Branch--this is because we have a bigger window to count an install.\n\n\nFiltering is improved on this chart, as you can add additional query logic by clicking \nAdd Compare\n and \nAdd Filter\n. Previously, you could only filter by one dimension, and now you can filter with more dimensions, with more comparisons.\n\n\nClick Flow Section\n\n\nThis section is visually the same, but different in terms of \nhow\n clicks are tracked. First, we only track unique person clicks, so if you click the same link on your device 5 times, this chart will only reflect one click. Mobile deepview views or SMS sents do not count as clicks in this chart.\n\n\nQuick Link Analytics\n\n\nJust like click flow analytics, this section is visually the same, but clicks are tracked differently. These clicks are tracked by unique counts, and follow the model where only a click is counted when someone physically taps a link. Mobile deepview views or SMS sents do not count as clicks in this chart. The data can be exported.\n\n\nSource Analytics\n\n\nVisually, you will see the query selector that is present on Install Summary. This is the same component, and it will let you drill down and add filtering logic across all events, not just installs. This data is unique as well, and can be exported.\n\n\nJourneys\n\n\nJourneys data has also changed substantially. Previously, Journeys only included paid Journeys. Now it includes all of our Web SDK's web-to-app offerings. So it also includes analytics from the .banner() and .deepview() functions.\n\n\nUniversal Ads\n\n\nUniversal Ads were introduced using the new People-Based Analytics platform, so there is no expected change. The data is unique as well, and can be exported.\n\n\nChanges to exported data\n\n\nLiveview\n\n\nLiveview hasn't changed much, but we've introduced an improved CSV export that reflects these new data models.\n\n\nData Integrations\n\n\nData Integrations now mirrors the UI of our ads flow. The data we send is also utilizing the new mechanism of attribution, meaning we will send data within a proper attribution window instead of the same session. This means more of your attributed data will make it across automatically.\n\n\nWebhooks\n\n\nWebhooks, like data integratons, is no longer session based. This means we will send more webhooks to you automatically. This update hasn't completed yet.\n\n\nFAQ\n\n\nData Speed\n\n\nThis new People-Based Analytics platform introduces a slight delay compared to the old dashboard analytics, and it may now take a few minutes for events to appear. We're continually improving the speed and plan to significantly decrease the delay in Q1 2018.\n\n\nUnique Counts\n\n\nOne thing to be aware of is that unique counts may be within a 4% window of error across the dashboard. For example, if you have 100 total clicks, and 90 were truly unique, it's possible that the dashboard could report within 4% of that 90 number. If you want true uniques, you can export raw data and de-dupe across events.\n\n\nDiffering Installs\n\n\nAs part of People-Based Attribution, your install numbers will likely not line up one to one. What this means is that if you see 200 Branch driven installs on the old Analytics Platform, it's ok to see 190 Branch driven installs (or even 210) on the same day. This is due to the way we have fundamentally changed the way we count attributions. \n\n\nSome installs on the old analytics platform were actually \"reinstalls\", but were not counted as such, which would be one reason why installs are lower. Some campaigns will count higher installs, because they may be clicked on a variety of browsers and platforms, and Branch is able to connect those touch points to accurately count an install.\n\n\nIf the difference in numbers is still concerning, reach out to your Branch account manager, or send us a message at \n\n\nA word about tags\n\n\nWhen you filter by tags and compare on tags, you may see something a bit unexpected. Here's an example:\n\n\n\n\nHere you'll see that even though we've filtered for only one tag, '201804082343', multiple tags are present on the graph. This is because links can have multiple tags. So in this example, there were 7 installs on 04/09 that were attributed to a link click with tag '201804082343'. Within those installs, 4 had tag 'Android' as well, and so on.\n\n\nNew Dashboard Accounts\n\n\nAccounts created on or after December 15th, 2017 (UTC time zone) will run exclusively on the People-Based Attribution platform.\n\n\nSupport\n\n\nDiscrepancies\n\n\nSDK Version\n\n\nWhile different install numbers are to be expected, there may be some discrepancies not related to the new attribution platform counting methodologies. You may notice numbers are off if you are on version 0.12.4 or below on the iOS SDK. If that is the case, please upgrade to the latest version of the SDK, or at least 0.12.5. There is no cut off for Android.", 
             "title": "New Dashboard Analytics"
         }, 
         {
-            "location": "/pages/dashboard/unified-analytics/#redirecting", 
+            "location": "/pages/dashboard/people-based-attribution/#people-based-attribution", 
+            "text": "Completing Dashboard Migration on June 25th   On June 25th, 2018, the new dashboard powered by People-Based Attribution will come out of beta. All Branch analytics views will be automatically migrated over to the revamped dashboard. You will no longer be able to switch back to the legacy view of the Branch dashboard after this date. The vast majority of Branch partners are already using the new dashboard and can disregard this notice.", 
+            "title": "People-Based Attribution"
+        }, 
+        {
+            "location": "/pages/dashboard/people-based-attribution/#overview", 
+            "text": "Branch is introducing a new and improved analytics platform for you to preview.  While the most visible impact of this change is our new and visually improved Summary Graph, it is important to understand that we have fundamentally changed the underlying model we use for counting events. This is the result of consistent feedback from Branch partners who have requested we provide deeper insights and clarity around campaigns powered by Branch links. As you want to understand the events associated with clicks on Branch links beyond the course of one user session and across all types of Branch links, we developed a new attribution engine to accurately attribute user events across interaction platforms and across channels.  The biggest change is that we decoupled deep linking and attribution. Now you can measure the impact of events that are not directly associated with the user session in which the click occurred and this means you will now see different numbers on your Branch dashboard.  In some cases, a user may click a link and only open the app several hours or days later. With this new analytics platform, we are still able to attribute both the open and any subsequent events, even though we did not deep link the user.\nAlso and from now on, anytime you analyze data in the Branch dashboard, or export it out, you will see consistency in naming across all our reports and products, for all events.  This document highlights each of the section where you can expect to see differences between our old analytics and new People-Based Attribution.   No changes required  We've changed the entire back-end of analytics without requiring any code or implementation changes on your end.", 
+            "title": "Overview"
+        }, 
+        {
+            "location": "/pages/dashboard/people-based-attribution/#data-mapping", 
+            "text": "From now, Branch provides you a well defined standard to keep track of and categorize events.  This is different than previous behavior from when you integrated the Branch SDK. Once you created and clicked links, we automatically tracked clicks, installs, opens, and web session starts and pageviews (if you installed the web SDK). If you enabled Deepviews or Journeys, we counted clicks when a click didn't actually occur, such as when a Deepview displayed, a Journey automatically opened the app without any physical click. This caused confusion on our dashboard, as users would noticed clicks occurring without anyone ever clicking a link! Fortunately, thanks to a well-defined standard and categorization of events, this will no longer be the case.  Below is the new classification of events. Think of when you track when a user adds payment info, and initiates a purchase, and finally completes a purchase: those are all  commerce  events. Similarly, we now have  content  events and  user lifecycle  events.   impression  click  Branch CTA view  web to app auto redirect  SMS sent  install  open  reinstall  pageview  web session start  commerce event  content event  user lifecycle event  custom event", 
+            "title": "Data Mapping"
+        }, 
+        {
+            "location": "/pages/dashboard/people-based-attribution/#whats-changed", 
             "text": "", 
-            "title": "Redirecting"
+            "title": "What's changed?"
+        }, 
+        {
+            "location": "/pages/dashboard/people-based-attribution/#deep-linking", 
+            "text": "The biggest change is the analytics associated with deep linking. Previously, when a user clicked your Branch links, and installed within a two hour window, they were deep linked  and  attributed. This means that their first time experience included your deep linked data, and we counted an install. If they installed four hours after clicking instead of two, they would not receive deep link data, and we would  not  attribute this user's install.  Now, we've separated this concept. Deep linking windows remain two hours, but attribution windows are adjustable. Going with the previous example, if someone clicks your link, and installs the app after 4 hours, they will  not  receive deep link data, but will be counted as an install.  Note: no code changes are needed, and if you want to change the deep linking window, you can do so. Read the  attribution window  section for more information.", 
+            "title": "Deep Linking"
+        }, 
+        {
+            "location": "/pages/dashboard/people-based-attribution/#attribution-windows", 
+            "text": "Now that deep linking and attribution analytics are separate, we have attribution windows for analytics. As a reminder, an attribution window simply defines the window of time for  when an eligible attribution or deep link can occur. In order to make changes, navigate to the  link settings  page, and scroll down to \"Attribution Window\".     Deep Linking Duration  refers to the duration of time someone is eligible to receive deep link data. This includes anyone clicking a Branch link, or being automatically redirected to the app through a Branch Web SDK call. Measured in minutes.    Click to x  refers to events that occur after someone clicks a Branch link. If someone clicks and installs from a link, and comes back 10 days later to purchase, we would count that as a conversion, and it would surface in our dashboard. Measured in days.    Impression to x  refers to events that occur after someone views a Branch impression link. Measured in days.    Using the default value of 2 hours for deep linking and attribution under the old system, and 2 hours for deep linking with 7 days for install attribution, here's what you can expect.", 
+            "title": "Attribution Windows"
+        }, 
+        {
+            "location": "/pages/dashboard/people-based-attribution/#unique-behavior", 
+            "text": "We now default every visualization in the dashboard to be unique. This means that if you are testing Branch links, and click a link 5 times, we will display that as one click. This applies to events as well. This applies to all events, as well.  Select visualizations also allow you to see total (i.e. non-unique) numbers as well. If you'd like to see total numbers on a visualization that does not support it, you can also export raw data.", 
+            "title": "Unique behavior"
+        }, 
+        {
+            "location": "/pages/dashboard/people-based-attribution/#changes-to-the-branch-dashboard", 
+            "text": "", 
+            "title": "Changes to the Branch Dashboard"
+        }, 
+        {
+            "location": "/pages/dashboard/people-based-attribution/#branch-summary-analytics", 
+            "text": "This section covers the changes found on the main page of the Branch  dashboard .", 
+            "title": "Branch Summary Analytics"
+        }, 
+        {
+            "location": "/pages/dashboard/people-based-attribution/#install-summary-section", 
+            "text": "This is the first chart found on the main page. This chart surfaces install counts for your app using the new People-Based Analytics.   old   new  Changes  We've removed the pie chart from the old visualizations; this is simply removing a chart, not removing any data. You can see the same breakdowns by campaign, channel, etc on the new install summary chart, making the pie chart redundant. (See also this article on why  pie charts  are misleading.)  This new install summary chart by default shows Branch only installs, that are powered by the new attribution  windows . If you want to see all installs, and not just Branch driven installs, simply click  Show All Installs . You will likely notice a higher number of installs driven by Branch--this is because we have a bigger window to count an install.  Filtering is improved on this chart, as you can add additional query logic by clicking  Add Compare  and  Add Filter . Previously, you could only filter by one dimension, and now you can filter with more dimensions, with more comparisons.", 
+            "title": "Install Summary Section"
+        }, 
+        {
+            "location": "/pages/dashboard/people-based-attribution/#click-flow-section", 
+            "text": "This section is visually the same, but different in terms of  how  clicks are tracked. First, we only track unique person clicks, so if you click the same link on your device 5 times, this chart will only reflect one click. Mobile deepview views or SMS sents do not count as clicks in this chart.", 
+            "title": "Click Flow Section"
+        }, 
+        {
+            "location": "/pages/dashboard/people-based-attribution/#quick-link-analytics", 
+            "text": "Just like click flow analytics, this section is visually the same, but clicks are tracked differently. These clicks are tracked by unique counts, and follow the model where only a click is counted when someone physically taps a link. Mobile deepview views or SMS sents do not count as clicks in this chart. The data can be exported.", 
+            "title": "Quick Link Analytics"
+        }, 
+        {
+            "location": "/pages/dashboard/people-based-attribution/#source-analytics", 
+            "text": "Visually, you will see the query selector that is present on Install Summary. This is the same component, and it will let you drill down and add filtering logic across all events, not just installs. This data is unique as well, and can be exported.", 
+            "title": "Source Analytics"
+        }, 
+        {
+            "location": "/pages/dashboard/people-based-attribution/#journeys", 
+            "text": "Journeys data has also changed substantially. Previously, Journeys only included paid Journeys. Now it includes all of our Web SDK's web-to-app offerings. So it also includes analytics from the .banner() and .deepview() functions.", 
+            "title": "Journeys"
+        }, 
+        {
+            "location": "/pages/dashboard/people-based-attribution/#universal-ads", 
+            "text": "Universal Ads were introduced using the new People-Based Analytics platform, so there is no expected change. The data is unique as well, and can be exported.", 
+            "title": "Universal Ads"
+        }, 
+        {
+            "location": "/pages/dashboard/people-based-attribution/#changes-to-exported-data", 
+            "text": "", 
+            "title": "Changes to exported data"
+        }, 
+        {
+            "location": "/pages/dashboard/people-based-attribution/#liveview", 
+            "text": "Liveview hasn't changed much, but we've introduced an improved CSV export that reflects these new data models.", 
+            "title": "Liveview"
+        }, 
+        {
+            "location": "/pages/dashboard/people-based-attribution/#data-integrations", 
+            "text": "Data Integrations now mirrors the UI of our ads flow. The data we send is also utilizing the new mechanism of attribution, meaning we will send data within a proper attribution window instead of the same session. This means more of your attributed data will make it across automatically.", 
+            "title": "Data Integrations"
+        }, 
+        {
+            "location": "/pages/dashboard/people-based-attribution/#webhooks", 
+            "text": "Webhooks, like data integratons, is no longer session based. This means we will send more webhooks to you automatically. This update hasn't completed yet.", 
+            "title": "Webhooks"
+        }, 
+        {
+            "location": "/pages/dashboard/people-based-attribution/#faq", 
+            "text": "", 
+            "title": "FAQ"
+        }, 
+        {
+            "location": "/pages/dashboard/people-based-attribution/#data-speed", 
+            "text": "This new People-Based Analytics platform introduces a slight delay compared to the old dashboard analytics, and it may now take a few minutes for events to appear. We're continually improving the speed and plan to significantly decrease the delay in Q1 2018.", 
+            "title": "Data Speed"
+        }, 
+        {
+            "location": "/pages/dashboard/people-based-attribution/#unique-counts", 
+            "text": "One thing to be aware of is that unique counts may be within a 4% window of error across the dashboard. For example, if you have 100 total clicks, and 90 were truly unique, it's possible that the dashboard could report within 4% of that 90 number. If you want true uniques, you can export raw data and de-dupe across events.", 
+            "title": "Unique Counts"
+        }, 
+        {
+            "location": "/pages/dashboard/people-based-attribution/#differing-installs", 
+            "text": "As part of People-Based Attribution, your install numbers will likely not line up one to one. What this means is that if you see 200 Branch driven installs on the old Analytics Platform, it's ok to see 190 Branch driven installs (or even 210) on the same day. This is due to the way we have fundamentally changed the way we count attributions.   Some installs on the old analytics platform were actually \"reinstalls\", but were not counted as such, which would be one reason why installs are lower. Some campaigns will count higher installs, because they may be clicked on a variety of browsers and platforms, and Branch is able to connect those touch points to accurately count an install.  If the difference in numbers is still concerning, reach out to your Branch account manager, or send us a message at", 
+            "title": "Differing Installs"
+        }, 
+        {
+            "location": "/pages/dashboard/people-based-attribution/#a-word-about-tags", 
+            "text": "When you filter by tags and compare on tags, you may see something a bit unexpected. Here's an example:   Here you'll see that even though we've filtered for only one tag, '201804082343', multiple tags are present on the graph. This is because links can have multiple tags. So in this example, there were 7 installs on 04/09 that were attributed to a link click with tag '201804082343'. Within those installs, 4 had tag 'Android' as well, and so on.", 
+            "title": "A word about tags"
+        }, 
+        {
+            "location": "/pages/dashboard/people-based-attribution/#new-dashboard-accounts", 
+            "text": "Accounts created on or after December 15th, 2017 (UTC time zone) will run exclusively on the People-Based Attribution platform.", 
+            "title": "New Dashboard Accounts"
+        }, 
+        {
+            "location": "/pages/dashboard/people-based-attribution/#support", 
+            "text": "", 
+            "title": "Support"
+        }, 
+        {
+            "location": "/pages/dashboard/people-based-attribution/#discrepancies", 
+            "text": "", 
+            "title": "Discrepancies"
+        }, 
+        {
+            "location": "/pages/dashboard/people-based-attribution/#sdk-version", 
+            "text": "While different install numbers are to be expected, there may be some discrepancies not related to the new attribution platform counting methodologies. You may notice numbers are off if you are on version 0.12.4 or below on the iOS SDK. If that is the case, please upgrade to the latest version of the SDK, or at least 0.12.5. There is no cut off for Android.", 
+            "title": "SDK Version"
         }, 
         {
             "location": "/pages/dashboard/timezone/", 
@@ -10537,22 +10672,22 @@
         }, 
         {
             "location": "/pages/deep-linked-ads/url_params/", 
-            "text": "Bracnh Tracking links allows to track many paramemers about performance you ad campaign and ads. Additional parameters for advanced analysis may be added to the link after the '?' character, to trace extra information. \n\n\nTracking Link Parameters\n\n\nThe following parameters are available to use within the generated tracking link:\n\n\nCampaign Info\n\n\n\n\n\n\n\n\nBranch Parameter\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\n~agency\n\n\nAgency name\n\n\n\n\n\n\n~secondary_publisher\n\n\nSub Publisher\n\n\n\n\n\n\n~campaign\n\n\nCampaign name\n\n\n\n\n\n\n~campaign_id\n\n\nCampaign ID\n\n\n\n\n\n\n~channel\n\n\nChannel\n\n\n\n\n\n\n~feature\n\n\nFeature\n\n\n\n\n\n\n~stage\n\n\nStage\n\n\n\n\n\n\n~tags\n\n\nTags\n\n\n\n\n\n\n~creative_name\n\n\nCreative name\n\n\n\n\n\n\n~creative_id\n\n\nCreative ID\n\n\n\n\n\n\n~ad_set_name\n\n\nAd set name\n\n\n\n\n\n\n~ad_set_id\n\n\nAd set ID\n\n\n\n\n\n\n~ad_name\n\n\nAd unit name\n\n\n\n\n\n\n~ad_id\n\n\nAd unit ID\n\n\n\n\n\n\n~banner_dimensions\n\n\nBanner Dimension\n\n\n\n\n\n\n~placement\n\n\nPlacement\n\n\n\n\n\n\n~keyword_id\n\n\nKeyword ID\n\n\n\n\n\n\n\n\nSpend Calculation\n\n\n\n\n\n\n\n\nBranch Parameter\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\n~cost_model\n\n\nCost Model\n\n\n\n\n\n\n~cost_value\n\n\nCost Value\n\n\n\n\n\n\n~cost_currency\n\n\nCost Currency\n\n\n\n\n\n\n\n\n\n\nTracking link with additional parameters\n\n\nHere is the example how to pass Agency and SubPublisher info with Tracking link:\n\nhttps://tracking.app.link?~agency=myAgency\n~secondary_publisher=best_publisher", 
+            "text": "Branch Tracking links allow tracking many parameters about the performance of your ad campaigns and individual ads. Additional parameters for advanced analysis may be added to the link after the '?' or '\n' character, to trace extra information. \n\n\nTracking Link Parameters\n\n\nThe following parameters are available to use within the pre-generated tracking link:\n\n\nCampaign Information\n\n\n\n\n\n\n\n\nBranch Parameter\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\n~agency\n\n\nAgency name\n\n\n\n\n\n\n~secondary_publisher\n\n\nSub Publisher\n\n\n\n\n\n\n~campaign\n\n\nCampaign name\n\n\n\n\n\n\n~campaign_id\n\n\nCampaign ID\n\n\n\n\n\n\n~channel\n\n\nChannel\n\n\n\n\n\n\n~feature\n\n\nFeature\n\n\n\n\n\n\n~stage\n\n\nStage\n\n\n\n\n\n\n~tags\n\n\nTags\n\n\n\n\n\n\n~creative_name\n\n\nCreative name\n\n\n\n\n\n\n~creative_id\n\n\nCreative ID\n\n\n\n\n\n\n~ad_set_name\n\n\nAd set name\n\n\n\n\n\n\n~ad_set_id\n\n\nAd set ID\n\n\n\n\n\n\n~ad_name\n\n\nAd unit name\n\n\n\n\n\n\n~ad_id\n\n\nAd unit ID\n\n\n\n\n\n\n~banner_dimensions\n\n\nBanner Dimension\n\n\n\n\n\n\n~placement\n\n\nPlacement\n\n\n\n\n\n\n~keyword_id\n\n\nKeyword ID\n\n\n\n\n\n\n\n\nSpend Calculation\n\n\n\n\n\n\n\n\nBranch Parameter\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\n~cost_model\n\n\nCost Model\n\n\n\n\n\n\n~cost_value\n\n\nCost Value\n\n\n\n\n\n\n~cost_currency\n\n\nCost Currency\n\n\n\n\n\n\n\n\n\n\nTracking link with additional parameters\n\n\nHere is the example how to pass Agency and Sub Publisher with Tracking link:\n\nhttps://tracking.app.link?~agency=myAgency\n~secondary_publisher=best_publisher", 
             "title": "Tracking Link Parameters"
         }, 
         {
             "location": "/pages/deep-linked-ads/url_params/#tracking-link-parameters", 
-            "text": "The following parameters are available to use within the generated tracking link:", 
+            "text": "The following parameters are available to use within the pre-generated tracking link:", 
             "title": "Tracking Link Parameters"
         }, 
         {
-            "location": "/pages/deep-linked-ads/url_params/#campaign-info", 
+            "location": "/pages/deep-linked-ads/url_params/#campaign-information", 
             "text": "Branch Parameter  Description      ~agency  Agency name    ~secondary_publisher  Sub Publisher    ~campaign  Campaign name    ~campaign_id  Campaign ID    ~channel  Channel    ~feature  Feature    ~stage  Stage    ~tags  Tags    ~creative_name  Creative name    ~creative_id  Creative ID    ~ad_set_name  Ad set name    ~ad_set_id  Ad set ID    ~ad_name  Ad unit name    ~ad_id  Ad unit ID    ~banner_dimensions  Banner Dimension    ~placement  Placement    ~keyword_id  Keyword ID", 
-            "title": "Campaign Info"
+            "title": "Campaign Information"
         }, 
         {
             "location": "/pages/deep-linked-ads/url_params/#spend-calculation", 
-            "text": "Branch Parameter  Description      ~cost_model  Cost Model    ~cost_value  Cost Value    ~cost_currency  Cost Currency      Tracking link with additional parameters  Here is the example how to pass Agency and SubPublisher info with Tracking link: https://tracking.app.link?~agency=myAgency ~secondary_publisher=best_publisher", 
+            "text": "Branch Parameter  Description      ~cost_model  Cost Model    ~cost_value  Cost Value    ~cost_currency  Cost Currency      Tracking link with additional parameters  Here is the example how to pass Agency and Sub Publisher with Tracking link: https://tracking.app.link?~agency=myAgency ~secondary_publisher=best_publisher", 
             "title": "Spend Calculation"
         }
     ]
