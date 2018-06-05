@@ -1392,6 +1392,19 @@
     Integrate the mobile SDKs
   </a>
   
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#add-your-click-tracking-domain-to-your-associated-domains" title="Add your click tracking domain to your Associated Domains" class="md-nav__link">
+    Add your click tracking domain to your Associated Domains
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
         
           <li class="md-nav__item">
@@ -2525,6 +2538,19 @@
     Integrate the mobile SDKs
   </a>
   
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#add-your-click-tracking-domain-to-your-associated-domains" title="Add your click tracking domain to your Associated Domains" class="md-nav__link">
+    Add your click tracking domain to your Associated Domains
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
         
           <li class="md-nav__item">
@@ -2602,6 +2628,26 @@
 - <a href="https://docs.branch.io/pages/apps/ios/">iOS</a>
 - <a href="https://docs.branch.io/pages/apps/android/">Android</a></p>
 <p>Contact your Branch Account Manager or <a href="mailto:accounts@branch.io">accounts@branch.io</a> at any time for assistance with the setup steps.</p>
+<h4 id="add-your-click-tracking-domain-to-your-associated-domains">Add your click tracking domain to your Associated Domains<a class="headerlink" href="#add-your-click-tracking-domain-to-your-associated-domains" title="Permanent link">&para;</a></h4>
+<p>To enable Universal Links on your click tracking domain, you'll need to add the click tracking domain to your Associated Domains entitlement.</p>
+<ol>
+<li>In Xcode, go to the <code>Capabilities</code> tab of your project file.</li>
+<li>
+<p>Scroll down and enable <code>Associated Domains</code> if it is not already enabled.</p>
+<p><img alt="image" src="../../../img/pages/email/enable-associated-domains.png" /></p>
+</li>
+<li>
+<p>Copy your click tracking domain from the <a href="#configure-your-app-for-your-click-tracking-domain">email you received from Branch</a>, or retrieve it from your ESP's settings.</p>
+</li>
+<li>
+<p>In the <code>Domains</code> section, click the <code>+</code> icon and add your click tracking domain. For example, if your click tracking domain is <code>email.example.com</code>, add an entry for <code>applinks:email.example.com</code>.</p>
+<p><img alt="image" src="../../../img/pages/email/add-domain.png" /></p>
+</li>
+</ol>
+<div class="admonition protip">
+<p class="admonition-title">Having trouble or new to Universal Links?</p>
+<p>Follow <a href="../../../pages/deep-linking/universal-links/">these instructions</a> for more details on enabling Universal Links in the Branch dashboard and in Xcode.</p>
+</div>
 <h3 id="add-the-deep-link-handler-to-the-mobile-app">Add the deep link handler to the mobile app<a class="headerlink" href="#add-the-deep-link-handler-to-the-mobile-app" title="Permanent link">&para;</a></h3>
 <p><strong>iOS:</strong> Add the following code inside the <code>deepLinkHandler</code> code block in <code>application:didFinishLaunchingWithOptions</code></p>
 <div class="codehilite"><pre><span></span><span class="p">[</span><span class="n">branch</span> <span class="nl">registerFacebookDeepLinkingClass</span><span class="p">:[</span><span class="n">FBSDKAppLinkUtility</span> <span class="k">class</span><span class="p">]];</span>
