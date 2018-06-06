@@ -1173,8 +1173,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#enable-integration-with-jampp" title="Enable integration with Jampp" class="md-nav__link">
-    Enable integration with Jampp
+  <a href="#enable-the-integration" title="Enable the integration" class="md-nav__link">
+    Enable the integration
   </a>
   
 </li>
@@ -1228,9 +1228,50 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#send-allattributed-events" title="Send All/Attributed events" class="md-nav__link">
+    Send All/Attributed events
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#edit-postbacks" title="Edit postbacks" class="md-nav__link">
     Edit postbacks
   </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tracking-link-parameters" title="Tracking Link Parameters" class="md-nav__link">
+    Tracking Link Parameters
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#campaign-information" title="Campaign Information" class="md-nav__link">
+    Campaign Information
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#device-information" title="Device Information" class="md-nav__link">
+    Device Information
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#spend-calculation" title="Spend Calculation" class="md-nav__link">
+    Spend Calculation
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
         
@@ -2591,8 +2632,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#enable-integration-with-jampp" title="Enable integration with Jampp" class="md-nav__link">
-    Enable integration with Jampp
+  <a href="#enable-the-integration" title="Enable the integration" class="md-nav__link">
+    Enable the integration
   </a>
   
 </li>
@@ -2646,9 +2687,50 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#send-allattributed-events" title="Send All/Attributed events" class="md-nav__link">
+    Send All/Attributed events
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#edit-postbacks" title="Edit postbacks" class="md-nav__link">
     Edit postbacks
   </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tracking-link-parameters" title="Tracking Link Parameters" class="md-nav__link">
+    Tracking Link Parameters
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#campaign-information" title="Campaign Information" class="md-nav__link">
+    Campaign Information
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#device-information" title="Device Information" class="md-nav__link">
+    Device Information
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#spend-calculation" title="Spend Calculation" class="md-nav__link">
+    Spend Calculation
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
         
@@ -2739,12 +2821,13 @@
                   <h1>Jampp</h1>
                 
                 <h2 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">&para;</a></h2>
-<p>Track your <a href="https://jampp.com/">Jampp</a> campaigns using Universal Ads. Universal Ads provides everything you need for complete tracking.</p>
-<p>The basic Jampp integration involves three parts:</p>
+<p>This guide will walk you through how to setup your campaigns with <strong><a href="https://jampp.com/">Jampp</a></strong> using Branch Universal Ads and track ad conversions across <strong>every device, platform, and channel</strong>. </p>
+<p>Branch Universal Ads provides everything you need for complete tracking.</p>
+<p>The basic integration involves three parts:</p>
 <ol>
 <li>Integrating the SDKs and tracking in-app events</li>
 <li>Enabling the integration and selecting postbacks</li>
-<li>Creating tracking links</li>
+<li>Creating tracking link</li>
 </ol>
 <h2 id="setup">Setup<a class="headerlink" href="#setup" title="Permanent link">&para;</a></h2>
 <h3 id="integrating-the-sdks-and-tracking-in-app-events">Integrating the SDKs and tracking in-app events<a class="headerlink" href="#integrating-the-sdks-and-tracking-in-app-events" title="Permanent link">&para;</a></h3>
@@ -2764,36 +2847,40 @@
 </div>
 <h4 id="track-conversion-events">Track conversion events<a class="headerlink" href="#track-conversion-events" title="Permanent link">&para;</a></h4>
 <p>Install and open events are automatically tracked using just the Branch SDK integration. However, to track custom events, such as registration or purchase, you will need to integrate them into your application.</p>
+<div class="admonition warning">
+<p class="admonition-title">Sending event metadata from your application</p>
+<p>Please make sure that you setup and pass event metadata from the application to the ad partner. Follow up with your ad partner to get the list of requred parameters.</p>
+</div>
 <p>Please reference the general <a href="../../../pages/apps/v2event/#overview">V2 Event Tracking Guide</a>. This will help ensure that you've integrated the right Branch events with the correct metadata.</p>
 <div class="admonition note">
 <p class="admonition-title">Testing your events with Liveview</p>
 <p>You can test your integration by going to our <a href="https://dashboard.branch.io/liveview/events" target="_blank">Liveview page</a>. Set a filter with the event name to verify that the Branch SDK is recording each event</p>
 </div>
-<h3 id="enable-integration-with-jampp">Enable integration with Jampp<a class="headerlink" href="#enable-integration-with-jampp" title="Permanent link">&para;</a></h3>
+<h3 id="enable-the-integration">Enable the integration<a class="headerlink" href="#enable-the-integration" title="Permanent link">&para;</a></h3>
 <ol>
 <li>Visit the <a href="https://dashboard.branch.io/ads">Ads page</a> on the Branch dashboard.</li>
 <li>Select <a href="https://dashboard.branch.io/ads/partner-management">Partner Management</a> from the sidebar.</li>
-<li>Search for Jampp</li>
+<li>Search for your ad partner</li>
 </ol>
-<p><img alt="image" src="../../../img/pages/deep-linked-ads/jampp/jampp1.png" /></p>
+<p><img alt="image" src="../../../img/pages/deep-linked-ads/jampp/jampp_enable.png" /></p>
 <div class="admonition tip">
 <p class="admonition-title">Enable postbacks</p>
 <p>Basic postbacks will automatically be activated for events like <em>Install</em> and <em>Purchase</em> when you enable your ad partner. You can then <a href="#adding-more-postbacks">add additional postbacks</a>, for example, if you wanted to add postbacks for custom events that are specific to your app like <em>Account Created</em>. You can also <a href="#advanced-editing-postbacks">edit postbacks</a> if there's additional data you really need to pass along to your ad partner.</p>
 </div>
 <h3 id="create-an-ad-link">Create an ad link<a class="headerlink" href="#create-an-ad-link" title="Permanent link">&para;</a></h3>
-<p>Once you've enabled an integration with Jampp, it's time to create a tracking link.</p>
+<p>Once you've enabled an integration it's time to create a tracking link.</p>
 <ol>
 <li>
 <p>First, select an ad format. For App Install or App Engagement campaigns you'll want to select the <strong>App Only</strong> format. For Search or Display campaigns where the user should go to web if they don't have the app, then you should select <strong>Cross-Platform Search</strong> or <strong>Cross-Platform Display</strong>. <strong>Product Links</strong> are for shopping or dynamic remarketing campaigns and will take you to create a Deep Linked Product Feed.</p>
-<p><img alt="image" src="../../../img/pages/deep-linked-ads/jampp/jampp2.png" /></p>
+<p><img alt="image" src="../../../img/pages/deep-linked-ads/branch-universal-ads/create-link.png" /></p>
 </li>
 <li>
 <p>At this point you need to name your link. Select something that will make it easy to find if you need it later. Your Ad Format and Ad Partner should be selected already, but feel free to choose one if they aren't. It's important that you select the right Ad Partner for analytics later on. Click <strong>Configure Options</strong> to continue.</p>
-<p><img alt="image" src="../../../img/pages/deep-linked-ads/jampp/jampp3.png" /></p>
+<p><img alt="image" src="../../../img/pages/deep-linked-ads/branch-universal-ads/create-link-name.png" /></p>
 </li>
 <li>
 <p>This is your chance to add deep link data and analytics tags. Analytics tags are important for later segmentation, so click the <strong>Analytics</strong> sub tab to add a Channel and Campaign value.</p>
-<p><img alt="image" src="../../../img/pages/deep-linked-ads/jampp/jampp4.png" /></p>
+<p><img alt="image" src="../../../img/pages/deep-linked-ads/branch-universal-ads/create-link-tags.png" /></p>
 <div class="admonition tip">
 <p class="admonition-title">Set Analytics tags</p>
 <p>It's easier to slice your data in our analytics platform if you properly assign analytics parameters to your link. <em>Channels</em> generally correspond to ad networks, and <em>Campaigns</em> correspond to marketing initiatives that you're launching. For example: <em>Channel</em>: "YouTube", <em>Campaign</em>: "Summer 2017 Shoe Discounts."</p>
@@ -2801,7 +2888,11 @@
 </li>
 <li>
 <p>Click <strong>Create Link Now</strong>, and you have your tracking link! Take this link and give it to your Ad Partner's Account Manager or paste it into the tracking section of your campaign yourself.</p>
-<p><img alt="image" src="../../../img/pages/deep-linked-ads/jampp/jampp5.png" /></p>
+<p><img alt="image" src="../../../img/pages/deep-linked-ads/branch-universal-ads/create-link-completed.png" /></p>
+<div class="admonition tip">
+<p class="admonition-title">Server to server tracking links</p>
+<p>If you just need a server to server tracking link just add <code>%24s2s=true</code> at the end of your link, so we know it's a server to server link.</p>
+</div>
 </li>
 </ol>
 <h3 id="view-your-data">View Your Data<a class="headerlink" href="#view-your-data" title="Permanent link">&para;</a></h3>
@@ -2835,26 +2926,152 @@
 </div>
 <h2 id="advanced">Advanced<a class="headerlink" href="#advanced" title="Permanent link">&para;</a></h2>
 <h3 id="add-more-postbacks">Add more postbacks<a class="headerlink" href="#add-more-postbacks" title="Permanent link">&para;</a></h3>
-<p>When you enable an ad partner, your ad partner postbacks can be found under the <strong>Postbacks</strong> tab for that ad partner. It's easy to add additional postbacks.</p>
-<div class="admonition tip">
-<p class="admonition-title">Send all events<p>If you want to send <strong>All Events</strong>, not only events attributed to the partner - you can change this setting at the top if the screen.</p>
-</p>
-</div>
-<p><img alt="image" src="../../../img/pages/deep-linked-ads/jampp/jampp6.png" /></p>
 <ol>
 <li>
 <p>Click the <strong>Add New Postback</strong> button at the bottom of the screen.</p>
 </li>
 <li>
 <p>A modal will appear with Branch default events, as well as any commerce or custom events you've set up. Select an event, enter a postback URL if you're asked to, and click <strong>Save</strong>. This will be the event that triggers your new postback.</p>
-<p><img alt="image" src="../../../img/pages/deep-linked-ads/branch-universal-ads/add-new-postback-modal.png" /></p>
+<p><img alt="image" src="../../../img/pages/deep-linked-ads/branch-universal-ads/add-new-postback-modal1.png" /></p>
 </li>
 </ol>
+<h3 id="send-allattributed-events">Send All/Attributed events<a class="headerlink" href="#send-allattributed-events" title="Permanent link">&para;</a></h3>
+<p>If you want to send <strong>All Events</strong>, not only events attributed to the partner - you can change this setting  using the toggle at the top of the screen.</p>
+<p><img alt="image" src="../../../img/pages/deep-linked-ads/branch-universal-ads/all-events-toggle.png" /></p>
 <h3 id="edit-postbacks">Edit postbacks<a class="headerlink" href="#edit-postbacks" title="Permanent link">&para;</a></h3>
 <p>For advanced integrations, you may want to provide additional information in your postback that isn't there by default. You can edit postbacks by following our <a href="../../../pages/exports/ua-webhooks/#templating-your-postback-url">postback templating instructions</a>, then clicking save. The postbacks in the Universal Ads interface follow the same syntax as Webhooks in Data Feeds. When the postback is saved, it is then validated - if you enter an invalid postback, you'll get an error at the top of your screen.</p>
 <div class="admonition tip">
 <p class="admonition-title">Reset Postbacks</p>
 <p>We all make mistakes from time to time. If you need to reset your postbacks and your credentials, navigate to the <strong>Account Settings</strong> tab and look for the <strong>Reset all settings</strong> button. Be careful though! This will disable the ad partner, clear out all credentials and postbacks that you've set up, and return the ad partner to its basic configuration. You can then start afresh</p>
+</div>
+<p>Branch Tracking links allow tracking many parameters about the performance of your ad campaigns and individual ads. Additional parameters for advanced analysis may be added to the link after the '?' or '&amp;' character, to trace extra information. </p>
+<h3 id="tracking-link-parameters">Tracking Link Parameters<a class="headerlink" href="#tracking-link-parameters" title="Permanent link">&para;</a></h3>
+<p>The following parameters are available to use within the pre-generated tracking link:</p>
+<h4 id="campaign-information">Campaign Information<a class="headerlink" href="#campaign-information" title="Permanent link">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th>Branch Parameter</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>~agency</td>
+<td>Agency name</td>
+</tr>
+<tr>
+<td>~secondary_publisher</td>
+<td>Sub Publisher</td>
+</tr>
+<tr>
+<td>~campaign</td>
+<td>Campaign name</td>
+</tr>
+<tr>
+<td>~campaign_id</td>
+<td>Campaign ID</td>
+</tr>
+<tr>
+<td>~channel</td>
+<td>Channel</td>
+</tr>
+<tr>
+<td>~feature</td>
+<td>Feature</td>
+</tr>
+<tr>
+<td>~stage</td>
+<td>Stage</td>
+</tr>
+<tr>
+<td>~tags</td>
+<td>Tags</td>
+</tr>
+<tr>
+<td>~creative_name</td>
+<td>Creative name</td>
+</tr>
+<tr>
+<td>~creative_id</td>
+<td>Creative ID</td>
+</tr>
+<tr>
+<td>~ad_set_name</td>
+<td>Ad set name</td>
+</tr>
+<tr>
+<td>~ad_set_id</td>
+<td>Ad set ID</td>
+</tr>
+<tr>
+<td>~ad_name</td>
+<td>Ad unit name</td>
+</tr>
+<tr>
+<td>~ad_id</td>
+<td>Ad unit ID</td>
+</tr>
+<tr>
+<td>~banner_dimensions</td>
+<td>Banner Dimension</td>
+</tr>
+<tr>
+<td>~placement</td>
+<td>Placement</td>
+</tr>
+<tr>
+<td>~keyword_id</td>
+<td>Keyword ID</td>
+</tr>
+</tbody>
+</table>
+<h4 id="device-information">Device Information<a class="headerlink" href="#device-information" title="Permanent link">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th>Branch Parameter</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>%24aaid</td>
+<td>Apple AAID</td>
+</tr>
+<tr>
+<td>%24idfa</td>
+<td>Google IDFA</td>
+</tr>
+</tbody>
+</table>
+<h4 id="spend-calculation">Spend Calculation<a class="headerlink" href="#spend-calculation" title="Permanent link">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th>Branch Parameter</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>~cost_model</td>
+<td>Cost Model</td>
+</tr>
+<tr>
+<td>~cost_value</td>
+<td>Cost Value</td>
+</tr>
+<tr>
+<td>~cost_currency</td>
+<td>Cost Currency</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition tip">
+<p class="admonition-title">Tracking link with additional parameters</p>
+<p>Here is the example how to pass Agency and Sub Publisher with Tracking link:
+<a href="https://tracking.app.link?%243p=a_partner&amp;~agency=myAgency&amp;~secondary_publisher=best_publisher">https://tracking.app.link?%243p=a_partner&amp;~agency=myAgency&amp;~secondary_publisher=best_publisher</a></p>
 </div>
 <h3 id="change-attribution-windows">Change attribution windows<a class="headerlink" href="#change-attribution-windows" title="Permanent link">&para;</a></h3>
 <p>Attribution windows can be specified at the global account level or on a per link basis with the link level window taking priority. See the below instructions for setup.</p>
@@ -2865,7 +3082,7 @@
 <p>Learn more about account level attribution windows in <a href="../../../pages/dashboard/people-based-attribution/#attribution-windows">People-Based Attribution</a>.</p>
 <h4 id="ad-network-attribution-windows">Ad Network Attribution Windows<a class="headerlink" href="#ad-network-attribution-windows" title="Permanent link">&para;</a></h4>
 <p>You can edit your attribution windows at the ad network level, if your ad network requires it. This is recommended when you enable networks like Facebook and Google, who may have different windows for installs. With this, you can preserve your Account Level Attribution Windows, as well.</p>
-<p><img alt="image" src="../../../img/pages/deep-linked-ads/branch-universal-ads/anaw.png" /></p>
+<p><img alt="image" src="../../../img/pages/deep-linked-ads/branch-universal-ads/anaw_clear.png" /></p>
 <h4 id="link-level-attribution-windows">Link Level Attribution Windows<a class="headerlink" href="#link-level-attribution-windows" title="Permanent link">&para;</a></h4>
 <p>To set attribution windows on a link level, you can append the following parameters to your generated Branch link.</p>
 <table>
