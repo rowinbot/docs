@@ -702,29 +702,9 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#track-events" title="Track events" class="md-nav__link">
-    Track events
+  <a href="#tracking-user-actions-and-events" title="Tracking User Actions and Events" class="md-nav__link">
+    Tracking User Actions and Events
   </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#track-custom-events" title="Track custom events" class="md-nav__link">
-    Track custom events
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#store-meta-data-with-these-custom-events" title="Store meta data with these custom events" class="md-nav__link">
-    Store meta data with these custom events
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
         
@@ -3017,29 +2997,9 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#track-events" title="Track events" class="md-nav__link">
-    Track events
+  <a href="#tracking-user-actions-and-events" title="Tracking User Actions and Events" class="md-nav__link">
+    Tracking User Actions and Events
   </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#track-custom-events" title="Track custom events" class="md-nav__link">
-    Track custom events
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#store-meta-data-with-these-custom-events" title="Store meta data with these custom events" class="md-nav__link">
-    Store meta data with these custom events
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
         
@@ -3489,27 +3449,43 @@
 </ul>
 </li>
 <li>
-<h3 id="track-events">Track events<a class="headerlink" href="#track-events" title="Permanent link">&para;</a></h3>
-<ul>
-<li>
-<h5 id="track-custom-events">Track custom events<a class="headerlink" href="#track-custom-events" title="Permanent link">&para;</a></h5>
-<div class="codehilite"><pre><span></span><span class="n">Branch</span><span class="p">.</span><span class="n">userCompletedAction</span><span class="p">(</span><span class="s">&quot;your_custom_event&quot;</span><span class="p">);</span>
-</pre></div>
-
-</li>
-<li>
-<h5 id="store-meta-data-with-these-custom-events">Store meta data with these custom events<a class="headerlink" href="#store-meta-data-with-these-custom-events" title="Permanent link">&para;</a></h5>
-<div class="codehilite"><pre><span></span><span class="n">Dictionary</span><span class="p">&lt;</span><span class="kt">string</span><span class="p">,</span> <span class="kt">object</span><span class="p">&gt;</span> <span class="n">stateItems</span> <span class="p">=</span> <span class="k">new</span> <span class="n">Dictionary</span><span class="p">&lt;</span><span class="kt">string</span><span class="p">,</span> <span class="kt">object</span><span class="p">&gt;</span>
-<span class="p">{</span>
-    <span class="p">{</span> <span class="s">&quot;username&quot;</span><span class="p">,</span> <span class="s">&quot;Joe&quot;</span> <span class="p">},</span>
-    <span class="p">{</span> <span class="s">&quot;description&quot;</span><span class="p">,</span> <span class="s">&quot;Joe likes long walks on the beach...&quot;</span> <span class="p">}</span>
-<span class="p">};</span>
-<span class="n">Branch</span><span class="p">.</span><span class="n">userCompletedAction</span><span class="p">(</span><span class="s">&quot;your_custom_event&quot;</span><span class="p">,</span> <span class="n">stateItems</span><span class="p">);</span> <span class="c1">// same 63 characters max limit</span>
-</pre></div>
-
+<h3 id="tracking-user-actions-and-events">Tracking User Actions and Events<a class="headerlink" href="#tracking-user-actions-and-events" title="Permanent link">&para;</a></h3>
 </li>
 </ul>
-</li>
+<p>Use BranchEvent class to track special user actions or application specific events beyond app installs, opens, and sharing. You can track events such as when a user adds an item to an on-line shopping cart, or searches for a keyword etc. BranchEvent provides an interface to add content(s) represented by a BranchUniversalObject in order to associate content(s) with events. You can view analytics for the BranchEvents you fire on the Branch dashboard. BranchEventType enumerate the most commonly tracked events and event parameters that can be used with BranchEvent for the best results. You can always use custom event names and event parameters.</p>
+<div class="codehilite"><pre><span></span><span class="n">BranchEvent</span> <span class="n">e01</span> <span class="p">=</span> <span class="k">new</span> <span class="n">BranchEvent</span> <span class="p">(</span><span class="n">BranchEventType</span><span class="p">.</span><span class="n">COMPLETE_REGISTRATION</span><span class="p">);</span>
+
+<span class="n">e01</span><span class="p">.</span><span class="n">SetAffiliation</span><span class="p">(</span><span class="s">&quot;my_affilation&quot;</span><span class="p">);</span>
+<span class="n">e01</span><span class="p">.</span><span class="n">SetCoupon</span><span class="p">(</span><span class="s">&quot;my_coupon&quot;</span><span class="p">);</span>
+<span class="n">e01</span><span class="p">.</span><span class="n">SetCurrency</span><span class="p">(</span><span class="n">BranchCurrencyType</span><span class="p">.</span><span class="n">USD</span><span class="p">);</span>
+<span class="n">e01</span><span class="p">.</span><span class="n">SetTax</span><span class="p">(</span><span class="m">10.0f</span><span class="p">);</span>
+<span class="n">e01</span><span class="p">.</span><span class="n">SetRevenue</span><span class="p">(</span><span class="m">100.0f</span><span class="p">);</span>
+<span class="n">e01</span><span class="p">.</span><span class="n">SetShipping</span><span class="p">(</span><span class="m">1000.0f</span><span class="p">);</span>
+<span class="n">e01</span><span class="p">.</span><span class="n">SetDescription</span><span class="p">(</span><span class="s">&quot;my_description&quot;</span><span class="p">);</span>
+<span class="n">e01</span><span class="p">.</span><span class="n">SetSearchQuery</span><span class="p">(</span><span class="s">&quot;my_search_query&quot;</span><span class="p">);</span>
+<span class="n">e01</span><span class="p">.</span><span class="n">AddCustomData</span><span class="p">(</span><span class="s">&quot;custom_data_key01&quot;</span><span class="p">,</span> <span class="s">&quot;custom_data_value01&quot;</span><span class="p">);</span>
+<span class="n">e01</span><span class="p">.</span><span class="n">AddContentItem</span><span class="p">(</span><span class="n">universalObject</span><span class="p">);</span>
+
+<span class="n">Branch</span><span class="p">.</span><span class="n">sendEvent</span> <span class="p">(</span><span class="n">e01</span><span class="p">);</span>
+
+
+<span class="n">BranchEvent</span> <span class="n">e02</span> <span class="p">=</span> <span class="k">new</span> <span class="n">BranchEvent</span> <span class="p">(</span><span class="s">&quot;MY_CUSTOM_EVENT&quot;</span><span class="p">);</span>
+
+<span class="n">e02</span><span class="p">.</span><span class="n">SetAffiliation</span><span class="p">(</span><span class="s">&quot;my_affilation&quot;</span><span class="p">);</span>
+<span class="n">e02</span><span class="p">.</span><span class="n">SetCoupon</span><span class="p">(</span><span class="s">&quot;my_coupon&quot;</span><span class="p">);</span>
+<span class="n">e02</span><span class="p">.</span><span class="n">SetCurrency</span><span class="p">(</span><span class="n">BranchCurrencyType</span><span class="p">.</span><span class="n">USD</span><span class="p">);</span>
+<span class="n">e02</span><span class="p">.</span><span class="n">SetTax</span><span class="p">(</span><span class="m">10.0f</span><span class="p">);</span>
+<span class="n">e02</span><span class="p">.</span><span class="n">SetRevenue</span><span class="p">(</span><span class="m">100.0f</span><span class="p">);</span>
+<span class="n">e02</span><span class="p">.</span><span class="n">SetShipping</span><span class="p">(</span><span class="m">1000.0f</span><span class="p">);</span>
+<span class="n">e02</span><span class="p">.</span><span class="n">SetDescription</span><span class="p">(</span><span class="s">&quot;my_description&quot;</span><span class="p">);</span>
+<span class="n">e02</span><span class="p">.</span><span class="n">SetSearchQuery</span><span class="p">(</span><span class="s">&quot;my_search_query&quot;</span><span class="p">);</span>
+<span class="n">e02</span><span class="p">.</span><span class="n">AddCustomData</span><span class="p">(</span><span class="s">&quot;custom_data_key01&quot;</span><span class="p">,</span> <span class="s">&quot;custom_data_value01&quot;</span><span class="p">);</span>
+<span class="n">e02</span><span class="p">.</span><span class="n">AddContentItem</span><span class="p">(</span><span class="n">universalObject</span><span class="p">);</span>
+
+<span class="n">Branch</span><span class="p">.</span><span class="n">sendEvent</span> <span class="p">(</span><span class="n">e02</span><span class="p">);</span>
+</pre></div>
+
+<ul>
 <li>
 <h3 id="handle-referrals">Handle referrals<a class="headerlink" href="#handle-referrals" title="Permanent link">&para;</a></h3>
 <ul>
