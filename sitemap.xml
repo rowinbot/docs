@@ -150,6 +150,12 @@
     </url>
         
     <url>
+     <loc>https://docs.branch.io/pages/exports/pba-liveview/</loc>
+     <lastmod>2018-06-14</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
      <loc>https://docs.branch.io/pages/dashboard/timezone/</loc>
      <lastmod>2018-06-14</lastmod>
      <changefreq>daily</changefreq>
@@ -1292,12 +1298,6 @@
     <url>
      <loc>https://docs.branch.io</loc>
      <lastmod></lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-        
-    <url>
-     <loc>https://docs.branch.io/pages/exports/pba-liveview/</loc>
-     <lastmod>2018-06-14</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
