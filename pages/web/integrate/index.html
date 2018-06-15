@@ -5331,7 +5331,7 @@
 <h3 id="enable-disable-user-tracking">Enable / Disable User Tracking<a class="headerlink" href="#enable-disable-user-tracking" title="Permanent link">&para;</a></h3>
 <ul>
 <li>
-<p>In order to help our customers comply with <a href="https://branch.io/gdpr/">GDPR</a>, we’ve updated our Web SDK with a Do Not Track mode. This way, if a user indicates that they want to remain private on your website, you can continue to make use of the Branch Web SDK (e.g. for creating Branch links) while not tracking that user. This state is persistent, meaning that it’s saved for the user across browser sessions for the web site.</p>
+<p>In order to help our customers comply with GDPR and other laws that restrict data collection from certain users, we’ve updated our Web SDK with a Do Not Track mode. This way, if a user indicates that they want to remain private on your website, or if you otherwise determine that a particular user should not be tracked, you can continue to make use of the Branch Web SDK (e.g. for creating Branch links) while not tracking that user. This state is persistent, meaning that it’s saved for the user across browser sessions for the web site. This setting can also be enabled across all users for a particular link, or across your Branch links.</p>
 </li>
 <li>
 <p>To enable Do Not Track Mode during initialization, include the <code>tracking_disabled</code> flag, with a value of <code>true</code>, into the options during initialization:</p>
