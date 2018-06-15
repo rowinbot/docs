@@ -1485,6 +1485,18 @@
      <changefreq>daily</changefreq>
     </url>
         
+    <url>
+     <loc>https://docs.branch.io/pages/deep-linked-ads/criteo/</loc>
+     <lastmod>2018-06-15</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>https://docs.branch.io/pages/deep-linked-ads/branch-universal-ads/</loc>
+     <lastmod>2018-06-15</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
     
 
 </urlset>
