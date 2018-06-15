@@ -5917,7 +5917,7 @@
 </li>
 <li>
 <h3 id="enable-disable-user-tracking">Enable / Disable User Tracking<a class="headerlink" href="#enable-disable-user-tracking" title="Permanent link">&para;</a></h3>
-<p>If you need to comply with a user's request to not be tracked, utilize this field to prevent Branch from sending network requests. By calling the below function, this will persist at the SDK level.</p>
+<p>If you need to comply with a user's request to not be tracked for GDPR purposes, or otherwise determine that a user should not be tracked, utilize this field to prevent Branch from sending network requests. This setting can also be enabled across all users for a particular link, or across your Branch links.</p>
 <div class="codehilite"><pre><span></span><span class="n">Branch</span><span class="o">.</span><span class="na">getInstance</span><span class="o">().</span><span class="na">disableTracking</span><span class="o">(</span><span class="kc">true</span><span class="o">);</span>
 </pre></div>
 
