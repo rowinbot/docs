@@ -6806,14 +6806,16 @@ In this case, closing the Journey is very simple by calling:</p>
 <p><img alt="image" src="../../../img/pages/journeys/examples/ios_english_1.png" /></p>
 <p>Save and continue!</p>
 <h2 id="journeys-and-gdpr">Journeys and GDPR<a class="headerlink" href="#journeys-and-gdpr" title="Permanent link">&para;</a></h2>
-<p>In order to help our customers comply with <a href="https://branch.io/gdpr/">GDPR</a>, we’ve updated our Web SDK with a <a href="https://docs.branch.io/pages/web/integrate/#enable-do-not-track-mode">Do Not Track mode</a>. This way, if a user indicates that they want to remain private on your website, you can continue to make use of the Branch Web SDK (e.g. for creating Branch links) while not tracking that user. </p>
-<p>If you enable that mode, you can still display some Journeys to your users. Whether or not a Journey will display for users in Do Not Track mode depends on the targeting criteria you’ve defined for that Journey. If the Journey uses any of the following audience filters, it will <em>not</em> display for users in Do Not Track mode. Otherwise, the Journey will display.
-* Has completed event
-* Has visited web
-* Has visited the app
-* Has clicked on email
-* Has clicked on ad
-* Has the app installed</p>
+<p>In order to help our customers comply with <a href="https://branch.io/gdpr/">GDPR</a>, and other laws that restrict data collection from certain users, we’ve updated our Web SDK with a <a href="https://docs.branch.io/pages/web/integrate/#enable-do-not-track-mode">Do Not Track mode</a>. This way, if a user indicates that they want to remain private on your website, or if you otherwise determine that a particular user should not be tracked, you can continue to make use of the Branch Web SDK (e.g. for creating Branch links) while not tracking that user. This setting can also be enabled across all users for a particular link, or across your Branch links.</p>
+<p>If you enable that mode, you can still display some Journeys to your users. Whether or not a Journey will display for users in Do Not Track mode depends on the targeting criteria you’ve defined for that Journey. If the Journey uses any of the following audience filters, it will <em>not</em> display for users in Do Not Track mode. Otherwise, the Journey will display.</p>
+<ul>
+<li>Has completed event</li>
+<li>Has visited web</li>
+<li>Has visited the app</li>
+<li>Has clicked on email</li>
+<li>Has clicked on ad</li>
+<li>Has the app installed</li>
+</ul>
 <p>If a Journey does display for a user in Do Not Track mode, any analytics related to the Journey’s display or the user’s interactions with that Journey <em>will not be published in the Branch dashboard.</em></p>
                 
                   
