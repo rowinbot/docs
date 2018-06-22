@@ -3490,7 +3490,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../emails/ibm_watson_campaign_automation/" title="IBM Watson Campaign Automation" class="md-nav__link">
+    <a href="../../emails/ibm-watson-campaign-automation/" title="IBM Watson Campaign Automation" class="md-nav__link">
       IBM Watson Campaign Automation
     </a>
   </li>
@@ -5227,20 +5227,20 @@
     <span class="o">.</span><span class="na">setContentDescription</span><span class="o">(</span><span class="s">&quot;My Content Description&quot;</span><span class="o">)</span>
     <span class="o">.</span><span class="na">setContentImageUrl</span><span class="o">(</span><span class="s">&quot;https://lorempixel.com/400/400&quot;</span><span class="o">)</span>
     <span class="o">.</span><span class="na">setContentIndexingMode</span><span class="o">(</span><span class="n">BranchUniversalObject</span><span class="o">.</span><span class="na">CONTENT_INDEX_MODE</span><span class="o">.</span><span class="na">PUBLIC</span><span class="o">)</span>
-    <span class="o">.</span><span class="na">setLocalIndexingMode</span><span class="o">(</span><span class="n">BranchUniversalObject</span><span class="o">.</span><span class="na">CONTENT_INDEX_MODE</span><span class="o">.</span><span class="na">PUBLIC</span><span class="o">)</span>
+    <span class="o">.</span><span class="na">setLocalIndexMode</span><span class="o">(</span><span class="n">BranchUniversalObject</span><span class="o">.</span><span class="na">CONTENT_INDEX_MODE</span><span class="o">.</span><span class="na">PUBLIC</span><span class="o">)</span>
     <span class="o">.</span><span class="na">setContentMetadata</span><span class="o">(</span><span class="k">new</span> <span class="n">ContentMetadata</span><span class="o">().</span><span class="na">addCustomMetadata</span><span class="o">(</span><span class="s">&quot;key1&quot;</span><span class="o">,</span> <span class="s">&quot;value1&quot;</span><span class="o">));</span>
 </pre></div>
 
 </li>
 <li>
 <p><em>Kotlin</em></p>
-<div class="codehilite"><pre><span></span><span class="n">val</span> <span class="n">buo</span> <span class="o">=</span> <span class="k">new</span> <span class="n">BranchUniversalObject</span><span class="o">()</span>
+<div class="codehilite"><pre><span></span><span class="n">val</span> <span class="n">buo</span> <span class="o">=</span> <span class="n">BranchUniversalObject</span><span class="o">()</span>
     <span class="o">.</span><span class="na">setCanonicalIdentifier</span><span class="o">(</span><span class="s">&quot;content/12345&quot;</span><span class="o">)</span>
     <span class="o">.</span><span class="na">setTitle</span><span class="o">(</span><span class="s">&quot;My Content Title&quot;</span><span class="o">)</span>
     <span class="o">.</span><span class="na">setContentDescription</span><span class="o">(</span><span class="s">&quot;My Content Description&quot;</span><span class="o">)</span>
     <span class="o">.</span><span class="na">setContentImageUrl</span><span class="o">(</span><span class="s">&quot;https://lorempixel.com/400/400&quot;</span><span class="o">)</span>
     <span class="o">.</span><span class="na">setContentIndexingMode</span><span class="o">(</span><span class="n">BranchUniversalObject</span><span class="o">.</span><span class="na">CONTENT_INDEX_MODE</span><span class="o">.</span><span class="na">PUBLIC</span><span class="o">)</span>
-    <span class="o">.</span><span class="na">setLocalIndexingMode</span><span class="o">(</span><span class="n">BranchUniversalObject</span><span class="o">.</span><span class="na">CONTENT_INDEX_MODE</span><span class="o">.</span><span class="na">PUBLIC</span><span class="o">)</span>
+    <span class="o">.</span><span class="na">setLocalIndexMode</span><span class="o">(</span><span class="n">BranchUniversalObject</span><span class="o">.</span><span class="na">CONTENT_INDEX_MODE</span><span class="o">.</span><span class="na">PUBLIC</span><span class="o">)</span>
     <span class="o">.</span><span class="na">setContentMetadata</span><span class="o">(</span><span class="n">ContentMetadata</span><span class="o">().</span><span class="na">addCustomMetadata</span><span class="o">(</span><span class="s">&quot;key1&quot;</span><span class="o">,</span> <span class="s">&quot;value1&quot;</span><span class="o">))</span>
 </pre></div>
 
@@ -5286,7 +5286,7 @@
 </li>
 <li>
 <p><em>Kotlin</em></p>
-<div class="codehilite"><pre><span></span><span class="n">val</span> <span class="n">lp</span> <span class="o">=</span> <span class="k">new</span> <span class="n">LinkProperties</span><span class="o">()</span>
+<div class="codehilite"><pre><span></span><span class="n">val</span> <span class="n">lp</span> <span class="o">=</span> <span class="n">LinkProperties</span><span class="o">()</span>
     <span class="o">.</span><span class="na">setChannel</span><span class="o">(</span><span class="s">&quot;facebook&quot;</span><span class="o">)</span>
     <span class="o">.</span><span class="na">setFeature</span><span class="o">(</span><span class="s">&quot;sharing&quot;</span><span class="o">)</span>
     <span class="o">.</span><span class="na">setCampaign</span><span class="o">(</span><span class="s">&quot;content 123 launch&quot;</span><span class="o">)</span>
@@ -5357,7 +5357,7 @@
 </li>
 <li>
 <p><em>Kotlin</em></p>
-<div class="codehilite"><pre><span></span><span class="n">var</span> <span class="n">lp</span> <span class="o">=</span> <span class="k">new</span> <span class="n">LinkProperties</span><span class="o">()</span>
+<div class="codehilite"><pre><span></span><span class="n">var</span> <span class="n">lp</span> <span class="o">=</span> <span class="n">LinkProperties</span><span class="o">()</span>
     <span class="o">.</span><span class="na">setChannel</span><span class="o">(</span><span class="s">&quot;facebook&quot;</span><span class="o">)</span>
     <span class="o">.</span><span class="na">setFeature</span><span class="o">(</span><span class="s">&quot;sharing&quot;</span><span class="o">)</span>
     <span class="o">.</span><span class="na">setCampaign</span><span class="o">(</span><span class="s">&quot;content 123 launch&quot;</span><span class="o">)</span>
@@ -5366,7 +5366,7 @@
     <span class="o">.</span><span class="na">addControlParameter</span><span class="o">(</span><span class="s">&quot;custom&quot;</span><span class="o">,</span> <span class="s">&quot;data&quot;</span><span class="o">)</span>
     <span class="o">.</span><span class="na">addControlParameter</span><span class="o">(</span><span class="s">&quot;custom_random&quot;</span><span class="o">,</span> <span class="n">Long</span><span class="o">.</span><span class="na">toString</span><span class="o">(</span><span class="n">Calendar</span><span class="o">.</span><span class="na">getInstance</span><span class="o">().</span><span class="na">getTimeInMillis</span><span class="o">()))</span>
 
-<span class="n">var</span> <span class="n">ss</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ShareSheetStyle</span><span class="o">(</span><span class="k">this</span><span class="nd">@MainActivity</span><span class="o">,</span> <span class="s">&quot;Check this out!&quot;</span><span class="o">,</span> <span class="s">&quot;This stuff is awesome: &quot;</span><span class="o">)</span>
+<span class="n">val</span> <span class="n">ss</span> <span class="o">=</span> <span class="n">ShareSheetStyle</span><span class="o">(</span><span class="k">this</span><span class="nd">@MainActivity</span><span class="o">,</span> <span class="s">&quot;Check this out!&quot;</span><span class="o">,</span> <span class="s">&quot;This stuff is awesome: &quot;</span><span class="o">)</span>
     <span class="o">.</span><span class="na">setCopyUrlStyle</span><span class="o">(</span><span class="n">resources</span><span class="o">.</span><span class="na">getDrawable</span><span class="o">(</span><span class="k">this</span><span class="o">,</span> <span class="n">android</span><span class="o">.</span><span class="na">R</span><span class="o">.</span><span class="na">drawable</span><span class="o">.</span><span class="na">ic_menu_send</span><span class="o">),</span> <span class="s">&quot;Copy&quot;</span><span class="o">,</span> <span class="s">&quot;Added to clipboard&quot;</span><span class="o">)</span>
     <span class="o">.</span><span class="na">setMoreOptionStyle</span><span class="o">(</span><span class="n">resources</span><span class="o">.</span><span class="na">getDrawable</span><span class="o">(</span><span class="k">this</span><span class="o">,</span> <span class="n">android</span><span class="o">.</span><span class="na">R</span><span class="o">.</span><span class="na">drawable</span><span class="o">.</span><span class="na">ic_menu_search</span><span class="o">),</span> <span class="s">&quot;Show more&quot;</span><span class="o">)</span>
     <span class="o">.</span><span class="na">addPreferredSharingOption</span><span class="o">(</span><span class="n">SharingHelper</span><span class="o">.</span><span class="na">SHARE_WITH</span><span class="o">.</span><span class="na">FACEBOOK</span><span class="o">)</span>
@@ -6263,7 +6263,7 @@
     <span class="kd">super</span><span class="o">.</span><span class="na">onActivityResult</span><span class="o">(</span><span class="n">requestCode</span><span class="o">,</span> <span class="n">resultCode</span><span class="o">,</span> <span class="n">data</span><span class="o">)</span>
 
     <span class="c1">// Checking if the previous activity is launched on branch Auto deep link.</span>
-    <span class="k">if</span> <span class="o">(</span><span class="n">requestCode</span> <span class="o">===</span> <span class="n">resources</span><span class="o">.</span><span class="na">getInteger</span><span class="o">(</span><span class="n">R</span><span class="o">.</span><span class="na">integer</span><span class="o">.</span><span class="na">AutoDeeplinkRequestCode</span><span class="o">))</span> <span class="o">{</span>
+    <span class="k">if</span> <span class="o">(</span><span class="n">requestCode</span> <span class="o">==</span> <span class="n">resources</span><span class="o">.</span><span class="na">getInteger</span><span class="o">(</span><span class="n">R</span><span class="o">.</span><span class="na">integer</span><span class="o">.</span><span class="na">AutoDeeplinkRequestCode</span><span class="o">))</span> <span class="o">{</span>
         <span class="c1">//Decide here where  to navigate  when an auto deep linked activity finishes.</span>
         <span class="c1">//For e.g. Go to HomeActivity or a  SignUp Activity.</span>
         <span class="n">val</span> <span class="n">i</span> <span class="o">=</span> <span class="n">Intent</span><span class="o">(</span><span class="n">applicationContext</span><span class="o">,</span> <span class="n">CreditHistoryActivity</span><span class="o">::</span><span class="n">class</span><span class="o">.</span><span class="na">java</span><span class="o">)</span>
