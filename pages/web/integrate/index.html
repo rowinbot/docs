@@ -5063,15 +5063,29 @@
 </li>
 <li>
 <p>Validate with the <a href="https://dashboard.branch.io/liveview/events">Branch Dashboard</a></p>
-<div class="codehilite"><pre><span></span><span class="nx">branch</span><span class="p">.</span><span class="nx">track</span><span class="p">(</span><span class="s1">&#39;signup&#39;</span><span class="p">);</span>
+<div class="codehilite"><pre><span></span><span class="nx">branch</span><span class="p">.</span><span class="nx">logEvent</span><span class="p">(</span>
+     <span class="s2">&quot;custom_event&quot;</span><span class="p">,</span>
+     <span class="p">{</span> <span class="nx">metadata</span><span class="o">:</span> <span class="s1">&#39;123&#39;</span> <span class="p">},</span>
+ <span class="kd">function</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span> <span class="p">{</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">err</span><span class="p">);</span> <span class="p">}</span>
+<span class="p">);</span>
 </pre></div>
 
-<div class="codehilite"><pre><span></span><span class="nx">branch</span><span class="p">.</span><span class="nx">track</span><span class="p">(</span><span class="s1">&#39;signup&#39;</span><span class="p">,</span> <span class="p">{</span> <span class="nx">metadata</span><span class="o">:</span> <span class="s1">&#39;123&#39;</span> <span class="p">});</span>
-</pre></div>
+<div class="codehilite"><pre><span></span><span class="kd">var</span> <span class="nx">content_items</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="p">{</span>
+        <span class="s2">&quot;$og_title&quot;</span><span class="o">:</span> <span class="s2">&quot;Content Title&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;$og_description&quot;</span><span class="o">:</span> <span class="s2">&quot;Content Description&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;$og_image_url&quot;</span><span class="o">:</span> <span class="s2">&quot;http://example.com/img1.jpg&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;$canonical_identifier&quot;</span><span class="o">:</span> <span class="s2">&quot;content/1234&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;$custom_fields&quot;</span><span class="o">:</span> <span class="p">{</span><span class="s2">&quot;foo1&quot;</span><span class="o">:</span><span class="s2">&quot;bar1&quot;</span><span class="p">,</span><span class="s2">&quot;foo2&quot;</span><span class="o">:</span><span class="s2">&quot;bar2&quot;</span><span class="p">}</span>
+     <span class="p">}</span>
+<span class="p">];</span>
 
-<div class="codehilite"><pre><span></span><span class="nx">branch</span><span class="p">.</span><span class="nx">track</span><span class="p">(</span><span class="s1">&#39;signup&#39;</span><span class="p">,</span> <span class="p">{</span> <span class="nx">custom</span><span class="o">:</span> <span class="s1">&#39;123&#39;</span> <span class="p">},</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
-  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">data</span><span class="p">);</span> 
-<span class="p">});</span>
+<span class="nx">branch</span><span class="p">.</span><span class="nx">logEvent</span><span class="p">(</span>
+     <span class="s2">&quot;custom_event&quot;</span><span class="p">,</span>
+     <span class="p">{</span> <span class="nx">metadata</span><span class="o">:</span> <span class="s1">&#39;123&#39;</span> <span class="p">},</span>
+ <span class="nx">content_items</span><span class="p">,</span>
+ <span class="kd">function</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span> <span class="p">{</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">err</span><span class="p">);</span> <span class="p">}</span>
+<span class="p">);</span>
 </pre></div>
 
 </li>
