@@ -964,6 +964,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#content-security-policy-violations" title="Content Security Policy Violations" class="md-nav__link">
+    Content Security Policy Violations
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -4640,6 +4647,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#content-security-policy-violations" title="Content Security Policy Violations" class="md-nav__link">
+    Content Security Policy Violations
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -5501,6 +5515,10 @@
 <td>open_app</td>
 <td><em>optional</em> - <code>boolean</code>. Whether to try to open the app passively through Journeys (as opposed to opening it upon user clicking); defaults to false.</td>
 </tr>
+<tr>
+<td>nonce</td>
+<td><em>optional</em> - <code>string</code>. A nonce value that will be included on any script or style tags Branch adds to your site. Used to whitelist these tags in your Content Security Policy.</td>
+</tr>
 </tbody>
 </table>
 </li>
@@ -5579,6 +5597,18 @@
 <li>
 <p>Make sure the Branch key is the same within the deep link and website</p>
 <div class="codehilite"><pre><span></span>XMLHttpRequest cannot load https://api.branch.io/v1/open. No &#39;Access-Control-Allow-Origin&#39; header is present on the requested resource. Origin &#39;null&#39; is therefore not allowed access. The response had HTTP status code 400.
+</pre></div>
+
+</li>
+</ul>
+</li>
+<li>
+<h3 id="content-security-policy-violations">Content Security Policy Violations<a class="headerlink" href="#content-security-policy-violations" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Generate a dynamic nonce value, and include that value as a <code>script-src</code> and <code>style-src</code> exception within your Content Security Policy</li>
+<li>
+<p>Pass that same value to <code>branch.init()</code></p>
+<div class="codehilite"><pre><span></span>branch.init(YOUR_BRANCH_KEY, {&#39;nonce&#39;: &#39;GENERATED_NONCE_VALUE&#39; });
 </pre></div>
 
 </li>
