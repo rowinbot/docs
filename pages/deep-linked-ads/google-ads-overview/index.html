@@ -2054,26 +2054,6 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#universal-app-campaigns-limitations" title="Universal App Campaigns Limitations" class="md-nav__link">
-    Universal App Campaigns Limitations
-  </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#click-limitations-with-uacs" title="Click Limitations with UACs" class="md-nav__link">
-    Click Limitations with UACs
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#other-campaigns" title="Other Campaigns" class="md-nav__link">
     Other Campaigns
   </a>
@@ -2087,6 +2067,47 @@
   
     <nav class="md-nav">
       <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#adwords-campaign-limitations" title="Adwords Campaign Limitations" class="md-nav__link">
+    Adwords Campaign Limitations
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#product-listing-ads-pla-attribution" title="Product Listing Ads (PLA) - Attribution" class="md-nav__link">
+    Product Listing Ads (PLA) - Attribution
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#app-extensions-deep-linking-through-install" title="App Extensions - Deep Linking through Install" class="md-nav__link">
+    App Extensions - Deep Linking through Install
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#universal-app-campaigns-uac-deep-linking-through-install" title="Universal App Campaigns (UAC) - Deep Linking through Install" class="md-nav__link">
+    Universal App Campaigns (UAC) - Deep Linking through Install
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#universal-app-campaigns-uac-click-reporting" title="Universal App Campaigns (UAC) - Click Reporting" class="md-nav__link">
+    Universal App Campaigns (UAC) - Click Reporting
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
         
           <li class="md-nav__item">
   <a href="#faq" title="FAQ" class="md-nav__link">
@@ -4565,26 +4586,6 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#universal-app-campaigns-limitations" title="Universal App Campaigns Limitations" class="md-nav__link">
-    Universal App Campaigns Limitations
-  </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#click-limitations-with-uacs" title="Click Limitations with UACs" class="md-nav__link">
-    Click Limitations with UACs
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#other-campaigns" title="Other Campaigns" class="md-nav__link">
     Other Campaigns
   </a>
@@ -4598,6 +4599,47 @@
   
     <nav class="md-nav">
       <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#adwords-campaign-limitations" title="Adwords Campaign Limitations" class="md-nav__link">
+    Adwords Campaign Limitations
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#product-listing-ads-pla-attribution" title="Product Listing Ads (PLA) - Attribution" class="md-nav__link">
+    Product Listing Ads (PLA) - Attribution
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#app-extensions-deep-linking-through-install" title="App Extensions - Deep Linking through Install" class="md-nav__link">
+    App Extensions - Deep Linking through Install
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#universal-app-campaigns-uac-deep-linking-through-install" title="Universal App Campaigns (UAC) - Deep Linking through Install" class="md-nav__link">
+    Universal App Campaigns (UAC) - Deep Linking through Install
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#universal-app-campaigns-uac-click-reporting" title="Universal App Campaigns (UAC) - Click Reporting" class="md-nav__link">
+    Universal App Campaigns (UAC) - Click Reporting
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
         
           <li class="md-nav__item">
   <a href="#faq" title="FAQ" class="md-nav__link">
@@ -4863,14 +4905,6 @@
 </tbody>
 </table>
 <p>In order to track these events, please refer to this document for further <a href="../../../pages/apps/v2event/#v2-event">information</a>. </p>
-<h2 id="universal-app-campaigns-limitations">Universal App Campaigns Limitations<a class="headerlink" href="#universal-app-campaigns-limitations" title="Permanent link">&para;</a></h2>
-<ul>
-<li>Product Listing Ads (PLA) : Sending data back to AdWords from a PLA ad type, is currently unsupported by Google</li>
-<li>Deep Linking through Install : Deferred deep linking is currently not possible through Universal App Campaigns</li>
-</ul>
-<h3 id="click-limitations-with-uacs">Click Limitations with UACs<a class="headerlink" href="#click-limitations-with-uacs" title="Permanent link">&para;</a></h3>
-<p>When running Universal App Campaigns, you must also note that Branch links are not accepted into AdWords UI. We will still be able to report on clicks, but in aggregate. We rely on Google's reporting API to surface clicks in the dashboard. This means that individual clicks on Universal App Campaigns will not appear in liveview, webhooks, or exports. However, non UACs like regular Search campaigns will accept clicks. This also means that you cannot select 'unique' on the ads analytics page.</p>
-<p>Reporting on these clicks will done every 3 hours. We will only report on clicks from an AdWords campaign that has led to a mobile app install or app engagement</p>
 <h2 id="other-campaigns">Other Campaigns<a class="headerlink" href="#other-campaigns" title="Permanent link">&para;</a></h2>
 <p>The above guide covered what was necessary to track Universal App Campaigns. If you are looking to track non app-install campaigns, click through below.</p>
 <table>
@@ -4928,6 +4962,30 @@
 </tbody>
 </table>
 <h2 id="troubleshooting">Troubleshooting<a class="headerlink" href="#troubleshooting" title="Permanent link">&para;</a></h2>
+<h3 id="adwords-campaign-limitations">Adwords Campaign Limitations<a class="headerlink" href="#adwords-campaign-limitations" title="Permanent link">&para;</a></h3>
+<h4 id="product-listing-ads-pla-attribution">Product Listing Ads (PLA) - Attribution<a class="headerlink" href="#product-listing-ads-pla-attribution" title="Permanent link">&para;</a></h4>
+<ul>
+<li>Google's API currently does not support sending attribution data from a PLA</li>
+<li>Deep linking is supported</li>
+</ul>
+<h4 id="app-extensions-deep-linking-through-install">App Extensions - Deep Linking through Install<a class="headerlink" href="#app-extensions-deep-linking-through-install" title="Permanent link">&para;</a></h4>
+<ul>
+<li>App Extensions currently do not allow Deep Linking, as the setup only accepts app store links <a href="https://support.google.com/adwords/answer/2402582?hl=en">link</a></li>
+<li>Attribution is supported</li>
+</ul>
+<h4 id="universal-app-campaigns-uac-deep-linking-through-install">Universal App Campaigns (UAC) - Deep Linking through Install<a class="headerlink" href="#universal-app-campaigns-uac-deep-linking-through-install" title="Permanent link">&para;</a></h4>
+<ul>
+<li>Deferred deep linking is currently not possible with UAC, as it does not accept any links</li>
+<li>Attribution is supported</li>
+</ul>
+<h4 id="universal-app-campaigns-uac-click-reporting">Universal App Campaigns (UAC) - Click Reporting<a class="headerlink" href="#universal-app-campaigns-uac-click-reporting" title="Permanent link">&para;</a></h4>
+<ul>
+<li>As links are not accepted into the AdWords UAC UI, we will only report on clicks in aggregate (via Google's reporting API)</li>
+<li>Individual UAC clicks will not appear in Branch's liveview dashboard, webhooks, or exports</li>
+<li>'Unique' UAC data cannot be viewed on the ads analytics dashboard (Non-UACs, like regular Search campaigns, will report on clicks in all Branch dashboards)</li>
+<li>Reporting on UAC clicks is done every 3 hours</li>
+<li>Branch only reports on clicks from an AdWords campaign that led to an install or app engagement</li>
+</ul>
 <h3 id="faq">FAQ<a class="headerlink" href="#faq" title="Permanent link">&para;</a></h3>
 <p><strong>Q: I'm getting discrepancy between conversion counts in Branch and Google Adwords</strong></p>
 <p><strong>A:</strong> While we should always expect around a 5% discrepancy due to time zone differences and the like, if you are seeing significant discrepancies, it could be an indication of a broader problem.</p>

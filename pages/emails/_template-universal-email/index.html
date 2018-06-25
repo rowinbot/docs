@@ -4351,6 +4351,13 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#technical-setup" title="Technical setup" class="md-nav__link">
+    Technical setup
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#add-your-click-tracking-domain-to-your-associated-domains" title="Add your click tracking domain to your Associated Domains" class="md-nav__link">
     Add your click tracking domain to your Associated Domains
   </a>
@@ -4608,6 +4615,13 @@
 <p>Where <code>vza3.app.link</code> is your Branch domain.</p>
 </div>
 <h3 id="configure-your-mobile-app">Configure your mobile app<a class="headerlink" href="#configure-your-mobile-app" title="Permanent link">&para;</a></h3>
+<h4 id="technical-setup">Technical setup<a class="headerlink" href="#technical-setup" title="Permanent link">&para;</a></h4>
+<p>The following app changes ensure that your email integration supports <a href="../../../getting-started/universal-app-links/">Universal Links</a>. You will need access to your app code to make these changes.</p>
+<p>You should have <a href="#configure-your-app-for-your-click-tracking-domain">received an email from Branch</a> with your ESP's click tracking domain. If not, likely you or someone on your team still needs to complete the <a href="#set-up-email-link-behavior">Deep Linked Email setup flow</a>.</p>
+<div class="admonition protip">
+<p class="admonition-title">How does it work?</p>
+<p>Apple recognizes the click tracking domain as a Universal Link, and opens the app immediately without the browser opening. Once the app has opened, Branch will collect the referring URL that opened the app (at this time, it will be the click tracking url). Inside the app, Branch will robotically “click” the link, registering the click with the ESP, and returning the Branch link information to the Branch SDK inside the app. This information is then used to deep link the user to the correct in-app content. See the <a href="#support">Support</a> section for more information.</p>
+</div>
 <h4 id="add-your-click-tracking-domain-to-your-associated-domains">Add your click tracking domain to your Associated Domains<a class="headerlink" href="#add-your-click-tracking-domain-to-your-associated-domains" title="Permanent link">&para;</a></h4>
 <p>To enable Universal Links on your click tracking domain, you'll need to add the click tracking domain to your Associated Domains entitlement.</p>
 <ol>
