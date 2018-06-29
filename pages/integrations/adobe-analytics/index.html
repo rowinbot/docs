@@ -4682,9 +4682,8 @@ Action Property| Branch Tags | tag=bar&amp;tag2=1234</p>
 <li>Enter your Adobe Analytics information and hit <strong>Save</strong>.</li>
 </ol>
 <h3 id="pass-adobe-ids">Pass Adobe IDs<a class="headerlink" href="#pass-adobe-ids" title="Permanent link">&para;</a></h3>
-<p>When you're ready to send data through Branch, you'll need to make sure you pass through all the IDs that you have configured on Adobe through the Branch SDKs. In order to do so, figure out which ID you use for user tracking in the Adobe SDK by asking your Adobe Consultant, and pass this value through <code>setRequestMetadataKey</code> on the Branch SDKs.</p>
-<p>There are three possible identities you can track via this integration. Please verify which IDs you use, and send that. For example, if your Adobe integration uses Marketing Cloud Visitor ID, retrieve it from the Adobe SDK, and pass in a key value pair, with the key being <em>$marketing_cloud_visitor_id</em>. The value would be the value retrieved through the Adobe SDK. </p>
-<p>Here are some sample snippet showing this. <strong>NOTE</strong> you must set the correct key before calling <em>initSession</em>.</p>
+<p>When you're ready to send data through Branch, you'll need to make sure you pass through all the IDs that you have configured on Adobe through the Branch SDKs (There are three possible identities you can track via this integration).  First, figure out which ID you use for user tracking in the Adobe SDK by asking your Adobe Consultant, and pass this value through <code>setRequestMetadataKey</code> on the Branch SDKs <strong>BEFORE</strong> calling <em>initSession</em>.</p>
+<p>For example, if your Adobe integration uses Marketing Cloud Visitor ID, retrieve it from the Adobe SDK, and pass in a key value pair, with the key being <em>$marketing_cloud_visitor_id</em>. The value would be the value retrieved through the Adobe SDK.  Sample snippets for all 3 ID types below:</p>
 <ol>
 <li>Marketing Cloud Visitor ID - <em>$marketing_cloud_visitor_id</em> <em>sent to Adobe as <code>mid</code></em></li>
 </ol>
@@ -4692,12 +4691,20 @@ Action Property| Branch Tags | tag=bar&amp;tag2=1234</p>
 <p>Inside <em>didFinishLaunchingWithOptions</em></p>
 <div class="codehilite"><pre><span></span><span class="n">Branch</span> <span class="o">*</span><span class="n">branch</span> <span class="o">=</span> <span class="p">[</span><span class="n">Branch</span> <span class="n">getInstance</span><span class="p">];</span>
 <span class="p">[</span><span class="n">branch</span> <span class="nl">setRequestMetadataKey</span><span class="p">:</span><span class="s">@&quot;$marketing_cloud_visitor_id&quot;</span> <span class="nl">value</span><span class="p">:[</span><span class="n">ADBMobile</span> <span class="n">visitorMarketingCloudID</span><span class="p">]];</span>
+
+<span class="p">...</span>
+
+<span class="p">[</span><span class="n">branch</span> <span class="n">initSessionWithLaunchOptions</span><span class="p">...]</span>
 </pre></div>
 
 <p><strong>Swift</strong></p>
 <p>Inside <em>didFinishLaunchingWithOptions</em></p>
 <div class="codehilite"><pre><span></span><span class="k">if</span> <span class="kd">let</span> <span class="nv">branch</span> <span class="p">=</span> <span class="n">Branch</span><span class="p">.</span><span class="n">getInstance</span><span class="p">()</span> <span class="p">{</span>
     <span class="n">branch</span><span class="p">.</span><span class="n">setRequestMetadataKey</span><span class="p">(</span><span class="s">&quot;$marketing_cloud_visitor_id&quot;</span><span class="p">,</span> <span class="n">value</span><span class="p">:</span><span class="n">ADBMobile</span><span class="p">.</span><span class="n">visitorMarketingCloudID</span><span class="p">());</span>
+
+    <span class="p">...</span>
+
+    <span class="n">branch</span><span class="p">.</span><span class="n">initSession</span><span class="p">(...);</span>
 <span class="p">}</span>
 </pre></div>
 
@@ -4723,6 +4730,10 @@ Action Property| Branch Tags | tag=bar&amp;tag2=1234</p>
 <span class="c1">//Passing the Identifier to Branch</span>
 <span class="n">Branch</span> <span class="o">*</span><span class="n">branch</span> <span class="o">=</span> <span class="p">[</span><span class="n">Branch</span> <span class="n">getInstance</span><span class="p">];</span>
 <span class="p">[</span><span class="n">branch</span> <span class="nl">setRequestMetadataKey</span><span class="p">:</span><span class="s">@&quot;$analytics_visitor_id&quot;</span> <span class="nl">value</span><span class="p">:[</span><span class="n">ADBMobile</span> <span class="n">userIdentifier</span><span class="p">]]</span>
+
+<span class="p">...</span>
+
+<span class="p">[</span><span class="n">branch</span> <span class="n">initSessionWithLaunchOptions</span><span class="p">...]</span>
 </pre></div>
 
 <p><strong>Swift</strong></p>
@@ -4733,6 +4744,10 @@ Action Property| Branch Tags | tag=bar&amp;tag2=1234</p>
 <span class="c1">//Passing the Identifier to Branch</span>
 <span class="k">if</span> <span class="kd">let</span> <span class="nv">branch</span> <span class="p">=</span> <span class="n">Branch</span><span class="p">.</span><span class="n">getInstance</span><span class="p">()</span> <span class="p">{</span>
     <span class="n">branch</span><span class="p">.</span><span class="n">setRequestMetadataKey</span><span class="p">(</span><span class="s">&quot;$analytics_visitor_id&quot;</span><span class="p">,</span> <span class="n">value</span><span class="p">:</span><span class="n">ADBMobile</span><span class="p">.</span><span class="n">userIdentifier</span><span class="p">())</span>
+
+    <span class="p">...</span>
+
+    <span class="n">branch</span><span class="p">.</span><span class="n">initSession</span><span class="p">(...);</span>
 <span class="p">}</span>
 </pre></div>
 
@@ -4757,12 +4772,20 @@ Action Property| Branch Tags | tag=bar&amp;tag2=1234</p>
 <p>Inside <em>didFinishLaunchingWithOptions</em></p>
 <div class="codehilite"><pre><span></span><span class="n">Branch</span> <span class="o">*</span><span class="n">branch</span> <span class="o">=</span> <span class="p">[</span><span class="n">Branch</span> <span class="n">getInstance</span><span class="p">];</span>
 <span class="p">[</span><span class="n">branch</span> <span class="nl">setRequestMetadataKey</span><span class="p">:</span><span class="s">@&quot;$adobe_visitor_id&quot;</span> <span class="nl">value</span><span class="p">:[</span><span class="n">ADBMobile</span> <span class="n">trackingIdentifier</span><span class="p">]];</span>
+
+<span class="p">...</span>
+
+<span class="p">[</span><span class="n">branch</span> <span class="n">initSessionWithLaunchOptions</span><span class="p">...]</span>
 </pre></div>
 
 <p><strong>Swift</strong></p>
 <p>Inside <em>didFinishLaunchingWithOptions</em></p>
 <div class="codehilite"><pre><span></span><span class="k">if</span> <span class="kd">let</span> <span class="nv">branch</span> <span class="p">=</span> <span class="n">Branch</span><span class="p">.</span><span class="n">getInstance</span><span class="p">()</span> <span class="p">{</span>
     <span class="n">branch</span><span class="p">.</span><span class="n">setRequestMetadataKey</span><span class="p">(</span><span class="s">&quot;$adobe_visitor_id&quot;</span><span class="p">,</span> <span class="n">value</span><span class="p">:</span><span class="n">ADBMobile</span><span class="p">.</span><span class="n">trackingIdentifier</span><span class="p">());</span>
+
+    <span class="p">...</span>
+
+    <span class="n">branch</span><span class="p">.</span><span class="n">initSession</span><span class="p">(...);</span>
 <span class="p">}</span>
 </pre></div>
 
@@ -4791,7 +4814,7 @@ Action Property| Branch Tags | tag=bar&amp;tag2=1234</p>
 <p>There are common strategies to take while trouble shooting.</p>
 <h3 id="data-isnt-appearing-after-simulating-an-event">Data isn't appearing after simulating an event<a class="headerlink" href="#data-isnt-appearing-after-simulating-an-event" title="Permanent link">&para;</a></h3>
 <p>With Adobe Analytics' dashboard, it may take up to ~2 hours for data to appear. We'd recommend you simulate 10-15 events in one testing session, and validate that they show up two hours later, so that feedback is transparent and obvious.</p>
-<p>Another thing to do is make sure a valid adobe_visitor_id is being passed up through the Branch SDK. Call <em>setDebug</em> and inspect the requests to <code>v1/open</code>. The key you want to find in this request payload is either <code>$adobe_visitor_id</code>, <code>$marketing_cloud_visitor_id</code>, or <code>$analytics_visitor_id</code>.</p>
+<p>If you're not seeing an Adobe ID appended to the Branch events in Adobe's dashboard, you can call <em>setDebug</em> on the Branch SDK and inspect the requests to <code>v1/open</code> in app to confirm the ID is being sent.  The key you want to find in this request payload is either <code>$adobe_visitor_id</code>, <code>$marketing_cloud_visitor_id</code>, or <code>$analytics_visitor_id</code>.</p>
 <h3 id="what-is-context-data-and-where-does-branch-provide-it-to-adobe">What is Context Data and where does Branch provide it to Adobe?<a class="headerlink" href="#what-is-context-data-and-where-does-branch-provide-it-to-adobe" title="Permanent link">&para;</a></h3>
 <p>When sending server to server calls to Adobe, Context Data is the part in between <code>&amp;c.</code> and <code>&amp;.c</code> in the server call. This call cannot be seen via the client (for example, it is not available via Charles Proxy). To see the detailed Branch server calls, please reach out to your Branch Account Manager. In general, values sent in Context Data can be visualized in the Adobe dashboard, and values outside of Context Data cannot. Values like the user identity (e.g.<code>vid</code>, <code>mid</code> or <code>aid</code>) are sent to Adobe, but not in Context Data, so they can’t be visualized in the Adobe Report Suite. However, they are appropriately formatted for Adobe to log events for that user in Adobe.</p>
                 
