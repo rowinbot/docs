@@ -965,6 +965,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#browser-fingerprint-id" title="Browser Fingerprint ID" class="md-nav__link">
+    Browser Fingerprint ID
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#content-security-policy-violations" title="Content Security Policy Violations" class="md-nav__link">
     Content Security Policy Violations
   </a>
@@ -4676,6 +4683,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#browser-fingerprint-id" title="Browser Fingerprint ID" class="md-nav__link">
+    Browser Fingerprint ID
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#content-security-policy-violations" title="Content Security Policy Violations" class="md-nav__link">
     Content Security Policy Violations
   </a>
@@ -5625,6 +5639,17 @@
 <li>
 <p>Make sure the Branch key is the same within the deep link and website</p>
 <div class="codehilite"><pre><span></span>XMLHttpRequest cannot load https://api.branch.io/v1/open. No &#39;Access-Control-Allow-Origin&#39; header is present on the requested resource. Origin &#39;null&#39; is therefore not allowed access. The response had HTTP status code 400.
+</pre></div>
+
+</li>
+</ul>
+</li>
+<li>
+<h3 id="browser-fingerprint-id">Browser Fingerprint ID<a class="headerlink" href="#browser-fingerprint-id" title="Permanent link">&para;</a></h3>
+<ul>
+<li>
+<p>In case you need to access your user's Browser Fingerprint ID for user deletion, use the function below. </p>
+<div class="codehilite"><pre><span></span>branch.getBrowserFingerprintId(function(err, data) { console.log(data); });
 </pre></div>
 
 </li>
