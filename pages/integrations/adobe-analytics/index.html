@@ -3966,9 +3966,36 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#pass-adobe-ids" title="Pass Adobe IDs" class="md-nav__link">
-    Pass Adobe IDs
+  <a href="#pass-adobe-ids-to-branch" title="Pass Adobe IDs to Branch" class="md-nav__link">
+    Pass Adobe IDs to Branch
   </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#marketing-cloud-visitor-id" title="Marketing Cloud Visitor ID" class="md-nav__link">
+    Marketing Cloud Visitor ID
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#analytics-custom-visitor-id" title="Analytics Custom Visitor ID" class="md-nav__link">
+    Analytics Custom Visitor ID
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#analytics-visitor-id" title="Analytics Visitor ID" class="md-nav__link">
+    Analytics Visitor ID
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
         
@@ -4531,9 +4558,36 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#pass-adobe-ids" title="Pass Adobe IDs" class="md-nav__link">
-    Pass Adobe IDs
+  <a href="#pass-adobe-ids-to-branch" title="Pass Adobe IDs to Branch" class="md-nav__link">
+    Pass Adobe IDs to Branch
   </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#marketing-cloud-visitor-id" title="Marketing Cloud Visitor ID" class="md-nav__link">
+    Marketing Cloud Visitor ID
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#analytics-custom-visitor-id" title="Analytics Custom Visitor ID" class="md-nav__link">
+    Analytics Custom Visitor ID
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#analytics-visitor-id" title="Analytics Visitor ID" class="md-nav__link">
+    Analytics Visitor ID
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
         
@@ -4695,25 +4749,28 @@ Action Property| Branch Tags | tag=bar&amp;tag2=1234</p>
 <li>If you have not yet entered billing information, please do so now.</li>
 <li>Enter your Adobe Analytics information and hit <strong>Save</strong>.</li>
 </ol>
-<h3 id="pass-adobe-ids">Pass Adobe IDs<a class="headerlink" href="#pass-adobe-ids" title="Permanent link">&para;</a></h3>
-<p>When you're ready to send data through Branch, you'll need to make sure you pass through all the IDs that you have configured on Adobe through the Branch SDKs (There are three possible identities you can track via this integration).  First, figure out which ID you use for user tracking in the Adobe SDK by asking your Adobe Consultant, and pass this value through <code>setRequestMetadataKey</code> on the Branch SDKs <strong>BEFORE</strong> calling <em>initSession</em>.</p>
-<p>For example, if your Adobe integration uses Marketing Cloud Visitor ID, retrieve it from the Adobe SDK, and pass in a key value pair, with the key being <em>$marketing_cloud_visitor_id</em>. The value would be the value retrieved through the Adobe SDK.  Sample snippets for all 3 ID types below:</p>
-<ol>
-<li>Marketing Cloud Visitor ID - <em>$marketing_cloud_visitor_id</em> <em>sent to Adobe as <code>mid</code></em></li>
-</ol>
-<p><strong>Objective-C</strong></p>
-<p>Inside <em>didFinishLaunchingWithOptions</em></p>
-<div class="codehilite"><pre><span></span><span class="n">Branch</span> <span class="o">*</span><span class="n">branch</span> <span class="o">=</span> <span class="p">[</span><span class="n">Branch</span> <span class="n">getInstance</span><span class="p">];</span>
+<h3 id="pass-adobe-ids-to-branch">Pass Adobe IDs to Branch<a class="headerlink" href="#pass-adobe-ids-to-branch" title="Permanent link">&para;</a></h3>
+<p>You'll need to pass through all user IDs configured with Adobe, to the Branch SDKs (There are three possible Adobe IDs this integration can track).  First, figure out which ID you use by asking your Adobe Consultant, and then pass that value to Branch by calling <code>setRequestMetadataKey</code> (iOS) or <code>.setRequestMetadata</code> (Android) on the Branch SDK, <strong>BEFORE</strong> calling <em>initSession</em> on the Branch SDK.</p>
+<p>For example, if your Adobe integration uses the Marketing Cloud Visitor ID, retrieve the ID's value from Adobe's SDK, and pass it to Branch's SDK with a key called <em>$marketing_cloud_visitor_id</em>.  Sample snippets for all 3 ID types below:</p>
+<h4 id="marketing-cloud-visitor-id">Marketing Cloud Visitor ID<a class="headerlink" href="#marketing-cloud-visitor-id" title="Permanent link">&para;</a></h4>
+<p>Value sent to Branch using <em>$marketing_cloud_visitor_id</em> key.  Value sent to Adobe as <em><code>mid</code></em></p>
+<ul>
+<li><em>iOS - Objective C</em></li>
+</ul>
+<div class="codehilite"><pre><span></span><span class="c1">//Inside *didFinishLaunchingWithOptions*</span>
+<span class="n">Branch</span> <span class="o">*</span><span class="n">branch</span> <span class="o">=</span> <span class="p">[</span><span class="n">Branch</span> <span class="n">getInstance</span><span class="p">];</span>
 <span class="p">[</span><span class="n">branch</span> <span class="nl">setRequestMetadataKey</span><span class="p">:</span><span class="s">@&quot;$marketing_cloud_visitor_id&quot;</span> <span class="nl">value</span><span class="p">:[</span><span class="n">ADBMobile</span> <span class="n">visitorMarketingCloudID</span><span class="p">]];</span>
 
 <span class="p">...</span>
 
-<span class="p">[</span><span class="n">branch</span> <span class="n">initSessionWithLaunchOptions</span><span class="p">...]</span>
+<span class="p">[</span><span class="n">branch</span> <span class="n">initSessionWithLaunchOptions</span><span class="p">...];</span>
 </pre></div>
 
-<p><strong>Swift</strong></p>
-<p>Inside <em>didFinishLaunchingWithOptions</em></p>
-<div class="codehilite"><pre><span></span><span class="k">if</span> <span class="kd">let</span> <span class="nv">branch</span> <span class="p">=</span> <span class="n">Branch</span><span class="p">.</span><span class="n">getInstance</span><span class="p">()</span> <span class="p">{</span>
+<ul>
+<li><em>iOS - Swift</em></li>
+</ul>
+<div class="codehilite"><pre><span></span><span class="c1">//Inside *didFinishLaunchingWithOptions*</span>
+<span class="k">if</span> <span class="kd">let</span> <span class="nv">branch</span> <span class="p">=</span> <span class="n">Branch</span><span class="p">.</span><span class="n">getInstance</span><span class="p">()</span> <span class="p">{</span>
     <span class="n">branch</span><span class="p">.</span><span class="n">setRequestMetadataKey</span><span class="p">(</span><span class="s">&quot;$marketing_cloud_visitor_id&quot;</span><span class="p">,</span> <span class="n">value</span><span class="p">:</span><span class="n">ADBMobile</span><span class="p">.</span><span class="n">visitorMarketingCloudID</span><span class="p">());</span>
 
     <span class="p">...</span>
@@ -4722,9 +4779,11 @@ Action Property| Branch Tags | tag=bar&amp;tag2=1234</p>
 <span class="p">}</span>
 </pre></div>
 
-<p><strong>Android</strong></p>
-<p>Before you initialize in your Application#onCreate or Deep Link Activity's #onCreate.</p>
-<div class="codehilite"><pre><span></span><span class="n">Branch</span> <span class="n">branch</span> <span class="o">=</span> <span class="n">Branch</span><span class="o">.</span><span class="na">getInstance</span><span class="o">();</span>
+<ul>
+<li><em>Android</em></li>
+</ul>
+<div class="codehilite"><pre><span></span><span class="c1">//Before you initialize in your Application #onCreate or Deep Link Activity&#39;s #onCreate.</span>
+<span class="n">Branch</span> <span class="n">branch</span> <span class="o">=</span> <span class="n">Branch</span><span class="o">.</span><span class="na">getInstance</span><span class="o">();</span>
 <span class="n">branch</span><span class="o">.</span><span class="na">setRequestMetadata</span><span class="o">(</span><span class="s">&quot;$marketing_cloud_visitor_id&quot;</span><span class="o">,</span> <span class="n">Visitor</span><span class="o">.</span><span class="na">getMarketingCloudId</span><span class="o">());</span>
 
 <span class="o">...</span>
@@ -4732,13 +4791,14 @@ Action Property| Branch Tags | tag=bar&amp;tag2=1234</p>
 <span class="n">Branch</span><span class="o">.</span><span class="na">initSession</span><span class="o">(...);</span>
 </pre></div>
 
-<ol>
-<li>Analytics Custom Visitor ID - <em>$analytics_visitor_id</em> <em>sent to Adobe as <code>vid</code></em></li>
-</ol>
-<p>This is a custom user ID that can be set using the Adobe SDk and then passed to Branch.</p>
-<p><strong>Objective-C</strong></p>
-<p>Inside <em>didFinishLaunchingWithOptions</em></p>
-<div class="codehilite"><pre><span></span><span class="c1">//Setting the Identifier with Adobe</span>
+<h4 id="analytics-custom-visitor-id">Analytics Custom Visitor ID<a class="headerlink" href="#analytics-custom-visitor-id" title="Permanent link">&para;</a></h4>
+<p>Value sent to Branch using the <em>$analytics_visitor_id</em> key.  Value sent to Adobe as <em><code>vid</code></em>.  This is a custom user ID that can be set using the Adobe SDK.</p>
+<ul>
+<li><em>iOS - Objective C</em></li>
+</ul>
+<div class="codehilite"><pre><span></span><span class="c1">//Inside *didFinishLaunchingWithOptions*</span>
+
+<span class="c1">//Setting the Identifier with Adobe</span>
 <span class="p">[</span><span class="n">ADBMobile</span> <span class="nl">setUserIdentifier</span><span class="p">:</span><span class="s">@&quot;Whipple&quot;</span><span class="p">];</span>
 
 <span class="c1">//Passing the Identifier to Branch</span>
@@ -4750,9 +4810,12 @@ Action Property| Branch Tags | tag=bar&amp;tag2=1234</p>
 <span class="p">[</span><span class="n">branch</span> <span class="n">initSessionWithLaunchOptions</span><span class="p">...]</span>
 </pre></div>
 
-<p><strong>Swift</strong></p>
-<p>Inside <em>didFinishLaunchingWithOptions</em></p>
-<div class="codehilite"><pre><span></span><span class="c1">//Setting the Identifier with Adobe</span>
+<ul>
+<li><em>iOS - Swift</em></li>
+</ul>
+<div class="codehilite"><pre><span></span><span class="c1">//Inside *didFinishLaunchingWithOptions*</span>
+
+<span class="c1">//Setting the Identifier with Adobe</span>
 <span class="n">ADBMobile</span><span class="p">.</span><span class="n">setUserIdentifier</span><span class="p">(</span><span class="s">&quot;Whipple&quot;</span><span class="p">)</span>
 
 <span class="c1">//Passing the Identifier to Branch</span>
@@ -4765,9 +4828,12 @@ Action Property| Branch Tags | tag=bar&amp;tag2=1234</p>
 <span class="p">}</span>
 </pre></div>
 
-<p><strong>Android</strong></p>
-<p>Before you initialize in your Application#onCreate or Deep Link Activity's #onCreate.</p>
-<div class="codehilite"><pre><span></span><span class="c1">//Setting the Identifier with Adobe</span>
+<ul>
+<li><em>Android</em></li>
+</ul>
+<div class="codehilite"><pre><span></span><span class="c1">//Before you initialize in your Application#onCreate or Deep Link Activity&#39;s #onCreate.</span>
+
+<span class="c1">//Setting the Identifier with Adobe</span>
 <span class="n">Config</span><span class="o">.</span><span class="na">setUserIdentifier</span><span class="o">(</span><span class="s">&quot;Whipple&quot;</span><span class="o">);</span>
 
 <span class="c1">//Passing the Identifier to Branch</span>
@@ -4779,12 +4845,14 @@ Action Property| Branch Tags | tag=bar&amp;tag2=1234</p>
 <span class="n">Branch</span><span class="o">.</span><span class="na">initSession</span><span class="o">(...);</span>
 </pre></div>
 
-<ol>
-<li>Analytics Visitor ID - <em>$adobe_visitor_id</em> <em>sent to Adobe as <code>aid</code></em></li>
-</ol>
-<p><strong>Objective-C</strong></p>
-<p>Inside <em>didFinishLaunchingWithOptions</em></p>
-<div class="codehilite"><pre><span></span><span class="n">Branch</span> <span class="o">*</span><span class="n">branch</span> <span class="o">=</span> <span class="p">[</span><span class="n">Branch</span> <span class="n">getInstance</span><span class="p">];</span>
+<h4 id="analytics-visitor-id">Analytics Visitor ID<a class="headerlink" href="#analytics-visitor-id" title="Permanent link">&para;</a></h4>
+<p>Value sent to Branch using the <em>$adobe_visitor_id</em> key.  Value sent to Adobe as <em><code>aid</code></em>.</p>
+<ul>
+<li><em>iOS - Objective C</em></li>
+</ul>
+<div class="codehilite"><pre><span></span><span class="c1">//Inside *didFinishLaunchingWithOptions*</span>
+
+<span class="n">Branch</span> <span class="o">*</span><span class="n">branch</span> <span class="o">=</span> <span class="p">[</span><span class="n">Branch</span> <span class="n">getInstance</span><span class="p">];</span>
 <span class="p">[</span><span class="n">branch</span> <span class="nl">setRequestMetadataKey</span><span class="p">:</span><span class="s">@&quot;$adobe_visitor_id&quot;</span> <span class="nl">value</span><span class="p">:[</span><span class="n">ADBMobile</span> <span class="n">trackingIdentifier</span><span class="p">]];</span>
 
 <span class="p">...</span>
@@ -4792,9 +4860,12 @@ Action Property| Branch Tags | tag=bar&amp;tag2=1234</p>
 <span class="p">[</span><span class="n">branch</span> <span class="n">initSessionWithLaunchOptions</span><span class="p">...]</span>
 </pre></div>
 
-<p><strong>Swift</strong></p>
-<p>Inside <em>didFinishLaunchingWithOptions</em></p>
-<div class="codehilite"><pre><span></span><span class="k">if</span> <span class="kd">let</span> <span class="nv">branch</span> <span class="p">=</span> <span class="n">Branch</span><span class="p">.</span><span class="n">getInstance</span><span class="p">()</span> <span class="p">{</span>
+<ul>
+<li><em>iOS - Swift</em></li>
+</ul>
+<div class="codehilite"><pre><span></span><span class="c1">//Inside *didFinishLaunchingWithOptions*</span>
+
+<span class="k">if</span> <span class="kd">let</span> <span class="nv">branch</span> <span class="p">=</span> <span class="n">Branch</span><span class="p">.</span><span class="n">getInstance</span><span class="p">()</span> <span class="p">{</span>
     <span class="n">branch</span><span class="p">.</span><span class="n">setRequestMetadataKey</span><span class="p">(</span><span class="s">&quot;$adobe_visitor_id&quot;</span><span class="p">,</span> <span class="n">value</span><span class="p">:</span><span class="n">ADBMobile</span><span class="p">.</span><span class="n">trackingIdentifier</span><span class="p">());</span>
 
     <span class="p">...</span>
@@ -4803,9 +4874,12 @@ Action Property| Branch Tags | tag=bar&amp;tag2=1234</p>
 <span class="p">}</span>
 </pre></div>
 
-<p><strong>Android</strong></p>
-<p>Before you initialize in your Application#onCreate or Deep Link Activity's #onCreate.</p>
-<div class="codehilite"><pre><span></span><span class="n">Branch</span> <span class="n">branch</span> <span class="o">=</span> <span class="n">Branch</span><span class="o">.</span><span class="na">getInstance</span><span class="o">();</span>
+<ul>
+<li><em>Android</em></li>
+</ul>
+<div class="codehilite"><pre><span></span><span class="c1">//Before you initialize in your Application#onCreate or Deep Link Activity&#39;s #onCreate.</span>
+
+<span class="n">Branch</span> <span class="n">branch</span> <span class="o">=</span> <span class="n">Branch</span><span class="o">.</span><span class="na">getInstance</span><span class="o">();</span>
 <span class="n">branch</span><span class="o">.</span><span class="na">setRequestMetadata</span><span class="o">(</span><span class="s">&quot;$adobe_visitor_id&quot;</span><span class="o">,</span> <span class="n">Analytics</span><span class="o">.</span><span class="na">getTrackingIdentifier</span><span class="o">());</span>
 
 <span class="o">...</span>
