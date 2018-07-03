@@ -1444,6 +1444,18 @@
     </url>
         
     <url>
+     <loc>https://docs.branch.io/pages/integrations/segment-import/</loc>
+     <lastmod>2018-07-03</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>https://docs.branch.io/pages/integrations/mparticle-import/</loc>
+     <lastmod>2018-07-03</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
      <loc>https://docs.branch.io/pages/dashboard/people-based-attribution/</loc>
      <lastmod>2018-07-03</lastmod>
      <changefreq>daily</changefreq>
