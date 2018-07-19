@@ -780,6 +780,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#stuck-in-initstate_-session_stateinitialising" title="Stuck in initState_ == SESSION_STATE.INITIALISING" class="md-nav__link">
+    Stuck in initState_ == SESSION_STATE.INITIALISING
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -4950,6 +4957,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#stuck-in-initstate_-session_stateinitialising" title="Stuck in initState_ == SESSION_STATE.INITIALISING" class="md-nav__link">
+    Stuck in initState_ == SESSION_STATE.INITIALISING
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -6599,6 +6613,15 @@
 <li>Happens whenever URI Scheme redirection fails.</li>
 <li>Make sure you do not have <code>$deeplink_path</code> or you have a <code>$deeplink_path</code> which your <code>AndroidManifest.xml</code> can accept</li>
 </ul>
+</li>
+<li>
+<h3 id="stuck-in-initstate_-session_stateinitialising">Stuck in <code>initState_ == SESSION_STATE.INITIALISING</code><a class="headerlink" href="#stuck-in-initstate_-session_stateinitialising" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Often caused because Branch does not have the right application context from your activity. To fix this, pass in the singleton class when you access the Branch instance:</li>
+</ul>
+<div class="codehilite"><pre><span></span><span class="n">Branch</span><span class="o">.</span><span class="na">getInstance</span><span class="o">(</span><span class="n">getApplicationContext</span><span class="o">());</span>
+</pre></div>
+
 </li>
 </ul>
                 
