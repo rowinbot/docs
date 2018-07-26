@@ -1575,6 +1575,12 @@
      <changefreq>daily</changefreq>
     </url>
         
+    <url>
+     <loc>https://docs.branch.io/pages/exports/export-api-migration-guide/</loc>
+     <lastmod>2018-07-26</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
     
 
 </urlset>
