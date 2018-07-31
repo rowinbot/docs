@@ -4762,7 +4762,7 @@
 <li><a href="#configure-your-mobile-app">Configure your mobile app</a></li>
 <li><a href="#using-universal-email">Updating the links in your email</a></li>
 </ol>
-<p>Deep Linked Email allows you to automatically convert your email links into multi-platform deep links that take users directly to content in the app on mobile devices, while still maintaining the same web experience for desktop and mobile users without the app.</p>
+<p>Universal Email allows you to automatically convert your email links into multi-platform deep links that take users directly to content in the app on mobile devices, while still maintaining the same web experience for desktop and mobile users without the app.</p>
 <p>When a link is clicked by a user without the app, it will route that user to the original web URL (including on desktop). When a link is clicked by a user with your app, it will direct that user into the relevant in-app content regardless of platform or email client.</p>
 <h2 id="setup">Setup<a class="headerlink" href="#setup" title="Permanent link">&para;</a></h2>
 <h3 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link">&para;</a></h3>
@@ -4785,7 +4785,7 @@
 <h3 id="set-up-email-link-behavior">Set up Email link behavior<a class="headerlink" href="#set-up-email-link-behavior" title="Permanent link">&para;</a></h3>
 <p>Branch turns the web URLs you put into your emails into Branch deep links, opening the app for users with your app installed to that same content in the app.</p>
 <p><img alt="image" src="../../../img/pages/email/users-with-app.png" /></p>
-<p>To do this, it must be possible to map your web URL content (e.g. a page with brown loafers at <code>https://shop.com/shoes/brown-loafers</code>) into a working deep link that takes users to brown loafers in the app. The Deep Linked Email <a href="https://dashboard.branch.io/email" target="_blank">setup flow</a> will attempt to automatically detect this mapping for you.</p>
+<p>To do this, it must be possible to map your web URL content (e.g. a page with brown loafers at <code>https://shop.com/shoes/brown-loafers</code>) into a working deep link that takes users to brown loafers in the app. The Universal Email <a href="https://dashboard.branch.io/email" target="_blank">setup flow</a> will attempt to automatically detect this mapping for you.</p>
 <p>If you do not want to set this up yet, you can select <strong>No, just open to app homepage for now</strong>.</p>
 <p><img alt="image" src="../../../img/pages/email/app-homepage.png" /></p>
 <p>By default, email deep links will redirect users <em>without your app</em> to the same content on the web instead.</p>
@@ -4903,7 +4903,7 @@
 <p>Click Next to proceed to Validate and test the integration</p>
 <h3 id="validate-and-test">Validate and Test<a class="headerlink" href="#validate-and-test" title="Permanent link">&para;</a></h3>
 <p><img alt="image" src="../../../img/pages/email/setup-verification.png" /></p>
-<p>The last step of the <a href="https://dashboard.branch.io/email" target="_blank">Deep Linked Email setup flow</a> validates whether you have completed all necessary steps and whether an engineer on your team has completed the integration steps. You will also see recommendations for how to improve your email integration.</p>
+<p>The last step of the <a href="https://dashboard.branch.io/email" target="_blank">Universal Email setup flow</a> validates whether you have completed all necessary steps and whether an engineer on your team has completed the integration steps. You will also see recommendations for how to improve your email integration.</p>
 <p>Once it's done the AASA file and SSL certificate - required for Universal Links - specific to that domain will be generated.</p>
 <p>The conversion to Branch links will only work when your links are wrapped in your click tracking domain. To test links without wrapping, please generate a test link on the Verification step of email onboarding, also accessible by clicking the gear icon for your ESP on the <a href="https://dashboard.branch.io/email" target="_blank">email page</a>.</p>
 <p><img alt="image" src="../../../img/pages/email/setup-test.png" /></p>
@@ -4922,7 +4922,7 @@
 <h2 id="configure-your-mobile-app">Configure your mobile app<a class="headerlink" href="#configure-your-mobile-app" title="Permanent link">&para;</a></h2>
 <h3 id="technical-setup">Technical setup<a class="headerlink" href="#technical-setup" title="Permanent link">&para;</a></h3>
 <p>The following app changes ensure that your email integration supports <a href="../../../getting-started/universal-app-links/">Universal Links</a>. You will need access to your app code to make these changes.</p>
-<p>You should have <a href="#configure-your-app-for-your-click-tracking-domain">received an email from Branch</a> with your ESP's click tracking domain. If not, likely you or someone on your team still needs to complete the <a href="#set-up-email-link-behavior">Deep Linked Email setup flow</a>.</p>
+<p>You should have <a href="#configure-your-app-for-your-click-tracking-domain">received an email from Branch</a> with your ESP's click tracking domain. If not, likely you or someone on your team still needs to complete the <a href="#set-up-email-link-behavior">Universal Email setup flow</a>.</p>
 <div class="admonition protip">
 <p class="admonition-title">How does it work?</p>
 <p>Apple recognizes the click tracking domain as a Universal Link, and opens the app immediately without the browser opening. Once the app has opened, Branch will collect the referring URL that opened the app (at this time, it will be the click tracking url). Inside the app, Branch will robotically “click” the link, registering the click with the ESP, and returning the Branch link information to the Branch SDK inside the app. This information is then used to deep link the user to the correct in-app content. See the <a href="#support">Support</a> section for more information.</p>
