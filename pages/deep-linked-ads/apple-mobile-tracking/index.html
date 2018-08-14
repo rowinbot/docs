@@ -1522,6 +1522,33 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#change-attribution-windows" title="Change attribution windows" class="md-nav__link">
+    Change attribution windows
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#account-level-attribution-windows" title="Account Level Attribution Windows" class="md-nav__link">
+    Account Level Attribution Windows
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ad-network-attribution-windows" title="Ad Network Attribution Windows" class="md-nav__link">
+    Ad Network Attribution Windows
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1534,6 +1561,13 @@
   
     <nav class="md-nav">
       <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#install-discrepancies-when-compared-with-apple-search-ads-dashboard" title="Install discrepancies when compared with Apple Search Ads dashboard" class="md-nav__link">
+    Install discrepancies when compared with Apple Search Ads dashboard
+  </a>
+  
+</li>
         
           <li class="md-nav__item">
   <a href="#adding-deep-linking-to-apple-search-ads" title="Adding deep linking to Apple Search Ads" class="md-nav__link">
@@ -4765,6 +4799,33 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#change-attribution-windows" title="Change attribution windows" class="md-nav__link">
+    Change attribution windows
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#account-level-attribution-windows" title="Account Level Attribution Windows" class="md-nav__link">
+    Account Level Attribution Windows
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ad-network-attribution-windows" title="Ad Network Attribution Windows" class="md-nav__link">
+    Ad Network Attribution Windows
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -4777,6 +4838,13 @@
   
     <nav class="md-nav">
       <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#install-discrepancies-when-compared-with-apple-search-ads-dashboard" title="Install discrepancies when compared with Apple Search Ads dashboard" class="md-nav__link">
+    Install discrepancies when compared with Apple Search Ads dashboard
+  </a>
+  
+</li>
         
           <li class="md-nav__item">
   <a href="#adding-deep-linking-to-apple-search-ads" title="Adding deep linking to Apple Search Ads" class="md-nav__link">
@@ -4827,7 +4895,7 @@
 <li><a href="https://developer.apple.com/videos/play/wwdc2016/302/">Apple Search Ads WWDC</a></li>
 </ul>
 <h2 id="setup">Setup<a class="headerlink" href="#setup" title="Permanent link">&para;</a></h2>
-<p>In order to check if the user came from an Apple Search Ad, you must make the attribution call before Branch initializes. As a warning, Apple's API is extremely slow often taking more than 1 second round trip. This means that your call to Branch's initSession to the execution of the callback block will be delayed by this additional 1 second.</p>
+<p>In order to check if the user came from an Apple Search Ad, you must make the attribution call before Branch initializes. As a warning, Apple's API is extremely slow, often taking more than 1 second round trip. This means that your call to Branch's initSession to the execution of the callback block may be delayed by this additional 1 second.</p>
 <h2 id="import-iad-and-adsupport">Import iAd and AdSupport<a class="headerlink" href="#import-iad-and-adsupport" title="Permanent link">&para;</a></h2>
 <p>You must add Apple's <strong>iAd.framework</strong> and <strong>AdSupport.framework</strong> to your <strong>Linked Frameworks</strong> in your Xcode project to enable Apple Search Ad checking.</p>
 <p><img alt="image" src="../../../img/pages/apps/ios-frameworks.png" /></p>
@@ -4865,7 +4933,27 @@
 <li>Due to API limitations, it may take up to 30 days for full attribution of a device</li>
 </ul>
 <p>Note that these stats are <strong>limited to the date range</strong> at the top of the page. You can expand the range if you'd like.</p>
+<h3 id="change-attribution-windows">Change attribution windows<a class="headerlink" href="#change-attribution-windows" title="Permanent link">&para;</a></h3>
+<p>Attribution windows can be specified at the global account level or on a per link basis with the link level window taking priority. See the below instructions for setup.</p>
+<h4 id="account-level-attribution-windows">Account Level Attribution Windows<a class="headerlink" href="#account-level-attribution-windows" title="Permanent link">&para;</a></h4>
+<p>You can edit your attribution windows under Link Settings &gt; Attribution Windows.</p>
+<p><img alt="image" src="../../../img/pages/dashboard/people-based-attribution/attribution-windows.png" /></p>
+<p>Learn more about account level attribution windows in <a href="../../../pages/dashboard/people-based-attribution/#attribution-windows">People-Based Attribution</a>.</p>
+<h4 id="ad-network-attribution-windows">Ad Network Attribution Windows<a class="headerlink" href="#ad-network-attribution-windows" title="Permanent link">&para;</a></h4>
+<p>You can edit your attribution windows at the ad network level, if your ad network requires it. This is recommended when you enable networks like Apple, Facebook and Google, who may have different windows for installs. With this, you can preserve your Account Level Attribution Windows, as well.</p>
+<p><img alt="image" src="../../../img/pages/deep-linked-ads/branch-universal-ads/anaw_clear.png" /></p>
 <h2 id="support">Support<a class="headerlink" href="#support" title="Permanent link">&para;</a></h2>
+<h3 id="install-discrepancies-when-compared-with-apple-search-ads-dashboard">Install discrepancies when compared with Apple Search Ads dashboard<a class="headerlink" href="#install-discrepancies-when-compared-with-apple-search-ads-dashboard" title="Permanent link">&para;</a></h3>
+<p>There are a few possible causes of discrepancies with Apple Search Ads. Due to the low customizability of Apple Search Ads' attribution settings, discrepancies are often higher on Apple Search Ads than other platforms, even though performance may be solid and reporting may be working as expected.</p>
+<ul>
+<li><em>Time zones.</em> Ensure your Apple Search Ads time zone (in Settings &gt; Overview &gt; Account Information ) matches your Branch Dashboard time zone (visible under Account Settings).</li>
+<li><em>Limit Ad Tracking (LAT) On.</em> Apple doesn't report installs to third parties if the user has Limit Ad Tracking enabled. However the Apple Search Ads dashboard shows all installs, regardless of limit ad tracking state. You can see the approximate quantity of Limit Ad Tracking On installs by adding that column in the Apple Search Ads Reporting API. Those installs will not appear in Branch's dashboard.</li>
+<li><em>Attribution Windows.</em> Apple attributes all installs within 30 days of an Apple Search Ads click to itself. Branch's default click to install attribution window is 7 days. You can modify Branch's click to install window. You can modify your <a href="#change-attribution-windows">Apple Search Ads attribution windows</a>. </li>
+<li><em>Last-click attribution.</em> Apple attributes all installs within 30 days of an Apple Search Ads click to itself. Branch will attribute to the last click within its attribution windows, which can often be a different source than Apple Search Ads.</li>
+<li><em>Reinstalls.</em> Apple counts reinstalls as conversions, but Branch calls these installs "REINSTALLS."</li>
+<li><em>Attribution API timeouts or delays.</em> Apple's API can be slow to respond. Although customers can edit the timeout, the default Branch timeout in the code above is just over 1 second. If Apple responds after this timeout, Branch will not attribute the install to Apple.</li>
+<li><em>Opens vs. installs</em> Branch considers the first open to be the install. Apple considers the time that the user downloaded the app to be an install. This can cause discrepancies in counts and date of install.</li>
+</ul>
 <h3 id="adding-deep-linking-to-apple-search-ads">Adding deep linking to Apple Search Ads<a class="headerlink" href="#adding-deep-linking-to-apple-search-ads" title="Permanent link">&para;</a></h3>
 <p>Since this integration doesn't utilize Branch links, options for deep linking are limited. We'll pass back the value you use for <code>campaign</code> in the Apple Ads dashboard. Since this value is controlled by you, you can put anything there, but it will reflect on the Apple ads dashboard. We will track installs regularly.</p>
 <h3 id="installs-or-conversion-events-appearing-without-keywords-in-branch-dashboard">Installs or conversion events appearing without keywords in Branch dashboard<a class="headerlink" href="#installs-or-conversion-events-appearing-without-keywords-in-branch-dashboard" title="Permanent link">&para;</a></h3>
