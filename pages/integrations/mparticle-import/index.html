@@ -4745,23 +4745,24 @@
 <li>
 <p>Navigate to your your mParticle UI’s Connections page.</p>
 <ol>
-<li>Select an input and add Branch as the output.</li>
+<li>Select an input and add Branch S2S as the output.</li>
 <li>Enter your Branch Key. This can be found in the <a href="https://dashboard.branch.io/account-settings/app" target="_blank">Account Settings &gt; App</a> section of the Branch dashboard.</li>
 <li>Enter your Branch Secret. This can be found in the <a href="https://dashboard.branch.io/account-settings/app" target="_blank">Account Settings &gt; App</a> section of the Branch dashboard.</li>
 </ol>
 </li>
 </ol>
-<p>For server-side event import, <strong>you can ignore the SDK integration instructions</strong>. </p>
 <div class="admonition warning">
 <p class="admonition-title">Avoid duplicate data</p>
-<p>To avoid duplicate data, you should either <a href="../../../pages/apps/v2event">track events directly with Branch</a> or track events with mParticle and then enable import to Branch, not both. Branch will warn you if you try to import events to Branch that you are already tracking.</p>
+<p>To avoid duplicate data, you should either <a href="../../../pages/apps/v2event">track conversion events directly with Branch</a> or track events with mParticle and then enable import to Branch, not both. Branch will warn you if you try to import events to Branch that you are already tracking.</p>
 </div>
 <h3 id="supported-events">Supported events<a class="headerlink" href="#supported-events" title="Permanent link">&para;</a></h3>
 <p>The Branch integration supports some of the events tracked with mParticle’s <a href="https://docs.mparticle.com/developers/server/json-reference/#events" target="_blank">API or SDKs</a>. Branch will only import events from mParticle that are not already auto-tracked with the Branch  SDK. This means that events like click and install cannot be imported. The following outlines how mParticle events are mapped to Branch events, and which will be imported to Branch:</p>
 <table>
 <thead>
 <tr>
-<th>mParticle Event</th>
+<th>mParticle Action</th>
+<th>mParticle Event Type</th>
+<th>mParticle Custom Event Type</th>
 <th>Branch Event</th>
 <th>Branch Event Category</th>
 <th>Imported</th>
@@ -4769,108 +4770,144 @@
 </thead>
 <tbody>
 <tr>
-<td>CommerceEventType.ProductAddToCart</td>
+<td>add_to_cart</td>
+<td>product_action</td>
+<td>-</td>
 <td>Add To Cart</td>
 <td>Commerce Event</td>
 <td><strong>Yes</strong></td>
 </tr>
 <tr>
-<td>CommerceEventType.ProductAddToWishlist</td>
+<td>add_to_wishlist</td>
+<td>product_action</td>
+<td>-</td>
 <td>Add To Wishlist</td>
 <td>Commerce Event</td>
 <td><strong>Yes</strong></td>
 </tr>
 <tr>
 <td><em>use the Branch event name</em></td>
+<td>-</td>
+<td>-</td>
 <td>View Cart</td>
 <td>Commerce Event</td>
 <td><strong>Yes</strong></td>
 </tr>
 <tr>
 <td><em>use the Branch event name</em></td>
+<td>-</td>
+<td>-</td>
 <td>Add Payment Info</td>
 <td>Commerce Event</td>
 <td><strong>Yes</strong></td>
 </tr>
 <tr>
-<td>CommerceEventType.ProductCheckout</td>
+<td>checkout</td>
+<td>product_action</td>
+<td>-</td>
 <td>Initiate Purchase</td>
 <td>Commerce Event</td>
 <td><strong>Yes</strong></td>
 </tr>
 <tr>
-<td>CommerceEventType.ProductPurchase</td>
+<td>purchase</td>
+<td>product_action</td>
+<td>-</td>
 <td>Purchase</td>
 <td>Commerce Event</td>
 <td><strong>Yes</strong></td>
 </tr>
 <tr>
 <td><em>use the Branch event name</em></td>
+<td>-</td>
+<td>-</td>
 <td>Spend Credits</td>
 <td>Commerce Event</td>
 <td><strong>Yes</strong></td>
 </tr>
 <tr>
-<td>EventType.Search</td>
+<td><em>use the Branch event name</em></td>
+<td>custom_event</td>
+<td>search</td>
 <td>Search</td>
 <td>Content Event</td>
 <td><strong>Yes</strong></td>
 </tr>
 <tr>
-<td>CommerceEventType.ProductViewDetail</td>
+<td>view_detail</td>
+<td>product_action</td>
+<td>-</td>
 <td>View Item</td>
 <td>Content Event</td>
 <td><strong>Yes</strong></td>
 </tr>
 <tr>
-<td><em>use the Branch event name</em></td>
+<td>view_detail</td>
+<td>product_action</td>
+<td>-</td>
 <td>View Items</td>
 <td>Content Event</td>
 <td><strong>Yes</strong></td>
 </tr>
 <tr>
 <td><em>use the Branch event name</em></td>
+<td>-</td>
+<td>-</td>
 <td>Rate</td>
 <td>Content Event</td>
 <td><strong>Yes</strong></td>
 </tr>
 <tr>
 <td><em>use the Branch event name</em></td>
+<td>-</td>
+<td>-</td>
 <td>Share</td>
 <td>Content Event</td>
 <td><strong>Yes</strong></td>
 </tr>
 <tr>
 <td><em>use the Branch event name</em></td>
+<td>-</td>
+<td>-</td>
 <td>Complete Registration</td>
 <td>Lifecycle Event</td>
 <td><strong>Yes</strong></td>
 </tr>
 <tr>
 <td><em>use the Branch event name</em></td>
+<td>-</td>
+<td>-</td>
 <td>Complete Tutorial</td>
 <td>Lifecycle Event</td>
 <td><strong>Yes</strong></td>
 </tr>
 <tr>
 <td><em>use the Branch event name</em></td>
+<td>-</td>
+<td>-</td>
 <td>Achieve Level</td>
 <td>Lifecycle Event</td>
 <td><strong>Yes</strong></td>
 </tr>
 <tr>
 <td><em>use the Branch event name</em></td>
+<td>-</td>
+<td>-</td>
 <td>Unlock Achievement</td>
 <td>Lifecycle Event</td>
 <td><strong>Yes</strong></td>
 </tr>
 <tr>
-<td><em>any event name</em></td>
+<td><em>use the Branch event name</em></td>
+<td>-</td>
+<td>-</td>
 <td>Custom</td>
 <td>Custom Event</td>
 <td><strong>Yes</strong></td>
 </tr>
 <tr>
+<td>-</td>
+<td>-</td>
 <td>-</td>
 <td>Click</td>
 <td>-</td>
@@ -4878,11 +4915,15 @@
 </tr>
 <tr>
 <td>-</td>
+<td>-</td>
+<td>-</td>
 <td>Install</td>
 <td>-</td>
 <td>No</td>
 </tr>
 <tr>
+<td>-</td>
+<td>-</td>
 <td>-</td>
 <td>Reinstall</td>
 <td>-</td>
@@ -4890,11 +4931,15 @@
 </tr>
 <tr>
 <td>-</td>
+<td>-</td>
+<td>-</td>
 <td>Open</td>
 <td>-</td>
 <td>No</td>
 </tr>
 <tr>
+<td>-</td>
+<td>-</td>
 <td>-</td>
 <td>SMS Sent</td>
 <td>-</td>
@@ -4902,11 +4947,15 @@
 </tr>
 <tr>
 <td>-</td>
+<td>-</td>
+<td>-</td>
 <td>Pageview</td>
 <td>-</td>
 <td>No</td>
 </tr>
 <tr>
+<td>-</td>
+<td>-</td>
 <td>-</td>
 <td>Web Session Start</td>
 <td>-</td>
@@ -4914,17 +4963,23 @@
 </tr>
 <tr>
 <td>-</td>
+<td>-</td>
+<td>-</td>
 <td>Branch CTA View</td>
 <td>-</td>
 <td>No</td>
 </tr>
 <tr>
 <td>-</td>
+<td>-</td>
+<td>-</td>
 <td>Impression</td>
 <td>-</td>
 <td>No</td>
 </tr>
 <tr>
+<td>-</td>
+<td>-</td>
 <td>-</td>
 <td>Web to App Auto Redirect</td>
 <td>-</td>
@@ -4935,11 +4990,46 @@
 <h4 id="identifiers">Identifiers<a class="headerlink" href="#identifiers" title="Permanent link">&para;</a></h4>
 <p>Identifiers are required for events to be imported to Branch. You must include:</p>
 <ul>
-<li>developer_identity OR</li>
-<li>os=iOS AND (idfa OR idfv) OR</li>
-<li>os=Android AND (android_id or aaid)</li>
+<li>context.userId.Customer OR</li>
+<li>(environment.Identity.DeviceIdentity.IOS_ADVERTISING_ID OR environment.Identity.DeviceIdentity.IOS_VENDOR_ID) AND context.runtimeEnvironment.type OR</li>
+<li>(environment.Identity.DeviceIdentity.GOOGLE_ADVERTISING_ID OR environment.Identity.DeviceIdentity.ANDROID_ID) AND context.runtimeEnvironment.type</li>
 </ul>
-<p>At this time, Branch <a href="#attribution-for-logged-out-users-on-web">will not attribute logged out web events</a>. </p>
+<p>Branch maps mParticle's identifiers to the following:</p>
+<table>
+<thead>
+<tr>
+<th>mParticle field</th>
+<th>Branch field</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>context.userId.Customer</td>
+<td>developer_identity</td>
+</tr>
+<tr>
+<td>environment.Identity.DeviceIdentity.IOS_ADVERTISING_ID</td>
+<td>idfa</td>
+</tr>
+<tr>
+<td>environment.Identity.DeviceIdentity.GOOGLE_ADVERTISING_ID</td>
+<td>aaid</td>
+</tr>
+<tr>
+<td>environment.Identity.DeviceIdentity.IOS_VENDOR_ID</td>
+<td>idfv</td>
+</tr>
+<tr>
+<td>environment.Identity.DeviceIdentity.ANDROID_ID</td>
+<td>android_id</td>
+</tr>
+<tr>
+<td>context.runtimeEnvironment.type</td>
+<td>os</td>
+</tr>
+</tbody>
+</table>
+<p>At this time, Branch <a href="#attribution-for-logged-out-users-on-web">will not attribute logged out web events</a> received from the server-to-server integration. </p>
 <h4 id="validating-the-integration">Validating the integration<a class="headerlink" href="#validating-the-integration" title="Permanent link">&para;</a></h4>
 <p>Once you have import turned on in both mParticle and Branch, events should come through. You will see a green dot on the import card if Branch has seen events:</p>
 <p><img alt="image" src="../../../img/pages/integrations/mparticle/mparticle-import-status.png" /></p>
@@ -4950,7 +5040,7 @@
 <p>Events imported from mParticle to Branch will be available wherever you can normally use events within Branch. This includes dashboard visualizations, Data Feeds (including Data Integrations, Query API, Webhooks, and Data Export API), Universal Ads postbacks, Journeys targeting, Liveview and more.</p>
 <h2 id="advanced">Advanced<a class="headerlink" href="#advanced" title="Permanent link">&para;</a></h2>
 <h3 id="attribution-for-logged-out-users-on-web">Attribution for logged out users on web<a class="headerlink" href="#attribution-for-logged-out-users-on-web" title="Permanent link">&para;</a></h3>
-<p>Branch uses a custom, in-house identifier for logged out users on web. If you enable the server to server integration from mParticle to Branch, you will not be able to attribute logged out web events to a campaign run with Branch. For this reason, you may want to track web events directly with the Branch web SDK, while still sending app events server to server from mParticle. Branch allows you to then toggle web event import off to prevent duplicate data:</p>
+<p>Branch uses a custom, in-house identifier for logged out users on web. If you enable the server to server integration from mParticle to Branch, you will not be able to attribute logged out web events to a campaign run with Branch. For this reason, you may want to track web events directly with the Branch web SDK, while still sending app events server to server from mParticle. Branch allows you to then toggle web event import off to prevent duplicate data.</p>
                 
                   
                 

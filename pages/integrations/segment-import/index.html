@@ -4769,7 +4769,7 @@
 <p>For server-side event import, <strong>you can ignore the SDK integration instructions</strong>. </p>
 <div class="admonition warning">
 <p class="admonition-title">Avoid duplicate data</p>
-<p>To avoid duplicate data, you should either <a href="../../../pages/apps/v2event">track events directly with Branch</a> or track events with Segment and then enable import to Branch, not both. Branch will warn you if you try to import events to Branch that you are already tracking.</p>
+<p>To avoid duplicate data, you should either <a href="../../../pages/apps/v2event">track conversion events directly with Branch</a> or track events with Segment and then enable import to Branch, not both. Branch will warn you if you try to import events to Branch that you are already tracking.</p>
 </div>
 <h3 id="track">Track<a class="headerlink" href="#track" title="Permanent link">&para;</a></h3>
 <p>The Branch integration supports some of the events tracked with Segment’s <a href="https://segment.com/docs/spec/track/" target="_blank">Track</a> method. The track API call is how you record any actions your users perform, along with any properties that describe the action.</p>
@@ -4841,7 +4841,7 @@
 <td><strong>Yes</strong></td>
 </tr>
 <tr>
-<td>Order Completed</td>
+<td><em>use the Branch event name</em></td>
 <td>Spend Credits</td>
 <td>Commerce Event</td>
 <td><strong>Yes</strong></td>
@@ -5057,7 +5057,7 @@
 </tbody>
 </table>
 <p>If using User ID with Segment, Branch will automatically map this to <a href="../../../pages/apps/ios/#track-users">developer identity</a>. Check out Segment's <a href="https://segment.com/docs/spec/identify#user-id" target="_blank">User ID docs</a> for more details.</p>
-<p>At this time, Branch does not map Segment's anonymous ID to any field, and <a href="#attribution-for-logged-out-users-on-web">will not attribute logged out web events</a>. Anonymous ID <a href="#attaching-anonymous-id-to-events">can still be attached to events</a>.</p>
+<p>At this time, Branch does not map Segment's anonymous ID to any field, and <a href="#attribution-for-logged-out-users-on-web">will not attribute logged out web events</a> received from the server-to-server integration. Anonymous ID <a href="#attaching-anonymous-id-to-events">can still be attached to events</a>.</p>
 <h4 id="validating-the-integration">Validating the integration<a class="headerlink" href="#validating-the-integration" title="Permanent link">&para;</a></h4>
 <p>Once you have import turned on in both Segment and Branch, events should come through. You will see a green dot on the import card if Branch has seen events:</p>
 <p><img alt="image" src="../../../img/pages/integrations/segment/segment-import-status.png" /></p>
@@ -5070,7 +5070,7 @@
 <h3 id="attaching-anonymous-id-to-events">Attaching anonymous ID to events<a class="headerlink" href="#attaching-anonymous-id-to-events" title="Permanent link">&para;</a></h3>
 <p>Events imported from Segment with anonymous ID attached will retain that value on the event, and will be available in the custom_data field if exported back out from Branch. To attach anonymous ID to events auto-tracked by Branch (installs, opens, etc.), follow the instructions <a href="../../../pages/integrations/segment/#pass-segment-anonymous-id">here</a>.</p>
 <h3 id="attribution-for-logged-out-users-on-web">Attribution for logged out users on web<a class="headerlink" href="#attribution-for-logged-out-users-on-web" title="Permanent link">&para;</a></h3>
-<p>Branch uses a custom, in-house identifier for logged out users on web. If you enable the server to server integration from Segment to Branch, you will not be able to attribute logged out web events to a campaign run with Branch. For this reason, you may want to track web events directly with the Branch web SDK, while still sending app events server to server from Segment. Branch allows you to then toggle web event import off to prevent duplicate data:</p>
+<p>Branch uses a custom, in-house identifier for logged out users on web. If you enable the server to server integration from Segment to Branch, you will not be able to attribute logged out web events to a campaign run with Branch. For this reason, you may want to track web events directly with the Branch web SDK, while still sending app events server to server from Segment. Branch allows you to then toggle web event import off to prevent duplicate data.</p>
                 
                   
                 
