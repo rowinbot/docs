@@ -335,11 +335,8 @@
           print(params as? [String: AnyObject] ?? {})
         }
 
-        // latest
+        // Retrieve link data outside of the initialization callback (must happen AFTER the callback executes)
         let sessionParams = Branch.getInstance().getLatestReferringParams()
-
-        // first
-        let installParams = Branch.getInstance().getFirstReferringParams()
         ```
 
     - *Objective C*
@@ -354,12 +351,8 @@
             }
         }];
 
-        // latest
+        // Retrieve link data outside of the initialization callback (must happen AFTER the callback executes)
         NSDictionary *sessionParams = [[Branch getInstance] getLatestReferringParams];
-
-        // first
-        NSDictionary *installParams =  [[Branch getInstance] getFirstReferringParams];
-
         ```
 
 - ### Navigate to content
