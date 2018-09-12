@@ -486,11 +486,8 @@
             }
         }, this.getIntent().getData(), this);
 
-        // latest
+        // Retrieve link data outside of the initialization callback (must happen after callback executes)
         JSONObject sessionParams = Branch.getInstance().getLatestReferringParams();
-
-        // first
-        JSONObject installParams = Branch.getInstance().getFirstReferringParams();
         ```
 
     - *Kotlin*
