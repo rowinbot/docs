@@ -504,11 +504,8 @@
             }
         }, this.intent.data, this)
 
-        // latest
+        // Retrieve link data outside of the initialization callback (must happen after callback executes)
         val sessionParams = Branch.getInstance().latestReferringParams
-
-        // first
-        val installParams = Branch.getInstance().firstReferringParams
         ```
 
 - ### Navigate to content
