@@ -2152,6 +2152,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#send-all-events" title="Send all events" class="md-nav__link">
+    Send all events
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -5170,6 +5177,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#send-all-events" title="Send all events" class="md-nav__link">
+    Send all events
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -5236,7 +5250,7 @@
 <h3 id="branch-dashboard-setup">Branch Dashboard Setup<a class="headerlink" href="#branch-dashboard-setup" title="Permanent link">&para;</a></h3>
 <p>Let's take these values and place them in Branch's dashboard. Begin by navigating to the <a href="https://dashboard.branch.io/ads/partner-management/a_doubleclick">partners page</a>.</p>
 <h4 id="enable">Enable<a class="headerlink" href="#enable" title="Permanent link">&para;</a></h4>
-<p>Find doubleclick in the search box. Hit enable. In the <strong>Account Settings</strong> tab, insert your <strong>Server to Server token</strong>.</p>
+<p>Find DoubleClick in the search box. Hit enable. In the <strong>Account Settings</strong> tab, insert your <strong>Server to Server token</strong>.</p>
 <h4 id="map-events">Map Events<a class="headerlink" href="#map-events" title="Permanent link">&para;</a></h4>
 <p>At this point, you have enabled Branch to communicate with Doubleclick. Now we need to map Branch events to <strong>Floodlight Activities</strong> found on the Doubleclick dashboard. Click the <strong>Postback Config</strong> tab. You should see a URL for the event <strong>Install</strong>. For demonstration purposes, we will assume you have a corresponding Install event on the Doubleclick dashboard, but this applies to any event you add.</p>
 <p>Start by grabbing your <strong>Advertiser ID</strong>, <strong>Activity tag String</strong>, and <strong>Group tag String</strong>.</p>
@@ -5247,6 +5261,8 @@
 <p><code>https://ad.doubleclick.net/ddm/s2s/appactivity/src=6637276;cat=act-tag;type=sales;ord=${ (id)! }</code></p>
 <p><img alt="image" src="../../../img/pages/deep-linked-ads/doubleclick/final-postback-doubleclick.png" /></p>
 <p>Simply update and hit save.</p>
+<h4 id="send-all-events">Send all events<a class="headerlink" href="#send-all-events" title="Permanent link">&para;</a></h4>
+<p>At the top of the Postback Config tab, under <em>Send Postbacks For</em>, select <em>All Events</em> on the toggle and click <em>Save</em> at the bottom of the screen.</p>
 <h3 id="run-campaigns">Run campaigns<a class="headerlink" href="#run-campaigns" title="Permanent link">&para;</a></h3>
 <p>At this point, you can now create a link for the Doubleclick network and send data back. Take your Branch link, and place it as the Click Through URL for your placement.</p>
                 
