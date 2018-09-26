@@ -775,6 +775,15 @@
             ```objc
             [[Branch getInstance] disableCookieBasedMatching];
             ```
+- ### Enable / Disable User Tracking
+
+    If you need to comply with a user's request to not be tracked for GDPR purposes, or otherwise determine that a user should not be tracked, utilize this field to prevent Branch from sending network requests. This setting can also be enabled across all users for a particular link, or across your Branch links.
+
+        ```js
+        branch.disableTracking(true)
+        ```
+
+    You can choose to call this throughout the lifecycle of the app. Once called, network requests will not be sent from the SDKs. Link generation will continue to work, but will not contain identifying information about the user. In addition, deep linking will continue to work, but will not track analytics for the user.
 
 - ### Append metadata to Branch network call
 
