@@ -7227,7 +7227,7 @@ In this case, closing the Journey is very simple by calling:</p>
 
 <h3 id="listen-to-journeys-lifecycle-events">Listen to Journeys lifecycle events<a class="headerlink" href="#listen-to-journeys-lifecycle-events" title="Permanent link">&para;</a></h3>
 <p>You can easily listen to Journeys lifecycle events by registering listener functions like so:</p>
-<div class="codehilite"><pre><span></span><span class="kd">var</span> <span class="nx">listener</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">event</span><span class="p">)</span> <span class="p">{</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">event</span><span class="p">);</span> <span class="p">}</span>
+<div class="codehilite"><pre><span></span><span class="kd">var</span> <span class="nx">listener</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">event</span><span class="p">,</span> <span class="nx">data</span><span class="p">)</span> <span class="p">{</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">event</span><span class="p">,</span> <span class="nx">data</span><span class="p">);</span> <span class="p">}</span>
 
 <span class="c1">// Specify an event to listen for</span>
 <span class="nx">branch</span><span class="p">.</span><span class="nx">addListener</span><span class="p">(</span><span class="s1">&#39;willShowJourney&#39;</span><span class="p">,</span> <span class="nx">listener</span><span class="p">);</span>
