@@ -187,3 +187,6 @@
     - You cannot use your main website domain for hosting Branch links
     - Do not include `www` when adding your custom link domain
     - If you have CAA records set for your domain, add letsencrypt.org to the list
+
+- ### Custom Domains in Russia
+    - In order to use a custom domain for users in Russia, please CNAME to custom2.bnc.lt, which has a static IP of 52.9.232.14.
