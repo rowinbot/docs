@@ -1175,6 +1175,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#has-interacted-with-journey" title="Has interacted with Journey" class="md-nav__link">
+    Has interacted with Journey
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1198,6 +1205,33 @@
           <li class="md-nav__item">
   <a href="#auto-open-the-app-on-ios" title="Auto-open the app on iOS" class="md-nav__link">
     Auto-open the app on iOS
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dismissal-settings" title="Dismissal settings" class="md-nav__link">
+    Dismissal settings
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#dismissal-behavior" title="Dismissal behavior" class="md-nav__link">
+    Dismissal behavior
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dismissal-period" title="Dismissal period" class="md-nav__link">
+    Dismissal period
   </a>
   
 </li>
@@ -6220,6 +6254,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#has-interacted-with-journey" title="Has interacted with Journey" class="md-nav__link">
+    Has interacted with Journey
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -6243,6 +6284,33 @@
           <li class="md-nav__item">
   <a href="#auto-open-the-app-on-ios" title="Auto-open the app on iOS" class="md-nav__link">
     Auto-open the app on iOS
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dismissal-settings" title="Dismissal settings" class="md-nav__link">
+    Dismissal settings
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#dismissal-behavior" title="Dismissal behavior" class="md-nav__link">
+    Dismissal behavior
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dismissal-period" title="Dismissal period" class="md-nav__link">
+    Dismissal period
   </a>
   
 </li>
@@ -7021,6 +7089,8 @@ You can target a user based on the last touch point before they entered your web
 </pre></div>
 
 <p>Once metadata has been specified on a page in any or all of the three locations specified above, you can target users on that page using the “Is viewing a page with metadata key” audience filter. If metadata with the same key has been specified in either <code>init()</code> or <code>track()</code> <em>and</em> in an HTML <code>meta</code> tag, the metadata passed into either <code>init()</code> or <code>track()</code> will take precedence.</p>
+<h4 id="has-interacted-with-journey">Has interacted with Journey<a class="headerlink" href="#has-interacted-with-journey" title="Permanent link">&para;</a></h4>
+<p>Use this filter to target users who have interacted with a specific Journey before. Choose the Journey, the type of interaction, and the window in which that interaction occurred. For example, you could use this filter to display a Journey (Journey A) only to users who had dismissed a different Journey (Journey B) in the past 7 days.</p>
 <h3 id="set-up-split-testing">Set up split testing<a class="headerlink" href="#set-up-split-testing" title="Permanent link">&para;</a></h3>
 <p>Note that if you are planning on just using the free banner, you can skip this section. This feature allows you to run A/B tests by designing multiple templates and assigning a percentage of your audience to each one.</p>
 <ol>
@@ -7065,6 +7135,13 @@ You can target a user based on the last touch point before they entered your web
 <p>Or, set it for individual templates by adding deep link data <code>$uri_redirect_mode:1</code>:</p>
 <p><img alt="image" src="../../../img/pages/journeys/uri-redirect-mode.png" /></p>
 <p><a href="https://blog.branch.io/making-uri-schemes-great-again-uri_redirect_mode/" target="_blank">Read our blog</a> to learn more about the challenges of URI schemes on iOS and the URI redirect mode feature.</p>
+<h3 id="dismissal-settings">Dismissal settings<a class="headerlink" href="#dismissal-settings" title="Permanent link">&para;</a></h3>
+<p>In some cases, rather than simply ignoring your Journeys, your users may want to dismiss them (by clicking either the “X” or the dismissal text on the Journey in question). In order to make sure that your users are having the best possible experience while also converting at the highest rate, you can adjust your Journeys’ dismissal settings. You can access these settings while you’re setting up your templates by navigating to the Dismissal Settings tab. In that tab you’ll have control over a number of settings:</p>
+<h4 id="dismissal-behavior">Dismissal behavior<a class="headerlink" href="#dismissal-behavior" title="Permanent link">&para;</a></h4>
+<p>Choose what happens when a user dismisses a Journey. “Close Journey” will simply cause the Journey to close upon being dismissed; “Redirect to a web page” will cause the Journey to close and redirect to the webpage of your choice.</p>
+<h4 id="dismissal-period">Dismissal period<a class="headerlink" href="#dismissal-period" title="Permanent link">&para;</a></h4>
+<p>First, use the dropdown to choose how long the Journey should be dismissed for. Next, decide whether dismissing this Journey should cause only this Journey to be dismissed for the chosen dismissal period, or whether it should cause all Journeys to be dismissed for that period.</p>
+<p><img alt="image" src="../../../img/pages/journeys/dismissal_settings.png" /></p>
 <h3 id="preserve-or-discard-referring-link-data">Preserve or discard referring link data<a class="headerlink" href="#preserve-or-discard-referring-link-data" title="Permanent link">&para;</a></h3>
 <p>By default, when users arrive on a page running Journeys via a Branch link and <code>make_new_link</code> is not set to <code>true</code>, then any interaction with the Journey (click/install/re-open) will be attributed to the referring Branch link, rather than to the Journey. If <code>make_new_link</code> is set to <code>true</code>, the same events will be attributed to the Journey, instead.</p>
 <p>This can help you collect data on how the referring links are contributing to app growth/engagement, even when users aren’t installing from those links directly. For example, if a user clicked a Branch link on Facebook, landed on your website, and installed from a Journey, this would allow you to attribute the install to the link on Facebook. If the original link was also configured to deep link into your app, that deep link would be preserved, too.</p>
@@ -7080,9 +7157,8 @@ You can target a user based on the last touch point before they entered your web
 <h4 id="when-do-my-journeys-prioritization-rules-apply">When do my Journeys prioritization rules apply?<a class="headerlink" href="#when-do-my-journeys-prioritization-rules-apply" title="Permanent link">&para;</a></h4>
 <p>Prioritization only takes effect when two Journeys are overlapping. If you have a Journey targeting iOS users and a Journey targeting Android users, the prioritization won't matter. If you update the Journey targeting iOS to now target iOS and Android users, the higher priority Journey will show to Android users.</p>
 <h4 id="what-happens-if-a-user-dismisses-a-banner-or-interstitial">What happens if a user dismisses a banner or interstitial?<a class="headerlink" href="#what-happens-if-a-user-dismisses-a-banner-or-interstitial" title="Permanent link">&para;</a></h4>
-<p>When a user is on a webpage, they will always be shown the highest-priority Journey whose targeting criteria apply to that user, assuming that Journey has not already been dismissed. If the user dismisses that Journey, that Journey will not display again for the amount of time specified in the Journey's <a href="../../../pages/web/journeys/#dismiss">dismissal settings</a>.</p>
-<p>If the user loads another page on the website, Branch will again determine the highest-priority Journey whose targeting criteria apply to that user. <strong>If that Journey has been already been dismissed, no Journey will display.</strong> If, however, the highest-priority Journey has not been dismissed, that Journey will display.</p>
-<p>To maximize Journeys visibility, make your audience rules narrow (for example, showing on specific URLs), and decrease the priority of your least broad audience rules.</p>
+<p>When a user dismisses a banner or interstitial, that banner or interstitial will be dismissed for the amount of time specified in the Journey’s <a href="../../../pages/web/journeys/#dismissal-settings">dismissal settings</a>.</p>
+<p>If the Journey has been configured to dismiss all Journeys when dismissed, no other Journey will be shown to the user for the duration of the dismissal period. If the Journey has been configured to dismiss only that Journey when dismissed, other Journeys will be shown to the user if they apply.</p>
 <h4 id="why-do-i-have-to-prioritize-stopped-and-draft-journeys">Why do I have to prioritize Stopped and Draft Journeys?<a class="headerlink" href="#why-do-i-have-to-prioritize-stopped-and-draft-journeys" title="Permanent link">&para;</a></h4>
 <p>We ask you to prioritize all non-Archived Journeys because Journeys can be set live from <em>Draft</em> or <em>Stopped</em> mode.</p>
 <h4 id="what-happens-if-i-have-some-journeys-with-priorities-set-and-some-without">What happens if I have some Journeys with priorities set and some without?<a class="headerlink" href="#what-happens-if-i-have-some-journeys-with-priorities-set-and-some-without" title="Permanent link">&para;</a></h4>
