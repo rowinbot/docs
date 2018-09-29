@@ -5416,12 +5416,16 @@
 <p class="admonition-title">Only use v1 custom events</p>
 <p>Our referral system only supports our v1 custom event SDK method which is <code>userCompletedAction()</code> and <code>track()</code>. The v2 events, <code>BranchEvent</code> and <code>logEvent()</code>, are not supported at this time.</p>
 </div>
+<div class="admonition warning">
+<p class="admonition-title">Promo codes has been deprecated</p>
+<p>Our Promo codes feature on the dashboard has been deprecated. Please use reward rules to trigger referral rewards for your users.</p>
+</div>
 <h2 id="awarding-credits">Awarding credits<a class="headerlink" href="#awarding-credits" title="Permanent link">&para;</a></h2>
 <div class="admonition tip">
 <p class="admonition-title">Referral Fraud Protection</p>
 <p>Branch tracks the hardware ID and IDFA of every device we detect, and ties these to our concept of a user identity. However, this means that you may run into issues if you test repeatedly with the same devices. When testing referral programs and reward rules, you should <a href="#dialog-code?ios=simulate-an-install&amp;android=simulate-an-install&amp;cordova=simulate-an-install&amp;mparticleAndroid=simulate-an-install&amp;mparticleIos=simulate-an-install&amp;titanium=simulate-an-install&amp;reactNative=simulate-an-install&amp;unity=simulate-an-install&amp;xamarin=simulate-an-install">use debug mode</a>.</p>
 </div>
-<p>To add a rule, go to the Dashboard Referrals page and click the <a href="https://dashboard.branch.io/referrals/rules">Rules tab</a>. Click the green "+ Add a new rule" button. Once there, you can select between two options:</p>
+<p>To add a rule, go to the Dashboard Referrals page and click the <a href="https://dashboard.branch.io/referrals/rules">Rules tab</a>. Click the green "+ Add a new rule" button. Once there, you can add new rules to give rewards:</p>
 <h3 id="give-reward">Give reward<a class="headerlink" href="#give-reward" title="Permanent link">&para;</a></h3>
 <p>You can automatically give awards based on events taken by users.</p>
 <p>Properties you can define:</p>
