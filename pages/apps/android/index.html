@@ -641,6 +641,13 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#enable-logging" title="Enable logging" class="md-nav__link">
+    Enable logging
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#test-your-branch-integration" title="Test your Branch Integration" class="md-nav__link">
     Test your Branch Integration
   </a>
@@ -5736,6 +5743,13 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#enable-logging" title="Enable logging" class="md-nav__link">
+    Enable logging
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#test-your-branch-integration" title="Test your Branch Integration" class="md-nav__link">
     Test your Branch Integration
   </a>
@@ -6978,6 +6992,17 @@
 </ul>
 <h2 id="troubleshoot-issues">Troubleshoot issues<a class="headerlink" href="#troubleshoot-issues" title="Permanent link">&para;</a></h2>
 <ul>
+<li>
+<h3 id="enable-logging">Enable logging<a class="headerlink" href="#enable-logging" title="Permanent link">&para;</a></h3>
+<ul>
+<li>
+<p><em>Java</em></p>
+<div class="codehilite"><pre><span></span><span class="n">Branch</span><span class="o">.</span><span class="na">enableLogging</span><span class="o">();</span>
+</pre></div>
+
+</li>
+</ul>
+</li>
 <li>
 <h3 id="test-your-branch-integration">Test your Branch Integration<a class="headerlink" href="#test-your-branch-integration" title="Permanent link">&para;</a></h3>
 <p>Test your Branch Integration by calling <code>IntegrationValidator.validate</code> in your MainActivity's onStart(). Check your ADB Logcat to make sure all the SDK Integration tests pass. Make sure to comment out or remove <code>IntegrationValidator.validate</code> in your production build.</p>
