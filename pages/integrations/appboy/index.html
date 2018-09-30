@@ -4954,6 +4954,27 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#enable-data-feeds" title="Enable Data Feeds" class="md-nav__link">
+    Enable Data Feeds
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#select-the-integration" title="Select the integration" class="md-nav__link">
+    Select the integration
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pass-braze-android-install-tracking-id" title="Pass Braze Android Install Tracking ID" class="md-nav__link">
+    Pass Braze Android Install Tracking ID
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -5355,6 +5376,27 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#enable-data-feeds" title="Enable Data Feeds" class="md-nav__link">
+    Enable Data Feeds
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#select-the-integration" title="Select the integration" class="md-nav__link">
+    Select the integration
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pass-braze-android-install-tracking-id" title="Pass Braze Android Install Tracking ID" class="md-nav__link">
+    Pass Braze Android Install Tracking ID
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -5409,10 +5451,9 @@
                   <h1>Braze</h1>
                 
                 <h2 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">&para;</a></h2>
-<p>The Branch partnership with <a href="https://www.braze.com">Braze</a> provides a push-button way to deliver Branch-referred iOS installs and attributions to your Braze dashboard. This allows you to analyze your users coming in from Branch deep linked campaigns.</p>
-<p><strong>At this time, our integration only applies to the iOS platform.</strong></p>
+<p>The Branch partnership with <a href="https://www.braze.com">Braze</a> provides a way to deliver Branch installs and attributions to your Braze dashboard. This allows you to analyze your users coming in from Branch deep linked campaigns.</p>
 <h3 id="how-it-works">How it works<a class="headerlink" href="#how-it-works" title="Permanent link">&para;</a></h3>
-<p>We have built a custom integration to automatically send all Branch-referred iOS install data to Braze without any extra work on your side (besides integrating both the Branch and Braze SDKs). Simply click a button, and you'll be good to go!</p>
+<p>We have built a custom integration to automatically send all Branch install data to Braze.</p>
 <div class="admonition protip">
 <p class="admonition-title">How do we differentiate Braze and Branch installs?</p>
 <p>We rely on a Branch link being clicked, which leads to an install. This sets an internal boolean that an install came from Branch.</p>
@@ -5421,8 +5462,9 @@
 <h3 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link">&para;</a></h3>
 <ul>
 <li>This guide requires you to have already integrated the Branch mobile SDKs into your app.</li>
-<li>You also need to <a href="https://dashboard.braze.com/developers/sign_up">sign up for an Braze account</a> and <a href="https://documentation.braze.com/">install the Braze SDK</a>.</li>
-<li>Ensure Braze's SDK is <a href="https://documentation.braze.com/iOS/#optional-idfa-collection">collecting the IDFA</a>.</li>
+<li>You also need to <a href="https://dashboard.braze.com/developers/sign_up">sign up for a Braze account</a> and <a href="https://documentation.braze.com/">install the Braze SDK</a>.</li>
+<li>Ensure Braze's iOS SDK is <a href="https://documentation.braze.com/iOS/#optional-idfa-collection">collecting the IDFA</a>.</li>
+<li>Make sure to follow the steps in Braze's <a href="https://www.braze.com/documentation/Partner_Integrations/#branch">documentation here</a>.</li>
 </ul>
 <h3 id="get-the-braze-api-key">Get the Braze API key<a class="headerlink" href="#get-the-braze-api-key" title="Permanent link">&para;</a></h3>
 <ol>
@@ -5430,13 +5472,46 @@
 <li>From there, grab your API key (this will be the same for all attribution partners listed on the page).</li>
 </ol>
 <h3 id="configure-the-branch-dashboard">Configure the Branch Dashboard<a class="headerlink" href="#configure-the-branch-dashboard" title="Permanent link">&para;</a></h3>
+<h3 id="enable-data-feeds">Enable Data Feeds<a class="headerlink" href="#enable-data-feeds" title="Permanent link">&para;</a></h3>
+<p>Data Integrations are included as part of the Data Feeds product. For more information on Data Feeds, and how to enable it, please read the <a href="../../../pages/exports/data-feeds/">Data Feeds summary</a>.</p>
+<h3 id="select-the-integration">Select the integration<a class="headerlink" href="#select-the-integration" title="Permanent link">&para;</a></h3>
 <ol>
-<li>On the Branch Dashboard (dashboard.branch.io), navigate to the <a href="https://dashboard.branch.io/integrations">Integrations page</a>.</li>
-<li>Locate Braze and choose <strong>Enable</strong>.</li>
-<li>If you have not yet entered billing information, please do so now.</li>
-<li>Enter your Braze iOS API Key and hit <strong>Save</strong>.</li>
+<li>Navigate to <a href="https://dashboard.branch.io/data-import-export/data-feeds/integrations">Data Integrations</a> within Data Feeds.</li>
+<li>
+<p>Find the integration you need by typing in the search box.</p>
+<p><img alt="Ads Partner Management" src="../../../img/ingredients/data-integrations/search-for-integration.png" /></p>
+<div class="admonition note">
+<p class="admonition-title">We've upgraded our Data Integrations!<p>We've upgraded our Data Integrations to use people-based attribution. If you see the below screen instead of the screenshot above, please click "Preview Now" to upgrade to our updated integrations. We will be deprecating our legacy integrations in 2018.</p>
+</p>
+<p><img alt="Ads Partner Management" src="../../../img/ingredients/data-integrations/legacy-data-integrations.png" /></p>
+</div>
+</li>
+<li>
+<p>On the Branch Dashboard (dashboard.branch.io), navigate to the <a href="https://dashboard.branch.io/integrations">Integrations page</a>.</p>
+</li>
+<li>Search for Braze and click on the tile.</li>
+<li>
+<p>Enter your Braze API Key and hit <strong>Enable</strong>.</p>
+<p><img alt="image" src="../src/img/pages/integrations/braze/braze_di.png" /></p>
+</li>
 </ol>
-<p><img alt="image" src="../../../img/pages/integrations/braze/enable-braze-integration.png" /></p>
+<div class="admonition warning">
+<p class="admonition-title">Please test integration!</p>
+<p>Branch is not responsible for inaccurate API keys.</p>
+</div>
+<h3 id="pass-braze-android-install-tracking-id">Pass Braze Android Install Tracking ID<a class="headerlink" href="#pass-braze-android-install-tracking-id" title="Permanent link">&para;</a></h3>
+<p>When you're ready to send data through Branch, you'll need to make sure to pass through the Braze Android Install Tracking ID to the Branch SDKs. In order to do so, retrieve the ID from the Braze SDK and pass this value through <code>setRequestMetadataKey</code> on the Branch SDKs.</p>
+<p>Here's a sample snippet showing this. <strong>NOTE</strong> This is only required for Android. You must set the correct key before calling <em>initSession</em>. You must also initialize the Braze SDK before setting the request metadata in the Branch SDK.</p>
+<p><strong>Android</strong></p>
+<p>Before you initialize in your Application#onCreate or Deep Link Activity's #onCreate.</p>
+<div class="codehilite"><pre><span></span><span class="n">Branch</span><span class="o">.</span><span class="na">getInstance</span><span class="o">().</span><span class="na">setRequestMetadata</span><span class="o">(</span><span class="s">&quot;$braze_install_id&quot;</span><span class="o">,</span> <span class="n">Appboy</span><span class="o">.</span><span class="na">getInstance</span><span class="o">(</span><span class="k">this</span><span class="o">).</span><span class="na">getInstallTrackingId</span><span class="o">());</span>
+
+<span class="o">...</span>
+
+<span class="n">Branch</span><span class="o">.</span><span class="na">initSession</span><span class="o">(...);</span>
+</pre></div>
+
+<p>In the above snippet, <code>this</code> is the Activity context.</p>
 <h2 id="advanced">Advanced<a class="headerlink" href="#advanced" title="Permanent link">&para;</a></h2>
 <h3 id="what-branch-sends-to-braze">What Branch sends to Braze<a class="headerlink" href="#what-branch-sends-to-braze" title="Permanent link">&para;</a></h3>
 <table>
@@ -5453,7 +5528,11 @@
 </tr>
 <tr>
 <td>Channel</td>
-<td>adgroup</td>
+<td>source</td>
+</tr>
+<tr>
+<td>Tags</td>
+<td>tags</td>
 </tr>
 </tbody>
 </table>
